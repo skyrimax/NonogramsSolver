@@ -1,3 +1,6 @@
+#ifndef ILINEGENERATOR_H
+#define ILINEGENERATOR_H
+
 #include <vector>
 #include <string>
 
@@ -9,3 +12,5 @@ namespace NS
         virtual std::vector<std::vector<bool>> generateLines(unsigned int nbBoxes, const std::vector<unsigned int>& lineSequence) = 0;
     };
 }
+
+#endif /* ILINEGENERATOR_H */
