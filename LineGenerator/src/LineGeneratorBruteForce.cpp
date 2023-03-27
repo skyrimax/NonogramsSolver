@@ -36,5 +36,5 @@ void NS::LineGeneratorBruteForce::createAllPossibilities(unsigned int nbBoxes)
 
 void NS::LineGeneratorBruteForce::filterPossibilities(const std::vector<unsigned int>& lineSequence)
 {
-
+    
 }
