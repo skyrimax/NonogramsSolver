@@ -4,7 +4,8 @@
 # Optionally glob, but only for CMake 3.12 or later: file(GLOB HEADER_LIST
 # CONFIGURE_DEPENDS "${minecraft_block_finder_SOURCE_DIR}/include/modern/*.hpp")
 set(HEADER_LIST
-    "${line_sequencer_lib_SOURCE_DIR}/include/LineSequencer/ILineSequencer.hpp")
+    "${line_sequencer_lib_SOURCE_DIR}/include/LineSequencer/ILineSequencer.hpp"
+    "${line_sequencer_lib_SOURCE_DIR}/include/LineSequencer/FSTLineSequencer.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(line_sequencer_library
