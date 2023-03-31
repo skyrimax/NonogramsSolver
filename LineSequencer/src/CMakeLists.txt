@@ -10,6 +10,7 @@ set(HEADER_LIST
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(line_sequencer_library
             ILineSequencer.cpp
+            FSTLineSequencer.cpp
             ${HEADER_LIST})
 
 # We need this directory, and users of our library will need it too
