@@ -1,11 +1,12 @@
 #include "LineGeneratorBruteForce.hpp"
 
-#include<cmath>
+#include <cmath>
+#include <algorithm>
 
 NS::LineGeneratorBruteForce::LineGeneratorBruteForce(ILineFilter& filter)
     : filter_{filter}
 {
-    
+
 }
 
 std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::generateLines(
@@ -39,7 +40,13 @@ std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::crea
     return possibilities;
 }
 
-void NS::LineGeneratorBruteForce::filterPossibilities(const std::vector<unsigned int>& lineSequence)
+std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::filterPossibilities(
+    std::vector<Line> possibilities, const Sequence& lineSequence)
 {
-    
+    possibilities.erase(std::remove_if(
+        possibilities.begin(), possibilities.end(),
+        filter_
+    ), possibilities.end());
+
+    return possibilities;
 }
