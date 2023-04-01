@@ -9,6 +9,6 @@ namespace NS
 
     private:
         std::vector<Line> createAllPossibilities(unsigned int nbBoxes);
-        std::vector<Line> filterPossibilities(std::vector<Line>& possibilities, const Sequence& lineSequence);
+        std::vector<Line> filterPossibilities(std::vector<Line> possibilities, const Sequence& lineSequence);
     };
 }
