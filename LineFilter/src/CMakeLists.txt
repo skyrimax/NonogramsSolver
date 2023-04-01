@@ -4,19 +4,26 @@
 # Optionally glob, but only for CMake 3.12 or later: file(GLOB HEADER_LIST
 # CONFIGURE_DEPENDS "${minecraft_block_finder_SOURCE_DIR}/include/modern/*.hpp")
 set(HEADER_LIST
-    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/ILineFilter.hpp")
+    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/ILineFilter.hpp"
+    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/SequencerLineFilter.hpp")
+
+set(EXTERNAL_HEADER_LIST
+"${line_sequencer_lib_SOURCE_DIR}/include/LineSequencer/ILineSequencer.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(line_filter_library
             ILineFilter.cpp
-            ${HEADER_LIST})
+            SequencerLineFilter.cpp
+            ${HEADER_LIST}
+            ${EXTERNAL_HEADER_LIST})
 
 # We need this directory, and users of our library will need it too
 target_include_directories(line_filter_library PUBLIC
-                            ../include/LineFilter)
+                            ../include/LineFilter
+                            "${line_sequencer_lib_SOURCE_DIR}/include/LineSequencer")
 
 # All users of this library will need at least C++17
-target_compile_features(coordinate_library PUBLIC cxx_std_17)
+target_compile_features(line_filter_library PUBLIC cxx_std_17)
 
 # IDEs should put the headers in a nice place
 source_group(
