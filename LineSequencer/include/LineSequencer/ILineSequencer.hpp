@@ -16,7 +16,7 @@ public:
     ~ILineSequencer() = default;
 
     // Member methods
-    virtual Sequence operator()(Line line) = 0;
+    virtual Sequence operator()(Line line) const = 0;
 };
 
 #endif /* ILINESEQUENCER_H */
