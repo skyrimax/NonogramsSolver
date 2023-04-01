@@ -240,9 +240,8 @@ protected:
 
 TEST_F(LineFilterTest, SequencerLineFilter) {
     FSTLineSequencer sequencer;
-    SequencerLineFilter filter(sequencer);
 
     for(const auto& lineSequence : testLinesSequences) {
-        EXPECT_TRUE(filter(lineSequence.first, lineSequence.second));
+        EXPECT_TRUE(SequencerLineFilter(lineSequence.second, sequencer)(lineSequence.first));
     }
 }
