@@ -2,22 +2,20 @@
 
 #include<cmath>
 
-std::vector<std::vector<bool>> NS::LineGeneratorBruteForce::generateLines(
-    unsigned int nbBoxes, const std::vector<unsigned int>& lineSequence)
+std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::generateLines(
+    unsigned int nbBoxes, const Sequence& lineSequence)
 {
-    createAllPossibilities(nbBoxes);
-    filterPossibilities(lineSequence);
-
-    return _possibilities;
+    return filterPossibilities(createAllPossibilities(nbBoxes), lineSequence);
 }
 
-void NS::LineGeneratorBruteForce::createAllPossibilities(unsigned int nbBoxes)
+std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::createAllPossibilities(
+    unsigned int nbBoxes)
 {
-    _possibilities.clear();
+    std::vector<Line> possibilities;
 
     int count = std::pow(2, nbBoxes);
 
-    _possibilities.resize(count, std::vector<bool>(nbBoxes, false));
+    possibilities.resize(count, Line(nbBoxes, 0));
 
     for (size_t i = 0; i < count; ++i)
     {
@@ -25,13 +23,14 @@ void NS::LineGeneratorBruteForce::createAllPossibilities(unsigned int nbBoxes)
         
         for (size_t j = nbBoxes - 1; j <=0 ; ++j)
         {
-            _possibilities[i][j] = restant/j;
+            possibilities[i][j] = restant/j;
 
             restant %= j;
         }
         
     }
     
+    return possibilities;
 }
 
 void NS::LineGeneratorBruteForce::filterPossibilities(const std::vector<unsigned int>& lineSequence)
