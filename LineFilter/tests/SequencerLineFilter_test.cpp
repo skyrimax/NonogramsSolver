@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include <SequencerLineFilter.hpp>
+#include <FSTLineSequencer.hpp>
 
 #include <vector>
 #include <utility>
@@ -10,7 +11,7 @@
  * Contains list of lines and corresponding sequences
  * 
  */
-class LineSequencerTest: public ::testing::Test
+class LineFilterTest: public ::testing::Test
 {
 protected:
     void SetUp() override
@@ -236,3 +237,12 @@ protected:
 
     std::vector<std::pair<ILineSequencer::Line, ILineSequencer::Sequence>> testLinesSequences;
 };
+
+TEST_F(LineFilterTest, SequencerLineFilter) {
+    FSTLineSequencer sequencer;
+    SequencerLineFilter filter(sequencer);
+
+    for(const auto& lineSequence : testLinesSequences) {
+        EXPECT_TRUE(filter(lineSequence.first, lineSequence.second));
+    }
+}
