@@ -9,7 +9,10 @@ namespace NS
     class ILineGenerator
     {
     public:
-        virtual std::vector<std::vector<bool>> generateLines(unsigned int nbBoxes, const std::vector<unsigned int>& lineSequence) = 0;
+        using Sequence = std::vector<unsigned int>;
+        using Line = std::vector<unsigned int>;
+
+        virtual std::vector<Line> generateLines(unsigned int nbBoxes, const Sequence& lineSequence) = 0;
     };
 }
 
