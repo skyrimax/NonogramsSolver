@@ -1,7 +1,7 @@
 #include "SequencerLineFilter.hpp"
 
-SequencerLineFilter::SequencerLineFilter(ILineSequencer& sequencer)
-    : sequencer_{sequencer}
+SequencerLineFilter::SequencerLineFilter(const Sequence& sequence, const ILineSequencer& sequencer)
+    : sequence_{sequence}, sequencer_{sequencer}
 {
 
 }
