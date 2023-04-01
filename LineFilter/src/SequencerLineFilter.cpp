@@ -6,7 +6,7 @@ SequencerLineFilter::SequencerLineFilter(const Sequence& sequence, const ILineSe
 
 }
 
-bool SequencerLineFilter::operator()(Line line, Sequence sequence)
+bool SequencerLineFilter::operator()(Line line)
 {
-    return sequencer_(line) == sequence;
+    return sequencer_(line) == sequence_;
 }
