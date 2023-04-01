@@ -42,6 +42,9 @@ FetchContent_MakeAvailable(thread_pool)
 # Load line sequencer library
 add_subdirectory(LineSequencer)
 
+# Load line filter library
+add_subdirectory(LineFilter)
+
 # Load external dependencies
 add_subdirectory(extern)
 
