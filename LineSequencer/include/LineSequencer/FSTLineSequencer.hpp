@@ -14,7 +14,7 @@ public:
     ~FSTLineSequencer() = default;
 
     // Member methods
-    virtual Sequence operator()(Line line);
+    virtual Sequence operator()(Line line) const;
 };
 
 #endif /* FSTLINESEQUENCER_H */

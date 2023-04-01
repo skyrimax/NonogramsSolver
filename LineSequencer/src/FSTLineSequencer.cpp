@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <sstream>
 
-FSTLineSequencer::Sequence FSTLineSequencer::operator()(Line line)
+FSTLineSequencer::Sequence FSTLineSequencer::operator()(Line line) const
 {
     // Current state, represent the last value read from the line
     unsigned int state = 0;
