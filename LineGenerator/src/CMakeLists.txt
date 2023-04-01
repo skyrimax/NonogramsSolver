@@ -18,7 +18,7 @@ target_include_directories(line_generator_library PUBLIC
                             ../include/LineGenerator)
 
 # All users of this library will need at least C++17
-target_compile_features(coordinate_library PUBLIC cxx_std_17)
+target_compile_features(line_generator_library PUBLIC cxx_std_17)
 
 # IDEs should put the headers in a nice place
 source_group(
