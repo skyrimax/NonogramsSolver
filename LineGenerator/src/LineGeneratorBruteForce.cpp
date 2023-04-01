@@ -2,6 +2,12 @@
 
 #include<cmath>
 
+NS::LineGeneratorBruteForce::LineGeneratorBruteForce(ILineFilter& filter)
+    : filter_{filter}
+{
+    
+}
+
 std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::generateLines(
     unsigned int nbBoxes, const Sequence& lineSequence)
 {
