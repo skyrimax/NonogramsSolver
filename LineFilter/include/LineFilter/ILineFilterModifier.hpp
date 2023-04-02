@@ -12,7 +12,7 @@ public:
     // Destructor
     virtual ~ILineFilterModifier();
 
-private:
+protected:
     ILineFilter* lineFilter_;
 };
 
