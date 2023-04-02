@@ -3,7 +3,7 @@
 
 #include "ILineFilter.hpp"
 
-class ILineFilterModifier: ILineFilter
+class ILineFilterModifier: public ILineFilter
 {
 public:
     // Constructors
@@ -16,4 +16,4 @@ protected:
     ILineFilter* lineFilter_;
 };
 
-#endif() /* ILINEFILTERMODIFIER_H */
+#endif /* ILINEFILTERMODIFIER_H */
