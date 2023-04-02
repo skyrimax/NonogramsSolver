@@ -5,3 +5,8 @@ ILineFilterModifier::ILineFilterModifier(ILineFilter* lineFilter)
 {
     
 }
+
+ILineFilterModifier::~ILineFilterModifier()
+{
+    delete lineFilter_;
+}
