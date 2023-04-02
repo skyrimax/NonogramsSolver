@@ -10,7 +10,7 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(
     line_filter_test
-    SequencerLineFilter_test.cpp
+    LineFilter_test.cpp
 )
 
 target_link_libraries(
