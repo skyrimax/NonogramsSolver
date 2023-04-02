@@ -5,19 +5,20 @@
 
 #include "ILineSequencer.hpp"
 
-class SequencerLineFilter: ILineFilter
+class SequencerLineFilter: public ILineFilter
 {
 public:
     // Contructors
-    SequencerLineFilter(ILineSequencer& sequencer);
+    SequencerLineFilter(const Sequence& sequence, const ILineSequencer& sequencer);
 
     // // Destructor
     ~SequencerLineFilter() = default;
 
     // Member methods
-    virtual bool operator()(Line line, Sequence sequence);
+    virtual bool operator()(Line line) const;
 protected:
-    ILineSequencer& sequencer_;
+    const Sequence& sequence_;
+    const ILineSequencer& sequencer_;
 };
 
 #endif /* SEQUENCERLINEFILTER_H */
