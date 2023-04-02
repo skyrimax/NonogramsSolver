@@ -5,7 +5,7 @@
 
 #include "ILineSequencer.hpp"
 
-class SequencerLineFilter: ILineFilter
+class SequencerLineFilter: public ILineFilter
 {
 public:
     // Contructors
