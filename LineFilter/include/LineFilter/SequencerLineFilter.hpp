@@ -15,7 +15,7 @@ public:
     ~SequencerLineFilter() = default;
 
     // Member methods
-    virtual bool operator()(Line line);
+    virtual bool operator()(Line line) const;
 protected:
     const Sequence& sequence_;
     const ILineSequencer& sequencer_;
