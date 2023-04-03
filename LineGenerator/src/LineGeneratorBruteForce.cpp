@@ -43,9 +43,13 @@ std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::crea
 std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::filterPossibilities(
     std::vector<Line> possibilities, const Sequence& lineSequence)
 {
+    auto predicate = [this](Line line) {
+        return filter_(line);
+    };
+
     possibilities.erase(std::remove_if(
         possibilities.begin(), possibilities.end(),
-        filter_
+        predicate
     ), possibilities.end());
 
     return possibilities;
