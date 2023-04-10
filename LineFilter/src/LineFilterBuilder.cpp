@@ -41,4 +41,6 @@ LineFilterBuilder& LineFilterBuilder::reset()
     delete lineFilter_;
 
     lineFilter_ = nullptr;
+
+    return *this;
 }
