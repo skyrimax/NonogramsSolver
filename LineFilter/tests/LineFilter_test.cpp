@@ -1,8 +1,9 @@
 #include <gtest/gtest.h>
 
-#include <SequencerLineFilter.hpp>
+#include <SequenceLineFilter.hpp>
 #include <FSTLineSequencer.hpp>
 #include <LineFilterInverter.hpp>
+#include <LineFilterBuilder.hpp>
 
 #include <vector>
 #include <utility>
@@ -239,11 +240,11 @@ protected:
     std::vector<std::pair<ILineSequencer::Line, ILineSequencer::Sequence>> testLinesSequences;
 };
 
-TEST_F(LineFilterTest, SequencerLineFilter) {
+TEST_F(LineFilterTest, SequenceLineFilter) {
     FSTLineSequencer sequencer;
 
     for(const auto& lineSequence : testLinesSequences) {
-        EXPECT_TRUE(SequencerLineFilter(lineSequence.second, sequencer)(lineSequence.first));
+        EXPECT_TRUE(SequenceLineFilter(lineSequence.second, sequencer)(lineSequence.first));
     }
 }
 
@@ -251,6 +252,29 @@ TEST_F(LineFilterTest, LineFilterInverter) {
     FSTLineSequencer sequencer;
 
     for(const auto& lineSequence : testLinesSequences) {
-        EXPECT_FALSE(LineFilterInverter(new SequencerLineFilter(lineSequence.second, sequencer))(lineSequence.first));
+        EXPECT_FALSE(LineFilterInverter(new SequenceLineFilter(lineSequence.second, sequencer))(lineSequence.first));
+    }
+}
+
+TEST_F(LineFilterTest, LineFilterBuilder) {
+    FSTLineSequencer sequencer;
+    LineFilterBuilder builder;
+
+    for(const auto& lineSequence : testLinesSequences) {
+        ILineFilter* filter = builder.sequenceLineFilter(lineSequence.second, sequencer).makeLineFilter();
+
+        EXPECT_TRUE((*filter)(lineSequence.first));
+
+        delete filter;
+        builder.reset();
+    }
+
+    for(const auto& lineSequence : testLinesSequences) {
+        ILineFilter* filter = builder.sequenceLineFilter(lineSequence.second, sequencer).lineFilterInverter().makeLineFilter();
+
+        EXPECT_FALSE((*filter)(lineSequence.first));
+
+        delete filter;
+        builder.reset();
     }
 }
