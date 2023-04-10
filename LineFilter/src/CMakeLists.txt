@@ -7,7 +7,8 @@ set(HEADER_LIST
     "${line_filter_lib_SOURCE_DIR}/include/LineFilter/ILineFilter.hpp"
     "${line_filter_lib_SOURCE_DIR}/include/LineFilter/SequenceLineFilter.hpp"
     "${line_filter_lib_SOURCE_DIR}/include/LineFilter/ILineFilterModifier.hpp"
-    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/LineFilterInverter.hpp")
+    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/LineFilterInverter.hpp"
+    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/LineFilterBuilder.hpp")
 
 set(EXTERNAL_HEADER_LIST
 "${line_sequencer_lib_SOURCE_DIR}/include/LineSequencer/ILineSequencer.hpp")
@@ -18,6 +19,7 @@ add_library(line_filter_library
             SequenceLineFilter.cpp
             ILineFilterModifier.cpp
             LineFilterInverter.cpp
+            LineFilterBuilder.cpp
             ${HEADER_LIST}
             ${EXTERNAL_HEADER_LIST})
 
