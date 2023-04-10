@@ -14,7 +14,8 @@ public:
 
     // Building methods
     // Base line filter
-    LineFilterBuilder& sequenceLineFilter(ILineFilter::Sequence sequence);
+    LineFilterBuilder& sequenceLineFilter(ILineFilter::Sequence sequence,
+                                            ILineSequencer& sequencer);
 
     // Line filter modifiers
     LineFilterBuilder& lineFilterInverter();
