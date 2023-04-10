@@ -239,11 +239,11 @@ protected:
     std::vector<std::pair<ILineSequencer::Line, ILineSequencer::Sequence>> testLinesSequences;
 };
 
-TEST_F(LineFilterTest, SequencerLineFilter) {
+TEST_F(LineFilterTest, SequenceLineFilter) {
     FSTLineSequencer sequencer;
 
     for(const auto& lineSequence : testLinesSequences) {
-        EXPECT_TRUE(SequencerLineFilter(lineSequence.second, sequencer)(lineSequence.first));
+        EXPECT_TRUE(SequenceLineFilter(lineSequence.second, sequencer)(lineSequence.first));
     }
 }
 
@@ -251,6 +251,6 @@ TEST_F(LineFilterTest, LineFilterInverter) {
     FSTLineSequencer sequencer;
 
     for(const auto& lineSequence : testLinesSequences) {
-        EXPECT_FALSE(LineFilterInverter(new SequencerLineFilter(lineSequence.second, sequencer))(lineSequence.first));
+        EXPECT_FALSE(LineFilterInverter(new SequenceLineFilter(lineSequence.second, sequencer))(lineSequence.first));
     }
 }

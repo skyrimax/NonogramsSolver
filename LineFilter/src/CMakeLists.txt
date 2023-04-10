@@ -5,7 +5,7 @@
 # CONFIGURE_DEPENDS "${minecraft_block_finder_SOURCE_DIR}/include/modern/*.hpp")
 set(HEADER_LIST
     "${line_filter_lib_SOURCE_DIR}/include/LineFilter/ILineFilter.hpp"
-    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/SequencerLineFilter.hpp"
+    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/SequenceLineFilter.hpp"
     "${line_filter_lib_SOURCE_DIR}/include/LineFilter/ILineFilterModifier.hpp"
     "${line_filter_lib_SOURCE_DIR}/include/LineFilter/LineFilterInverter.hpp")
 
@@ -15,7 +15,7 @@ set(EXTERNAL_HEADER_LIST
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(line_filter_library
             ILineFilter.cpp
-            SequencerLineFilter.cpp
+            SequenceLineFilter.cpp
             ILineFilterModifier.cpp
             LineFilterInverter.cpp
             ${HEADER_LIST}
