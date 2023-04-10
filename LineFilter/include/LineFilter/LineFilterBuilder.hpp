@@ -2,6 +2,7 @@
 #define LINEFILTERBUILDER_H
 
 #include "ILineFilter.hpp"
+#include "ILineSequencer.hpp"
 
 class LineFilterBuilder
 {
