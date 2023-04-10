@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include <SequencerLineFilter.hpp>
+#include <SequenceLineFilter.hpp>
 #include <FSTLineSequencer.hpp>
 #include <LineFilterInverter.hpp>
 

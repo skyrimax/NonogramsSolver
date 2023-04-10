@@ -1,4 +1,4 @@
-#include "SequencerLineFilter.hpp"
+#include "SequenceLineFilter.hpp"
 
 SequenceLineFilter::SequenceLineFilter(const Sequence& sequence, const ILineSequencer& sequencer)
     : sequence_{sequence}, sequencer_{sequencer}
