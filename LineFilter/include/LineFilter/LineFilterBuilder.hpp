@@ -28,7 +28,7 @@ public:
     LineFilterBuilder& reset();
 
 private:
-    ILineFilter* lineFilter_;
+    ILineFilter* lineFilter_ = nullptr;
 };
 
 #endif /* LINEFILTERBUILDER_H */
