@@ -3,6 +3,7 @@
 #include <SequenceLineFilter.hpp>
 #include <FSTLineSequencer.hpp>
 #include <LineFilterInverter.hpp>
+#include <LineFilterBuilder.hpp>
 
 #include <vector>
 #include <utility>
@@ -252,5 +253,28 @@ TEST_F(LineFilterTest, LineFilterInverter) {
 
     for(const auto& lineSequence : testLinesSequences) {
         EXPECT_FALSE(LineFilterInverter(new SequenceLineFilter(lineSequence.second, sequencer))(lineSequence.first));
+    }
+}
+
+TEST_F(LineFilterTest, LineFilterBuilder) {
+    FSTLineSequencer sequencer;
+    LineFilterBuilder builder;
+
+    for(const auto& lineSequence : testLinesSequences) {
+        ILineFilter* filter = builder.sequenceLineFilter(lineSequence.second, sequencer).makeLineFilter();
+
+        EXPECT_TRUE((*filter)(lineSequence.first));
+
+        delete filter;
+        builder.reset();
+    }
+
+    for(const auto& lineSequence : testLinesSequences) {
+        ILineFilter* filter = builder.sequenceLineFilter(lineSequence.second, sequencer).lineFilterInverter().makeLineFilter();
+
+        EXPECT_FALSE((*filter)(lineSequence.first));
+
+        delete filter;
+        builder.reset();
     }
 }
