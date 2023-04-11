@@ -5,6 +5,7 @@
 # CONFIGURE_DEPENDS "${minecraft_block_finder_SOURCE_DIR}/include/modern/*.hpp")
 set(HEADER_LIST
     "${line_generator_lib_SOURCE_DIR}/include/LineGenerator/ILineGenerator.hpp"
+    "${line_generator_lib_SOURCE_DIR}/include/LineGenerator/ILineGeneratorModifier.hpp"
     "${line_generator_lib_SOURCE_DIR}/include/LineGenerator/LineGeneratorBruteForce.hpp")
 
     set(EXTERNAL_HEADER_LIST
@@ -13,6 +14,7 @@ set(HEADER_LIST
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(line_generator_library
             ILineGenerator.cpp
+            ILineGeneratorModifier.cpp
             LineGeneratorBruteForce.cpp
             ${HEADER_LIST}
             ${EXTERNAL_HEADER_LIST})
