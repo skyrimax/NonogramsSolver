@@ -13,6 +13,9 @@ std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::
 {
     std::vector<Line> lines;
 
+    if(nbBoxes_ == 0)
+        return lines;
+
     int count = std::pow(2, nbBoxes_);
 
     lines.resize(count, Line(nbBoxes_, 0));
