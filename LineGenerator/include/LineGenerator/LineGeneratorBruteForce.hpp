@@ -8,16 +8,16 @@ namespace NS
     {
     public:
         // Constructors
-        LineGeneratorBruteForce(ILineFilter& filter);
+        LineGeneratorBruteForce() = default;
 
         // Destructor
         ~LineGeneratorBruteForce() = default;
 
-        virtual std::vector<Line> generateLines(unsigned int nbBoxes, const Sequence& lineSequence);
+        virtual std::vector<Line> generateLines(unsigned int nbBoxes, const ILineFilter& filter);
 
     private:
         std::vector<Line> createAllPossibilities(unsigned int nbBoxes);
-        std::vector<Line> filterPossibilities(std::vector<Line> possibilities, const Sequence& lineSequence);
+        std::vector<Line> filterPossibilities(std::vector<Line> possibilities, const ILineFilter& filter);
 
         ILineFilter& filter_;
     };

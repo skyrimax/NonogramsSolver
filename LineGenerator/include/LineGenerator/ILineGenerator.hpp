@@ -18,7 +18,7 @@ namespace NS
         // Destructor
         ~ILineGenerator() = default;
 
-        virtual std::vector<Line> generateLines(unsigned int nbBoxes, const Sequence& lineSequence) = 0;
+        virtual std::vector<Line> generateLines() = 0;
     };
 }
 
