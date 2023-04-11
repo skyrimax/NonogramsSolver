@@ -1,3 +1,6 @@
+#ifndef ALLPOSSIBLELINESGENERATOR_H
+#define ALLPOSSIBLELINESGENERATOR_H
+
 #include "ILineGenerator.hpp"
 
 #include "LineFilter/ILineFilter.hpp"
@@ -22,3 +25,5 @@ namespace NS
         unsigned int nbBoxes_;
     };
 }
+
+#endif /* ALLPOSSIBLELINESGENERATOR_H */
