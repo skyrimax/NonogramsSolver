@@ -8,10 +8,10 @@ namespace NS
     {
     public:
         // Constructors
-        LineGeneratorBruteForce() = default;
+        LineGeneratorAllPossibleLines() = default;
 
         // Destructor
-        ~LineGeneratorBruteForce() = default;
+        ~LineGeneratorAllPossibleLines() = default;
 
         virtual std::vector<Line> generateLines(unsigned int nbBoxes, const ILineFilter& filter);
 
