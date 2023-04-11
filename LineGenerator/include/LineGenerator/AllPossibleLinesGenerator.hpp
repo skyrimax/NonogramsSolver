@@ -19,8 +19,6 @@ namespace NS
         virtual std::vector<Line> generateLines();
 
     protected:
-        std::vector<Line> filterPossibilities(std::vector<Line> possibilities, const ILineFilter& filter);
-
         unsigned int nbBoxes_;
     };
 }

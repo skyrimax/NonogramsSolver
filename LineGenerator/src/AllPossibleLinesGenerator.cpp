@@ -32,18 +32,3 @@ std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::
     
     return lines;
 }
-
-std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::filterPossibilities(
-    std::vector<Line> possibilities, const Sequence& lineSequence)
-{
-    auto predicate = [this](Line line) {
-        return filter_(line);
-    };
-
-    possibilities.erase(std::remove_if(
-        possibilities.begin(), possibilities.end(),
-        predicate
-    ), possibilities.end());
-
-    return possibilities;
-}
