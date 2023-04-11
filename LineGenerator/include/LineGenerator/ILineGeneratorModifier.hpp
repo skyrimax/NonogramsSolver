@@ -12,7 +12,7 @@ namespace NS
         ILineGeneratorModifier(ILineGenerator* lineGenerator);
 
         // Destructor
-        ~ILineGeneratorModifier() = default;
+        ~ILineGeneratorModifier();
 
     protected:
         ILineGenerator* lineGenerator_;
