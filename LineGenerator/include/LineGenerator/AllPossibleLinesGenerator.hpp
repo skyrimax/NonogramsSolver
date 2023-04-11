@@ -16,10 +16,9 @@ namespace NS
         // Destructor
         ~AllPossibleLinesGenerator() = default;
 
-        virtual std::vector<Line> generateLines(const ILineFilter& filter);
+        virtual std::vector<Line> generateLines();
 
     private:
-        std::vector<Line> createAllPossibilities(unsigned int nbBoxes);
         std::vector<Line> filterPossibilities(std::vector<Line> possibilities, const ILineFilter& filter);
 
         unsigned int nbBoxes_;

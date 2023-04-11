@@ -9,35 +9,28 @@ NS::AllPossibleLinesGenerator::AllPossibleLinesGenerator(unsigned int nbBoxes)
 
 }
 
-std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::generateLines(
-    unsigned int nbBoxes, const Sequence& lineSequence)
+std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::generateLines()
 {
-    return filterPossibilities(createAllPossibilities(nbBoxes), lineSequence);
-}
+    std::vector<Line> lines;
 
-std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::createAllPossibilities(
-    unsigned int nbBoxes)
-{
-    std::vector<Line> possibilities;
+    int count = std::pow(2, nbBoxes_);
 
-    int count = std::pow(2, nbBoxes);
-
-    possibilities.resize(count, Line(nbBoxes, 0));
+    lines.resize(count, Line(nbBoxes_, 0));
 
     for (size_t i = 0; i < count; ++i)
     {
         size_t restant = i;
         
-        for (size_t j = nbBoxes - 1; j <=0 ; ++j)
+        for (size_t j = nbBoxes_ - 1; j <=0 ; ++j)
         {
-            possibilities[i][j] = restant/j;
+            lines[i][j] = restant/j;
 
             restant %= j;
         }
         
     }
     
-    return possibilities;
+    return lines;
 }
 
 std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::filterPossibilities(
