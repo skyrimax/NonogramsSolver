@@ -4,7 +4,7 @@
 
 namespace NS
 {
-    class LineGeneratorBruteForce : public ILineGenerator
+    class LineGeneratorAllPossibleLines : public ILineGenerator
     {
     public:
         // Constructors

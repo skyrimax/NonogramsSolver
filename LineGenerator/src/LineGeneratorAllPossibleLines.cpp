@@ -1,21 +1,21 @@
-#include "LineGeneratorBruteForce.hpp"
+#include "LineGeneratorAllPossibleLines.hpp"
 
 #include <cmath>
 #include <algorithm>
 
-NS::LineGeneratorBruteForce::LineGeneratorBruteForce(ILineFilter& filter)
+NS::LineGeneratorAllPossibleLines::LineGeneratorAllPossibleLines(ILineFilter& filter)
     : filter_{filter}
 {
 
 }
 
-std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::generateLines(
+std::vector<NS::LineGeneratorAllPossibleLines::Line> NS::LineGeneratorAllPossibleLines::generateLines(
     unsigned int nbBoxes, const Sequence& lineSequence)
 {
     return filterPossibilities(createAllPossibilities(nbBoxes), lineSequence);
 }
 
-std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::createAllPossibilities(
+std::vector<NS::LineGeneratorAllPossibleLines::Line> NS::LineGeneratorAllPossibleLines::createAllPossibilities(
     unsigned int nbBoxes)
 {
     std::vector<Line> possibilities;
@@ -40,7 +40,7 @@ std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::crea
     return possibilities;
 }
 
-std::vector<NS::LineGeneratorBruteForce::Line> NS::LineGeneratorBruteForce::filterPossibilities(
+std::vector<NS::LineGeneratorAllPossibleLines::Line> NS::LineGeneratorAllPossibleLines::filterPossibilities(
     std::vector<Line> possibilities, const Sequence& lineSequence)
 {
     auto predicate = [this](Line line) {
