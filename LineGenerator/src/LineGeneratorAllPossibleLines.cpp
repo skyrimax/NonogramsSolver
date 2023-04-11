@@ -3,8 +3,8 @@
 #include <cmath>
 #include <algorithm>
 
-NS::LineGeneratorAllPossibleLines::LineGeneratorAllPossibleLines(ILineFilter& filter)
-    : filter_{filter}
+NS::LineGeneratorAllPossibleLines::LineGeneratorAllPossibleLines(unsigned int nbBoxes)
+    : nbBoxes_{nbBoxes}
 {
 
 }

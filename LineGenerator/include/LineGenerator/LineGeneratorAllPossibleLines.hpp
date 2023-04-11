@@ -8,17 +8,17 @@ namespace NS
     {
     public:
         // Constructors
-        LineGeneratorAllPossibleLines() = default;
+        LineGeneratorAllPossibleLines(unsigned int nbBoxes);
 
         // Destructor
         ~LineGeneratorAllPossibleLines() = default;
 
-        virtual std::vector<Line> generateLines(unsigned int nbBoxes, const ILineFilter& filter);
+        virtual std::vector<Line> generateLines(const ILineFilter& filter);
 
     private:
         std::vector<Line> createAllPossibilities(unsigned int nbBoxes);
         std::vector<Line> filterPossibilities(std::vector<Line> possibilities, const ILineFilter& filter);
 
-        ILineFilter& filter_;
+        unsigned int nbBoxes_;
     };
 }
