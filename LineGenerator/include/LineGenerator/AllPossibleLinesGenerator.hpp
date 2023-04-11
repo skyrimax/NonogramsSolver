@@ -4,14 +4,14 @@
 
 namespace NS
 {
-    class LineGeneratorAllPossibleLines : public ILineGenerator
+    class AllPossibleLinesGenerator : public ILineGenerator
     {
     public:
         // Constructors
-        LineGeneratorAllPossibleLines(unsigned int nbBoxes);
+        AllPossibleLinesGenerator(unsigned int nbBoxes);
 
         // Destructor
-        ~LineGeneratorAllPossibleLines() = default;
+        ~AllPossibleLinesGenerator() = default;
 
         virtual std::vector<Line> generateLines(const ILineFilter& filter);
 

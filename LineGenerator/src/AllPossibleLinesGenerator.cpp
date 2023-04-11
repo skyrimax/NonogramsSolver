@@ -1,21 +1,21 @@
-#include "LineGeneratorAllPossibleLines.hpp"
+#include "AllPossibleLinesGenerator.hpp"
 
 #include <cmath>
 #include <algorithm>
 
-NS::LineGeneratorAllPossibleLines::LineGeneratorAllPossibleLines(unsigned int nbBoxes)
+NS::AllPossibleLinesGenerator::AllPossibleLinesGenerator(unsigned int nbBoxes)
     : nbBoxes_{nbBoxes}
 {
 
 }
 
-std::vector<NS::LineGeneratorAllPossibleLines::Line> NS::LineGeneratorAllPossibleLines::generateLines(
+std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::generateLines(
     unsigned int nbBoxes, const Sequence& lineSequence)
 {
     return filterPossibilities(createAllPossibilities(nbBoxes), lineSequence);
 }
 
-std::vector<NS::LineGeneratorAllPossibleLines::Line> NS::LineGeneratorAllPossibleLines::createAllPossibilities(
+std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::createAllPossibilities(
     unsigned int nbBoxes)
 {
     std::vector<Line> possibilities;
@@ -40,7 +40,7 @@ std::vector<NS::LineGeneratorAllPossibleLines::Line> NS::LineGeneratorAllPossibl
     return possibilities;
 }
 
-std::vector<NS::LineGeneratorAllPossibleLines::Line> NS::LineGeneratorAllPossibleLines::filterPossibilities(
+std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::filterPossibilities(
     std::vector<Line> possibilities, const Sequence& lineSequence)
 {
     auto predicate = [this](Line line) {
