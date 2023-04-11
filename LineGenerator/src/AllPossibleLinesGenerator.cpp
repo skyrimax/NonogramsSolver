@@ -21,11 +21,13 @@ std::vector<NS::AllPossibleLinesGenerator::Line> NS::AllPossibleLinesGenerator::
     {
         size_t restant = i;
         
-        for (size_t j = nbBoxes_ - 1; j <=0 ; ++j)
+        for (size_t j = nbBoxes_; j >0 ; --j)
         {
-            lines[i][j] = restant/j;
+            int positionValue = std::pow(2, j-1);
 
-            restant %= j;
+            lines[i][nbBoxes_-j] = restant/positionValue;
+
+            restant %= positionValue;
         }
         
     }
