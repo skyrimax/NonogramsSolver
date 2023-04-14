@@ -1,9 +1,10 @@
 #include <gtest/gtest.h>
 
-#include <LineGeneratorBruteForce.hpp>
-#include <LineFilterInverter.hpp>
+#include <AllPossibleLinesGenerator.hpp>
+#include <LineGeneratorFilter.hpp>
 #include <FSTLineSequencer.hpp>
-#include <SequencerLineFilter.hpp>
+#include <LineFilterBuilder.hpp>
+#include <ILineFilter.hpp>
 
 #include <vector>
 #include <tuple>
@@ -14,48 +15,150 @@
  * Contains list of sequences, line length and corresponding possible lines
  * 
  */
-class LineGeneratorTest: public ::testing::Test
+class AllPossibleLinesGeneratorTest: public ::testing::Test
 {
 protected:
     // test case type
-    using testCaseType = std::tuple<NS::ILineGenerator::Line,
-                            unsigned int,
-                            std::vector<NS::ILineGenerator::Sequence>>;
+    using testCaseType = std::pair<unsigned int,
+                            std::vector<NS::ILineGenerator::Line>>;
     void SetUp() override
     {
-        // lvl # 1-1 (5x5)
-        // Rows
+
+        auto vectorlexicographicSorter = [](const auto& v1, const auto& v2){
+            return std::lexicographical_compare(v1.begin(), v1.end(), v2.begin(), v2.end());
+        };
+
+        // all possible lines from size 1 to 5
         testSequencesLines
             .push_back(
                 testCaseType(
-                    {1, 1}, 5,
+                    1,
                     {
-                        {1, 0, 1, 0, 0},
-                        {1, 0, 0, 1, 0},
-                        {1, 0, 0, 0, 1},
-                        {0, 1, 0, 1, 0},
+                        {0},
+                        {1}
+                    }
+                )
+            );
+        testSequencesLines
+            .push_back(
+                testCaseType(
+                    2,
+                    {
+                        {0, 0},
+                        {0, 1},
+                        {1, 0},
+                        {1, 1}
+                    }
+                )
+            );
+        testSequencesLines
+            .push_back(
+                testCaseType(
+                    3,
+                    {
+                        {0, 0, 0},
+                        {0, 0, 1},
+                        {0, 1, 0},
+                        {0, 1, 1},
+                        {1, 0, 0},
+                        {1, 0, 1},
+                        {1, 1, 0},
+                        {1, 1, 1}
+                    }
+                )
+            );
+        testSequencesLines
+            .push_back(
+                testCaseType(
+                    4,
+                    {
+                        {0, 0, 0, 0},
+                        {0, 0, 0, 1},
+                        {0, 0, 1, 0},
+                        {0, 0, 1, 1},
+                        {0, 1, 0, 0},
+                        {0, 1, 0, 1},
+                        {0, 1, 1, 0},
+                        {0, 1, 1, 1},
+                        {1, 0, 0, 0},
+                        {1, 0, 0, 1},
+                        {1, 0, 1, 0},
+                        {1, 0, 1, 1},
+                        {1, 1, 0, 0},
+                        {1, 1, 0, 1},
+                        {1, 1, 1, 0},
+                        {1, 1, 1, 1}
+                    }
+                )
+            );
+        testSequencesLines
+            .push_back(
+                testCaseType(
+                    5,
+                    {
+                        {0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 1},
+                        {0, 0, 0, 1, 0},
+                        {0, 0, 0, 1, 1},
+                        {0, 0, 1, 0, 0},
+                        {0, 0, 1, 0, 1},
+                        {0, 0, 1, 1, 0},
+                        {0, 0, 1, 1, 1},
+                        {0, 1, 0, 0, 0},
                         {0, 1, 0, 0, 1},
-                        {0, 0, 1, 0, 1}
+                        {0, 1, 0, 1, 0},
+                        {0, 1, 0, 1, 1},
+                        {0, 1, 1, 0, 0},
+                        {0, 1, 1, 0, 1},
+                        {0, 1, 1, 1, 0},
+                        {0, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1},
+                        {1, 0, 0, 1, 0},
+                        {1, 0, 0, 1, 1},
+                        {1, 0, 1, 0, 0},
+                        {1, 0, 1, 0, 1},
+                        {1, 0, 1, 1, 0},
+                        {1, 0, 1, 1, 1},
+                        {1, 1, 0, 0, 0},
+                        {1, 1, 0, 0, 1},
+                        {1, 1, 0, 1, 0},
+                        {1, 1, 0, 1, 1},
+                        {1, 1, 1, 0, 0},
+                        {1, 1, 1, 0, 1},
+                        {1, 1, 1, 1, 0},
+                        {1, 1, 1, 1, 1}
                     }
                 )
             );
 
         for(auto& testSequenceLine : testSequencesLines){
-            std::sort(std::get<2>(testSequenceLine).begin(),
-                        std::get<2>(testSequenceLine).end(),
-                        [](const auto& v1, const auto& v2){
-                            return std::lexicographical_compare(v1.begin(), v1.end(), v2.begin(), v2.end())
-                        });
+            std::sort(testSequenceLine.second.begin(),
+                        testSequenceLine.second.end(),
+                        vectorlexicographicSorter);
         }
     }
 
     std::vector<testCaseType> testSequencesLines;
 };
 
-TEST_F(LineGeneratorTest: lineGeneratorBruteForce) {
+TEST_F(AllPossibleLinesGeneratorTest, HandlesSize0)
+{
+    EXPECT_EQ(NS::AllPossibleLinesGenerator(0).generateLines(), std::vector<NS::AllPossibleLinesGenerator::Line>());
+}
 
+TEST_F(AllPossibleLinesGeneratorTest, generateSize1to5) {
+    auto vectorlexicographicSorter = [](const auto& v1, const auto& v2){
+            return std::lexicographical_compare(v1.begin(), v1.end(), v2.begin(), v2.end());
+        };
 
     for(const auto& testSequenceLine : testSequencesLines) {
-        EXPECT_EQ()
+        auto lines = NS::AllPossibleLinesGenerator(testSequenceLine.first).generateLines();
+
+        std::sort(lines.begin(),
+                    lines.end(),
+                    vectorlexicographicSorter);
+
+        EXPECT_EQ(lines, testSequenceLine.second);
     }
 }
