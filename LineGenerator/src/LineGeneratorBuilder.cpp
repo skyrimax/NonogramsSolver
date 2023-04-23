@@ -29,3 +29,14 @@ NS::LineGeneratorBuilder& NS::LineGeneratorBuilder::lineGeneratorFilter(ILineFil
 
     return *this;
 }
+
+NS::ILineGenerator* NS::LineGeneratorBuilder::makeLineGenerator()
+{
+    if(!lineGenerator_)
+        throw(std::logic_error("No line generator has been created"));
+
+    ILineGenerator* lineGeneratorTemp= lineGenerator_;
+    lineGenerator_ = nullptr;
+
+    return lineGeneratorTemp;
+}
