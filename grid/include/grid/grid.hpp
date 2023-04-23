@@ -82,4 +82,4 @@ private:
 	size_type m_nbCols;
 };
 
-#include "Grid.tpp"
+#include "Grid.ipp"
