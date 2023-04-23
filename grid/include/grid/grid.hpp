@@ -46,8 +46,23 @@ public:
     }
 
     // Assignement operator overloading
-    Grid<T> &operator=(const Grid<T> &grid);
-    Grid<T> &operator=(Grid<T> &&grid);
+    Grid<T> &operator=(const Grid<T> &grid)
+    {
+        m_nbRows = grid.m_nbRows;
+        m_nbCols = grid.m_nbCols;
+        m_data = grid.m_data;
+
+        return *this;
+    }
+
+    Grid<T> &operator=(Grid<T> &&grid)
+    {
+        m_nbRows = grid.m_nbRows;
+        m_nbCols = grid.m_nbCols;
+        m_data = std::move(grid.m_data);
+
+        return *this;
+    }
 
     // Capacity related member functions
     size_type nbRows() const;

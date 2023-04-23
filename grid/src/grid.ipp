@@ -6,26 +6,6 @@
 #include <utility>
 
 template<class T>
-Grid<T>& Grid<T>::operator=(const Grid<T>& grid)
-{
-	m_nbRows = grid.m_nbRows;
-	m_nbCols = grid.m_nbCols;
-	m_data = grid.m_data;
-
-	return *this;
-}
-
-template<class T>
-Grid<T>& Grid<T>::operator=(Grid<T>&& grid)
-{
-	m_nbRows = grid.m_nbRows;
-	m_nbCols = grid.m_nbCols;
-	m_data = std::move(grid.m_data);
-
-	return *this;
-}
-
-template<class T>
 typename Grid<T>::size_type Grid<T>::nbRows() const
 {
 	return m_nbRows;
