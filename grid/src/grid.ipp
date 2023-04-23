@@ -90,18 +90,6 @@ const T & Grid<T>::operator()(size_type row, size_type col) const
 }
 
 template<class T>
-T & Grid<T>::operator()(const Coordinate & pos)
-{
-	return m_data[pos.row()*m_nbCols + pos.column()];
-}
-
-template<class T>
-const T & Grid<T>::operator()(const Coordinate & pos) const
-{
-	return m_data[pos.row()*m_nbCols + pos.column()];
-}
-
-template<class T>
 T & Grid<T>::at(size_type row, size_type col)
 {
 	if (row < m_nbRows && col < m_nbCols) {
@@ -115,34 +103,6 @@ T & Grid<T>::at(size_type row, size_type col)
 template<class T>
 const T & Grid<T>::at(size_type row, size_type col) const
 {
-	if (row < m_nbRows && col < m_nbCols) {
-		return m_data[row*m_nbCols + col];
-	}
-	else {
-		throw std::out_of_range("vector::_M_range_check");
-	}
-}
-
-template<class T>
-T & Grid<T>::at(const Coordinate & pos)
-{
-	size_t row(pos.row());
-	size_t col(pos.column());
-
-	if (row < m_nbRows && col < m_nbCols) {
-		return m_data[row*m_nbCols + col];
-	}
-	else {
-		throw std::out_of_range("vector::_M_range_check");
-	}
-}
-
-template<class T>
-const T & Grid<T>::at(const Coordinate & pos) const
-{
-	size_t row(pos.row());
-	size_t col(pos.column());
-
 	if (row < m_nbRows && col < m_nbCols) {
 		return m_data[row*m_nbCols + col];
 	}

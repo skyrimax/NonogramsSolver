@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include "Coordinate.h"
 
 template <class T>
 class Grid
@@ -60,12 +59,8 @@ public:
     // Element access methods
     T &operator()(size_type row, size_type col);
     const T &operator()(size_type row, size_type col) const;
-    T &operator()(const Coordinate &pos);
-    const T &operator()(const Coordinate &pos) const;
     T &at(size_type row, size_type col);
     const T &at(size_type row, size_type col) const;
-    T &at(const Coordinate &pos);
-    const T &at(const Coordinate &pos) const;
     /*Grid<T> rows(size_type row, size_type n=1);
     const Grid<T> rows(size_type row, size_type n = 1) const;
     std::vector<T> row(size_type row);
