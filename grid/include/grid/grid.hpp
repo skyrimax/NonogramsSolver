@@ -117,10 +117,40 @@ public:
     }
 
     // Element access methods
-    T &operator()(size_type row, size_type col);
-    const T &operator()(size_type row, size_type col) const;
-    T &at(size_type row, size_type col);
-    const T &at(size_type row, size_type col) const;
+    T &operator()(size_type row, size_type col)
+    {
+        return m_data[row * m_nbCols + col];
+    }
+
+    const T &operator()(size_type row, size_type col) const
+    {
+        return m_data[row * m_nbCols + col];
+    }
+
+    T &at(size_type row, size_type col)
+    {
+        if (row < m_nbRows && col < m_nbCols)
+        {
+            return m_data[row * m_nbCols + col];
+        }
+        else
+        {
+            throw std::out_of_range("vector::_M_range_check");
+        }
+    }
+
+    const T &at(size_type row, size_type col) const
+    {
+        if (row < m_nbRows && col < m_nbCols)
+        {
+            return m_data[row * m_nbCols + col];
+        }
+        else
+        {
+            throw std::out_of_range("vector::_M_range_check");
+        }
+    }
+
     /*Grid<T> rows(size_type row, size_type n=1);
     const Grid<T> rows(size_type row, size_type n = 1) const;
     std::vector<T> row(size_type row);

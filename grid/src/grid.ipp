@@ -5,40 +5,6 @@
 #include <exception>
 #include <utility>
 
-template<class T>
-T & Grid<T>::operator()(size_type row, size_type col)
-{
-	return m_data[row*m_nbCols + col];
-}
-
-template<class T>
-const T & Grid<T>::operator()(size_type row, size_type col) const
-{
-	return m_data[row*m_nbCols + col];
-}
-
-template<class T>
-T & Grid<T>::at(size_type row, size_type col)
-{
-	if (row < m_nbRows && col < m_nbCols) {
-		return m_data[row*m_nbCols + col];
-	}
-	else {
-		throw std::out_of_range("vector::_M_range_check");
-	}
-}
-
-template<class T>
-const T & Grid<T>::at(size_type row, size_type col) const
-{
-	if (row < m_nbRows && col < m_nbCols) {
-		return m_data[row*m_nbCols + col];
-	}
-	else {
-		throw std::out_of_range("vector::_M_range_check");
-	}
-}
-
 //template<class T>
 //Grid<T> Grid<T>::rows(size_type row, size_type n)
 //{
