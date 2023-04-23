@@ -40,3 +40,12 @@ NS::ILineGenerator* NS::LineGeneratorBuilder::makeLineGenerator()
 
     return lineGeneratorTemp;
 }
+
+NS::LineGeneratorBuilder& NS::LineGeneratorBuilder::reset()
+{
+    delete lineGenerator_;
+
+    lineGenerator_ = nullptr;
+
+    return *this;
+}
