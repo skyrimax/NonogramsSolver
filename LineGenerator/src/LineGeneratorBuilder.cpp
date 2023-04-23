@@ -1,6 +1,7 @@
 #include "LineGeneratorBuilder.hpp"
 
 #include "AllPossibleLinesGenerator.hpp"
+#include "LineGeneratorFilter.hpp"
 
 #include <stdexcept>
 
@@ -19,4 +20,12 @@ NS::LineGeneratorBuilder& NS::LineGeneratorBuilder::allPossibleLinesGenerator(un
     return *this;
 }
 
-NS::LineGeneratorBuilder& 
+NS::LineGeneratorBuilder& NS::LineGeneratorBuilder::lineGeneratorFilter(ILineFilter* lineFilter)
+{
+    if(!lineGenerator_)
+        throw(std::logic_error("No base line generator has been created, cannot create LineGeneratorFilter"));
+
+    lineGenerator_ = new NS::LineGeneratorFilter(lineFilter, lineGenerator_);
+
+    return *this;
+}
