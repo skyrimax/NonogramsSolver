@@ -4,27 +4,29 @@
 #include "ILineGenerator.hpp"
 #include "ILineFilter.hpp"
 
-class LineGeneratorBuilder
+namespace NS
 {
-public:
-    // Constructor
-    LineGeneratorBuilder() = default;
-
-    // Destructor
-    virtual ~LineGeneratorBuilder();
-
-    //Building methods
-    // Base line generators
-    LineGeneratorBuilder& allPossibleLinesGenerator(unsigned int nbBoxes);
-
-    //Line generator modifiers
-    LineGeneratorBuilder& lineGeneratorFilter(ILineFilter* lineFilter);
-
-    // Reset builder
-    LineGeneratorBuilder& reset();
-
-protected:
-    NS::ILineGenerator* lineGenerator_;
-};
-
+    class LineGeneratorBuilder
+    {
+    public:
+        // Constructor
+        LineGeneratorBuilder() = default;
+    
+        // Destructor
+        virtual ~LineGeneratorBuilder();
+    
+        //Building methods
+        // Base line generators
+        LineGeneratorBuilder& allPossibleLinesGenerator(unsigned int nbBoxes);
+    
+        //Line generator modifiers
+        LineGeneratorBuilder& lineGeneratorFilter(ILineFilter* lineFilter);
+    
+        // Reset builder
+        LineGeneratorBuilder& reset();
+    
+    protected:
+        NS::ILineGenerator* lineGenerator_;
+    };
+}
 #endif /* LINEGENERATORBUILDER_H */
