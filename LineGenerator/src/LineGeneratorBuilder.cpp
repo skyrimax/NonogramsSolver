@@ -4,12 +4,12 @@
 
 #include <stdexcept>
 
-LineGeneratorBuilder::~LineGeneratorBuilder()
+NS::LineGeneratorBuilder::~LineGeneratorBuilder()
 {
     delete lineGenerator_;
 }
 
-LineGeneratorBuilder& LineGeneratorBuilder::allPossibleLinesGenerator(unsigned int nbBoxes)
+NS::LineGeneratorBuilder& NS::LineGeneratorBuilder::allPossibleLinesGenerator(unsigned int nbBoxes)
 {
     if(lineGenerator_)
         throw(std::logic_error("Base line generator has already been created, cannot create AllPossibleLinesGenerator"));
@@ -18,3 +18,5 @@ LineGeneratorBuilder& LineGeneratorBuilder::allPossibleLinesGenerator(unsigned i
 
     return *this;
 }
+
+NS::LineGeneratorBuilder& 
