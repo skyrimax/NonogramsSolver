@@ -6,40 +6,6 @@
 #include <utility>
 
 template<class T>
-void Grid<T>::resize(size_type nbRows, size_type nbCols)
-{
-	std::vector<T>newArray(nbRows*nbCols);
-
-	for (int i = 0; i < m_nbRows && i < nbRows; ++i) {
-		for (int j = 0; j < m_nbCols && j < nbCols; ++j) {
-			newArray[i*nbCols + j] = this(i, j);
-		}
-	}
-
-	m_data.swap(newArray);
-
-	m_nbRows = nbRows;
-	m_nbCols - nbCols;
-}
-
-template<class T>
-void Grid<T>::resize(size_type nbRows, size_type nbCols, T & val)
-{
-	std::vector<T>newArray(nbRows*nbCols, val);
-
-	for (int i = 0; i < m_nbRows && i < nbRows; ++i) {
-		for (int j = 0; j < m_nbCols && j < nbCols; ++j) {
-			newArray[i*nbCols + j] = this(i, j);
-		}
-	}
-
-	m_data.swap(newArray);
-
-	m_nbRows = nbRows;
-	m_nbCols - nbCols;
-}
-
-template<class T>
 bool Grid<T>::empty()
 {
 	return m_data.empty();
