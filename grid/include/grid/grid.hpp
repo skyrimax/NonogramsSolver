@@ -111,7 +111,10 @@ public:
         m_nbCols - nbCols;
     }
 
-    bool empty();
+    bool empty()
+    {
+        return m_data.empty();
+    }
 
     // Element access methods
     T &operator()(size_type row, size_type col);

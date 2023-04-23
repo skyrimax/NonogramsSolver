@@ -6,12 +6,6 @@
 #include <utility>
 
 template<class T>
-bool Grid<T>::empty()
-{
-	return m_data.empty();
-}
-
-template<class T>
 T & Grid<T>::operator()(size_type row, size_type col)
 {
 	return m_data[row*m_nbCols + col];
