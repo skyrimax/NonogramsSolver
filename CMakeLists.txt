@@ -45,6 +45,9 @@ add_subdirectory(LineSequencer)
 # Load line filter library
 add_subdirectory(LineFilter)
 
+# Load line generator library
+add_subdirectory(LineGenerator)
+
 # Load external dependencies
 add_subdirectory(extern)
 
