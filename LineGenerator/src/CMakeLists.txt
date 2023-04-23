@@ -19,6 +19,7 @@ add_library(line_generator_library
             ILineGeneratorModifier.cpp
             LineGeneratorFilter.cpp
             AllPossibleLinesGenerator.cpp
+            LineGeneratorBuilder.cpp
             ${HEADER_LIST}
             ${EXTERNAL_HEADER_LIST})
 
