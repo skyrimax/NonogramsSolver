@@ -1,6 +1,7 @@
 #ifndef LINEGENERATORBUILDER_H
 #define LINEGENERATORBUILDER_H
 
+#include "ILineGenerator.hpp"
 #include "ILineFilter.hpp"
 
 class LineGeneratorBuilder
@@ -21,6 +22,9 @@ public:
 
     // Reset builder
     LineGeneratorBuilder& reset();
+
+protected:
+    NS::ILineGenerator* lineGenerator_;
 };
 
 #endif /* LINEGENERATORBUILDER_H */
