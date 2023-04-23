@@ -12,7 +12,7 @@
 
 /**
  * @brief Test fixture
- * Contains list of sequences, line length and corresponding possible lines
+ * Contains list of line length and corresponding possible lines
  * 
  */
 class AllPossibleLinesGeneratorTest: public ::testing::Test
@@ -160,5 +160,150 @@ TEST_F(AllPossibleLinesGeneratorTest, generateSize1to5) {
                     vectorlexicographicSorter);
 
         EXPECT_EQ(lines, testSequenceLine.second);
+    }
+}
+
+/**
+ * @brief Test fixture
+ * Contains list of line sizes, filters and filtered possibilities
+ * 
+ */
+class LineGeneratorFilterTest: public ::testing::Test
+{
+protected:
+    // test case type
+    using testCaseType = std::tuple<unsigned int, ILineSequencer::Sequence,
+                            std::vector<NS::ILineGenerator::Line>>;
+
+    void SetUp() override
+    {
+        FSTLineSequencer sequencer;
+        LineFilterBuilder filterBuilder;
+
+        auto vectorlexicographicSorter = [](const auto& v1, const auto& v2){
+            return std::lexicographical_compare(v1.begin(), v1.end(), v2.begin(), v2.end());
+        };
+
+        testCases
+            .push_back(
+                testCaseType(
+                    5,
+                    {1, 1},
+                    {
+                        {0, 0, 1, 0, 1},
+                        {0, 1, 0, 0, 1},
+                        {0, 1, 0, 1, 0},
+                        {1, 0, 0, 0, 1},
+                        {1, 0, 0, 1, 0},
+                        {1, 0, 1, 0, 0}
+                    }
+                )
+            );
+        testCases
+            .push_back(
+                testCaseType(
+                    5,
+                    {5},
+                    {
+                        {1, 1, 1, 1, 1}
+                    }
+                )
+            );
+        testCases
+            .push_back(
+                testCaseType(
+                    5,
+                    {3},
+                    {
+                        {1, 1, 1, 0, 0},
+                        {0, 1, 1, 1, 0},
+                        {0, 0, 1, 1, 1}
+                    }
+                )
+            );
+        testCases
+            .push_back(
+                testCaseType(
+                    5,
+                    {1},
+                    {
+                        {1, 0, 0, 0, 0},
+                        {0, 1, 0, 0, 0},
+                        {0, 0, 1, 0, 0},
+                        {0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 1}
+                    }
+                )
+            );
+        testCases
+            .push_back(
+                testCaseType(
+                    5,
+                    {2},
+                    {
+                        {1, 1, 0, 0, 0},
+                        {0, 1, 1, 0, 0},
+                        {0, 0, 1, 1, 0},
+                        {0, 0, 0, 1, 1}
+                    }
+                )
+            );
+        testCases
+            .push_back(
+                testCaseType(
+                    5,
+                    {4},
+                    {
+                        {1, 1, 1, 1, 0},
+                        {0, 1, 1, 1, 1}
+                    }
+                )
+            );
+
+        for(auto& testCase : testCases) {
+            std::sort(std::get<2>(testCase).begin(),
+                        std::get<2>(testCase).end(),
+                        vectorlexicographicSorter);
+        }
+    }
+
+    std::vector<testCaseType> testCases;
+    FSTLineSequencer sequencer;
+    LineFilterBuilder filterBuilder;
+};
+
+TEST_F(LineGeneratorFilterTest, HandlesSize0)
+{
+    EXPECT_EQ(NS::LineGeneratorFilter(
+        filterBuilder.reset().sequenceLineFilter({1}, sequencer).lineFilterInverter().makeLineFilter(),
+        new NS::AllPossibleLinesGenerator(0)).generateLines(),
+        std::vector<NS::AllPossibleLinesGenerator::Line>());
+}
+
+TEST_F(LineGeneratorFilterTest, HandlesEmptySequence)
+{
+    EXPECT_EQ(NS::LineGeneratorFilter(
+        filterBuilder.reset().sequenceLineFilter({0}, sequencer).lineFilterInverter().makeLineFilter(),
+        new NS::AllPossibleLinesGenerator(5)).generateLines(),
+        std::vector<NS::AllPossibleLinesGenerator::Line>());
+}
+
+TEST_F(LineGeneratorFilterTest, FiltersLvl1_1)
+{
+    auto vectorlexicographicSorter = [](const auto& v1, const auto& v2){
+            return std::lexicographical_compare(v1.begin(), v1.end(), v2.begin(), v2.end());
+        };
+
+    for(const auto& testCase : testCases) {
+        auto lines = NS::LineGeneratorFilter(
+            filterBuilder.reset().sequenceLineFilter(std::get<1>(testCase), sequencer).lineFilterInverter().makeLineFilter(),
+            new NS::AllPossibleLinesGenerator(std::get<0>(testCase))
+        ).generateLines();
+
+        std::sort(lines.begin(),
+                    lines.end(),
+                    vectorlexicographicSorter);
+
+        EXPECT_EQ(lines, std::get<2>(testCase));
     }
 }
