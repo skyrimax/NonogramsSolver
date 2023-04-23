@@ -6,18 +6,6 @@
 #include <utility>
 
 template<class T>
-typename Grid<T>::size_type Grid<T>::nbRows() const
-{
-	return m_nbRows;
-}
-
-template<class T>
-typename Grid<T>::size_type Grid<T>::nbCols() const
-{
-	return m_nbCols;
-}
-
-template<class T>
 void Grid<T>::resize(size_type nbRows, size_type nbCols)
 {
 	std::vector<T>newArray(nbRows*nbCols);

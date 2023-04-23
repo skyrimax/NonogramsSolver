@@ -65,8 +65,16 @@ public:
     }
 
     // Capacity related member functions
-    size_type nbRows() const;
-    size_type nbCols() const;
+    size_type nbRows() const
+    {
+        return m_nbRows;
+    }
+
+    size_type nbCols() const
+    {
+        return m_nbCols;
+    }
+
     void resize(size_type nbRows, size_type nbCols);
     void resize(size_type nbRows, size_type nbCols, T &val);
     bool empty();
