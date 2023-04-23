@@ -1,54 +1,9 @@
-#include "Grid.hpp"
+#include "grid.hpp"
 
 #pragma once
 
 #include <exception>
 #include <utility>
-
-template<class T>
-Grid<T>::Grid(size_type nbRows, size_type nbCols)
-	: m_data(nbRows*nbCols), m_nbRows(nbRows), m_nbCols(nbCols)
-{
-}
-
-template<class T>
-Grid<T>::Grid(size_type nbRows, size_type nbCols, const T & val)
-	: m_data(nbRows*nbCols, val), m_nbRows(nbRows), m_nbCols(nbCols)
-{
-}
-
-template<class T>
-Grid<T>::Grid(size_type nbRows, size_type nbCols, const std::vector<T>& data)
-	: m_data(nbRows*nbCols == data.size() ? data :
-		throw std::invalid_argument("Invalid argument: nbRows*nbCols MUST equal the size of the data vector")),
-	m_nbRows(nbRows), m_nbCols(nbCols)
-{
-}
-
-template<class T>
-Grid<T>::Grid(size_type nbRows, size_type nbCols, std::vector<T>&& data)
-	: m_data(nbRows*nbCols == data.size() ? std::move(data) :
-		throw std::invalid_argument("Invalid argument: nbRows*nbCols MUST equal the size of the data vector")),
-	m_nbRows(nbRows), m_nbCols(nbCols)
-{
-}
-
-template<class T>
-Grid<T>::Grid(const Grid<T>& grid)
-	: m_data(grid.m_data), m_nbRows(grid.m_nbRows), m_nbCols(grid.m_nbCols)
-{
-}
-
-template<class T>
-Grid<T>::Grid(Grid<T>&& grid)
-	: m_data(std::move(grid.m_data)), m_nbRows(grid.m_nbRows), m_nbCols(grid.m_nbCols)
-{
-}
-
-template<class T>
-Grid<T>::~Grid()
-{
-}
 
 template<class T>
 Grid<T>& Grid<T>::operator=(const Grid<T>& grid)
