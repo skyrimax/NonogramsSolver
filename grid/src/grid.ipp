@@ -5,17 +5,6 @@
 #include <exception>
 #include <utility>
 
-template<class T>
-void Grid<T>::assign(size_type nbRows, size_type nbCols, const T & val)
-{
-	std::vector<T>newArray(nbRows*nbCols, val);
-
-	m_data.swap(newArray);
-
-	m_nbRows = nbRows;
-	m_nbCols = nbCols;
-}
-
 // template<class T>
 // void Grid<T>::insertRows(size_type row, const Grid<T>& elements)
 // {

@@ -338,7 +338,16 @@ public:
     }
 
     // Modifiers
-    // void assign(size_type nbRows, size_type nbCols, const T &val);
+    void assign(size_type nbRows, size_type nbCols, const T &val)
+    {
+        std::vector<T> newArray(nbRows * nbCols, val);
+
+        m_data.swap(newArray);
+
+        m_nbRows = nbRows;
+        m_nbCols = nbCols;
+    }
+
     // void insertRows(size_type row, const Grid<T>& elements);
     // void insertRow(size_type row, const std::vector<T>& elements);
     // void insertCols(size_type col, const Grid<T>& elements);
