@@ -534,7 +534,13 @@ public:
         grid.m_nbCols = holdNbCols;
     }
 
-    void clear();
+    void clear()
+    {
+        m_data.clear();
+
+        m_nbCols = 0;
+        m_nbRows = 0;
+    }
 
 private:
     std::vector<T> m_data;
