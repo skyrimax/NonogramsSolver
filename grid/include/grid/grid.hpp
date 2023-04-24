@@ -547,5 +547,3 @@ private:
     size_type m_nbRows;
     size_type m_nbCols;
 };
-
-#include "grid.ipp"
