@@ -520,7 +520,20 @@ public:
     // 	}
     // }
 
-    void swap(Grid<T> &grid);
+    void swap(Grid<T> &grid)
+    {
+        int holdNbRows(m_nbRows);
+        int holdNbCols(m_nbCols);
+
+        m_data.swap(grid.m_data);
+
+        m_nbRows = grid.m_nbRows;
+        m_nbCols = grid.m_nbCols;
+
+        grid.m_nbRows = holdNbRows;
+        grid.m_nbCols = holdNbCols;
+    }
+
     void clear();
 
 private:
