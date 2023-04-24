@@ -151,41 +151,85 @@ public:
         }
     }
 
-    /*Grid<T> rows(size_type row, size_type n=1);
-    const Grid<T> rows(size_type row, size_type n = 1) const;
-    std::vector<T> row(size_type row);
-    const std::vector<T> row(size_type row) const;
-    Grid<T> cols(size_type col, size_type n = 1);
-    const Grid<T> cols(size_type col, size_type n = 1) const;
-    std::vector<T> col(size_type col);
-    const std::vector<T> col(size_type col) const;
-    Grid<T> firstRowGrid();
-    const Grid<T> firstRowGrid() const;
-    std::vector<T> firstRowVector();
-    const std::vector<T> firstRowVector() const;
-    Grid<T> lastRowGrid();
-    const Grid<T> lastRowGrid() const;
-    std::vector<T> lastRowVector();
-    const std::vector<T> lastRowVector() const;
-    Grid<T> firstColGrid();
-    const Grid<T> firstColGrid() const;
-    std::vector<T> firstColVector();
-    const std::vector<T> firstColVector() const;
-    Grid<T> lastColGrid();
-    const Grid<T> lastColGrid() const;
-    std::vector<T> lastColVector();
-    const std::vector<T> lastColVector() const;*/
+    // Grid<T> rows(size_type row, size_type n=1)
+    // {
+    // 	Grid<T>rowsToReturn(n, m_nbCols);
+
+    // 	for (int i = row; i < n && i < m_nbRows; ++i) {
+    // 		for (int j = 0; j < m_nbCols; ++j) {
+    // 			rowsToReturn.m_data[i*m_nbCols + j] = m_data[i*m_nbCols + j];
+    // 		}
+    // 	}
+
+    // 	return rowsToReturn;
+    // }
+
+    // const Grid<T> rows(size_type row, size_type n = 1) const
+    // {
+    // 	Grid<T&>rowsToReturn(n, m_nbCols);
+
+    // 	for (int i = row; i < n; ++i) {
+    // 		for (int j = 0; j < m_nbCols; ++j) {
+    // 			rowsToReturn.m_data[i*m_nbCols + j] = m_data[i*m_nbCols + j];
+    // 		}
+    // 	}
+
+    // 	return rowsToReturn;
+    // }
+
+    // std::vector<T> row(size_type row)
+    // {
+    // 	std::vector<T>rowToReturn(m_nbCols);
+
+    // 	for (int i = 0; i < m_nbCols; ++i) {
+    // 		rowToReturn[i] = m_data[row*m_nbCols + i];
+    // 	}
+
+    // 	return rowToReturn;
+    // }
+
+    // const std::vector<T> row(size_type row) const
+    // {
+    // 	std::vector<T>rowToReturn(m_nbCols);
+
+    // 	for (int i = 0; i < m_nbCols; ++i) {
+    // 		rowToReturn[i] = m_data[row*m_nbCols + i];
+    // 	}
+
+    // 	return rowToReturn;
+    // }
+
+    // Grid<T> cols(size_type col, size_type n = 1);
+    // const Grid<T> cols(size_type col, size_type n = 1) const;
+    // std::vector<T> col(size_type col);
+    // const std::vector<T> col(size_type col) const;
+    // Grid<T> firstRowGrid();
+    // const Grid<T> firstRowGrid() const;
+    // std::vector<T> firstRowVector();
+    // const std::vector<T> firstRowVector() const;
+    // Grid<T> lastRowGrid();
+    // const Grid<T> lastRowGrid() const;
+    // std::vector<T> lastRowVector();
+    // const std::vector<T> lastRowVector() const;
+    // Grid<T> firstColGrid();
+    // const Grid<T> firstColGrid() const;
+    // std::vector<T> firstColVector();
+    // const std::vector<T> firstColVector() const;
+    // Grid<T> lastColGrid();
+    // const Grid<T> lastColGrid() const;
+    // std::vector<T> lastColVector();
+    // const std::vector<T> lastColVector() const;
     std::vector<T> data();
     const std::vector<T> data() const;
 
     // Modifiers
-    void assign(size_type nbRows, size_type nbCols, const T &val);
-    /*void insertRows(size_type row, const Grid<T>& elements);
-    void insertRow(size_type row, const std::vector<T>& elements);
-    void insertCols(size_type col, const Grid<T>& elements);
-    void insertCol(size_type col, const std::vector<T>& elements);
-    void removeRows(size_type row, size_type n=1);
-    void removeCols(size_type col, size_type n = 1);*/
+    // void assign(size_type nbRows, size_type nbCols, const T &val);
+    // void insertRows(size_type row, const Grid<T>& elements);
+    // void insertRow(size_type row, const std::vector<T>& elements);
+    // void insertCols(size_type col, const Grid<T>& elements);
+    // void insertCol(size_type col, const std::vector<T>& elements);
+    // void removeRows(size_type row, size_type n=1);
+    // void removeCols(size_type col, size_type n = 1);
     void swap(Grid<T> &grid);
     void clear();
 
