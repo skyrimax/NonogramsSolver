@@ -348,10 +348,134 @@ public:
         m_nbCols = nbCols;
     }
 
-    // void insertRows(size_type row, const Grid<T>& elements);
-    // void insertRow(size_type row, const std::vector<T>& elements);
-    // void insertCols(size_type col, const Grid<T>& elements);
-    // void insertCol(size_type col, const std::vector<T>& elements);
+    // void insertRows(size_type row, const Grid<T>& elements)
+    // {
+    // 	int i;
+    // 	int j;
+
+    // 	std::vector<T> newArray((m_nbRows + elements.m_nbRows)*m_nbCols);
+
+    // 	for (i = 0; i < row; ++i) {
+    // 		for (j = 0; j < m_nbCols; ++j) {
+    // 			newArray[i*m_nbCols + j] = m_data[i*m_nbCols + j];
+    // 		}
+    // 	}
+
+    // 	for (i = row; i < row + elements.m_nbRows; ++i) {
+    // 		for (j = 0; j < m_nbCols && j < elements.m_nbCols; ++j) {
+    // 			newArray[i*m_nbCols + j]=elements.m_data[i*m_nbCols + j];
+    // 		}
+
+    // 		for (j=elements.m_nbCols; j < m_nbRows; ++j) {
+    // 			newArray[i*m_nbCols + j] = T();
+    // 		}
+    // 	}
+
+    // 	for (i = row + elements.m_nbRows; i < m_nbRows; ++i) {
+    // 		for (j = 0; j < m_nbCols; ++j) {
+    // 			newArray[i*m_nbCols + j] = m_data[(i-elements.m_nbRows)*m_nbCols + j];
+    // 		}
+    // 	}
+
+    // 	m_data.swap(newArray);
+    // }
+
+    // void insertRow(size_type row, const std::vector<T>& elements)
+    // {
+    // 	int i;
+    // 	int j;
+
+    // 	std::vector<T>newArray((m_nbRows + 1)*m_nbCols);
+
+    // 	for (i = 0; i < row; ++i) {
+    // 		for (j = 0; j < m_nbCols; ++j) {
+    // 			newArray[i*m_nbCols + j] = m_data[i*m_nbCols + j];
+    // 		}
+    // 	}
+
+    // 	for (i = row; i < row + 1; ++i) {
+    // 		for (j = 0; j < m_nbCols && j < elements.size(); ++j) {
+    // 			newArray[i*m_nbCols + j] = elements[j];
+    // 		}
+
+    // 		for (j = elements.size(); j < m_nbRows; ++j) {
+    // 			newArray[i*m_nbCols + j] = T();
+    // 		}
+    // 	}
+
+    // 	for (i = row + elements.m_nbRows; i < m_nbRows; ++i) {
+    // 		for (j = 0; j < m_nbCols; ++j) {
+    // 			newArray[i*m_nbCols + j] = m_data[(i - 1)*m_nbCols + j];
+    // 		}
+    // 	}
+
+    // 	m_data.swap(newArray);
+    // }
+
+    // void insertCols(size_type col, const Grid<T>& elements)
+    // {
+    // 	int i;
+    // 	int j;
+
+    // 	std::vector<T>newArray(m_nbRows*(m_nbCols+elements.m_nbCols));
+
+    // 	for (j = 0; j < col; ++j) {
+    // 		for (i = 0; i < m_nbRows; ++i) {
+    // 			newArray[i*m_nbCols + j] = m_data[i*m_nbCols + j];
+    // 		}
+    // 	}
+
+    // 	for (j = col; j < col + elements.m_nbCols; ++j) {
+    // 		for (i = 0; i < m_nbRows && i < elements.m_nbRows; ++i) {
+    // 			newArray[i*m_nbCols + j] = elements.m_data[i*m_nbCols + j];
+    // 		}
+
+    // 		for (i=elements.m_nbRows; i < m_nbRows; ++i) {
+    // 			newArray[i*m_nbCols + j] = T();
+    // 		}
+    // 	}
+
+    // 	for (j = col + elements.m_nbCols; j < m_nbCols; ++j) {
+    // 		for (i = 0; i < m_nbRows; ++i) {
+    // 			newArray[i*m_nbCols + j] = m_data[i*m_nbCols + (j - elements.m_nbRows)];
+    // 		}
+    // 	}
+
+    // 	m_data.swap(newArray);
+    // }
+
+    // void insertCol(size_type col, const std::vector<T>& elements)
+    // {
+    // 	int i;
+    // 	int j;
+
+    // 	std::vector<T>newArray(m_nbRows*(m_nbCols + 1));
+
+    // 	for (j = 0; j < col; ++j) {
+    // 		for (i = 0; i < m_nbRows; ++i) {
+    // 			newArray[i*m_nbCols + j] = m_data[i*m_nbCols + j];
+    // 		}
+    // 	}
+
+    // 	for (j = col; j < col + 1; ++j) {
+    // 		for (i = 0; i < m_nbRows && i < elements.size(); ++i) {
+    // 			newArray[i*m_nbCols + j] = elements[j];
+    // 		}
+
+    // 		for (i = elements.size(); i < m_nbRows; ++i) {
+    // 			newArray[i*m_nbCols + j] = T();
+    // 		}
+    // 	}
+
+    // 	for (j = col + elements.m_nbCols; j < m_nbCols; ++j) {
+    // 		for (i = 0; i < m_nbRows; ++i) {
+    // 			newArray[i*m_nbCols + j] = m_data[(i - 1)*m_nbCols + j];
+    // 		}
+    // 	}
+
+    // 	m_data.swap(newArray);
+    // }
+
     // void removeRows(size_type row, size_type n=1);
     // void removeCols(size_type col, size_type n = 1);
     void swap(Grid<T> &grid);
