@@ -6,18 +6,6 @@
 #include <utility>
 
 template<class T>
-std::vector<T> Grid<T>::data()
-{
-	return m_data;
-}
-
-template<class T>
-const std::vector<T> Grid<T>::data() const
-{
-	return m_data;
-}
-
-template<class T>
 void Grid<T>::assign(size_type nbRows, size_type nbCols, const T & val)
 {
 	std::vector<T>newArray(nbRows*nbCols, val);

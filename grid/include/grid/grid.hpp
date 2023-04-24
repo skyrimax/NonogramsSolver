@@ -327,8 +327,15 @@ public:
     // 	return col(m_nbCols - 1);
     // }
 
-    std::vector<T> data();
-    const std::vector<T> data() const;
+    std::vector<T> data()
+    {
+        return m_data;
+    }
+
+    const std::vector<T> data() const
+    {
+        return m_data;
+    }
 
     // Modifiers
     // void assign(size_type nbRows, size_type nbCols, const T &val);
