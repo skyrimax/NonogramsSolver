@@ -10,7 +10,7 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(
     grid_test
-    grid_test.cpp
+    grid_constructors_test.cpp
 )
 
 target_link_libraries(
