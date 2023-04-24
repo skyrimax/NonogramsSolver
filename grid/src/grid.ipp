@@ -6,54 +6,6 @@
 #include <utility>
 
 // template<class T>
-// Grid<T> Grid<T>::firstRowGrid()
-// {
-// 	return rows(0);
-// }
-
-// template<class T>
-// const Grid<T> Grid<T>::firstRowGrid() const
-// {
-// 	return rows(0);
-// }
-
-// template<class T>
-// std::vector<T> Grid<T>::firstRowVector()
-// {
-// 	return row(0);
-// }
-
-// template<class T>
-// const std::vector<T> Grid<T>::firstRowVector() const
-// {
-// 	return row(0);
-// }
-
-// template<class T>
-// Grid<T> Grid<T>::lastRowGrid()
-// {
-// 	return rows(m_nbRows - 1);
-// }
-
-// template<class T>
-// const Grid<T> Grid<T>::lastRowGrid() const
-// {
-// 	return rows(m_nbRows - 1);
-// }
-
-// template<class T>
-// std::vector<T> Grid<T>::lastRowVector()
-// {
-// 	return row(m_nbRows - 1);
-// }
-
-// template<class T>
-// const std::vector<T> Grid<T>::lastRowVector() const
-// {
-// 	return row(m_nbRows - 1);
-// }
-
-// template<class T>
 // Grid<T> Grid<T>::firstColGrid()
 // {
 // 	return cols(0);

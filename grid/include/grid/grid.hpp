@@ -247,14 +247,46 @@ public:
     // 	return colToReturn;
     // }
 
-    // Grid<T> firstRowGrid();
-    // const Grid<T> firstRowGrid() const;
-    // std::vector<T> firstRowVector();
-    // const std::vector<T> firstRowVector() const;
-    // Grid<T> lastRowGrid();
-    // const Grid<T> lastRowGrid() const;
-    // std::vector<T> lastRowVector();
-    // const std::vector<T> lastRowVector() const;
+    // Grid<T> firstRowGrid()
+    // {
+    // 	return rows(0);
+    // }
+
+    // const Grid<T> firstRowGrid() const
+    // {
+    // 	return rows(0);
+    // }
+
+    // std::vector<T> firstRowVector()
+    // {
+    // 	return row(0);
+    // }
+
+    // const std::vector<T> firstRowVector() const
+    // {
+    // 	return row(0);
+    // }
+
+    // Grid<T> lastRowGrid()
+    // {
+    // 	return rows(m_nbRows - 1);
+    // }
+
+    // const Grid<T> lastRowGrid() const
+    // {
+    // 	return rows(m_nbRows - 1);
+    // }
+
+    // std::vector<T> lastRowVector()
+    // {
+    // 	return row(m_nbRows - 1);
+    // }
+
+    // const std::vector<T> lastRowVector() const
+    // {
+    // 	return row(m_nbRows - 1);
+    // }
+
     // Grid<T> firstColGrid();
     // const Grid<T> firstColGrid() const;
     // std::vector<T> firstColVector();
