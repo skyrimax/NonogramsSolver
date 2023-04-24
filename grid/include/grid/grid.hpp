@@ -287,14 +287,46 @@ public:
     // 	return row(m_nbRows - 1);
     // }
 
-    // Grid<T> firstColGrid();
-    // const Grid<T> firstColGrid() const;
-    // std::vector<T> firstColVector();
-    // const std::vector<T> firstColVector() const;
-    // Grid<T> lastColGrid();
-    // const Grid<T> lastColGrid() const;
-    // std::vector<T> lastColVector();
-    // const std::vector<T> lastColVector() const;
+    // Grid<T> firstColGrid()
+    // {
+    // 	return cols(0);
+    // }
+
+    // const Grid<T> firstColGrid() const
+    // {
+    // 	return cols(0);
+    // }
+
+    // std::vector<T> firstColVector()
+    // {
+    // 	return col(0);
+    // }
+
+    // const std::vector<T> firstColVector() const
+    // {
+    // 	return col(0);
+    // }
+
+    // Grid<T> lastColGrid()
+    // {
+    // 	return cols(m_nbCols-1);
+    // }
+
+    // const Grid<T> lastColGrid() const
+    // {
+    // 	return cols(m_nbCols - 1);
+    // }
+
+    // std::vector<T> lastColVector()
+    // {
+    // 	return col(m_nbCols - 1);
+    // }
+
+    // const std::vector<T> lastColVector() const
+    // {
+    // 	return col(m_nbCols - 1);
+    // }
+
     std::vector<T> data();
     const std::vector<T> data() const;
 

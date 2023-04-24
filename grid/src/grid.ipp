@@ -5,54 +5,6 @@
 #include <exception>
 #include <utility>
 
-// template<class T>
-// Grid<T> Grid<T>::firstColGrid()
-// {
-// 	return cols(0);
-// }
-
-// template<class T>
-// const Grid<T> Grid<T>::firstColGrid() const
-// {
-// 	return cols(0);
-// }
-
-// template<class T>
-// std::vector<T> Grid<T>::firstColVector()
-// {
-// 	return col(0);
-// }
-
-// template<class T>
-// const std::vector<T> Grid<T>::firstColVector() const
-// {
-// 	return col(0);
-// }
-
-// template<class T>
-// Grid<T> Grid<T>::lastColGrid()
-// {
-// 	return cols(m_nbCols-1);
-// }
-
-// template<class T>
-// const Grid<T> Grid<T>::lastColGrid() const
-// {
-// 	return cols(m_nbCols - 1);
-// }
-
-// template<class T>
-// std::vector<T> Grid<T>::lastColVector()
-// {
-// 	return col(m_nbCols - 1);
-// }
-
-// template<class T>
-// const std::vector<T> Grid<T>::lastColVector() const
-// {
-// 	return col(m_nbCols - 1);
-// }
-
 template<class T>
 std::vector<T> Grid<T>::data()
 {
