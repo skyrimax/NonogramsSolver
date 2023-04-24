@@ -6,58 +6,6 @@
 #include <utility>
 
 // template<class T>
-// Grid<T> Grid<T>::cols(size_type col, size_type n)
-// {
-// 	Grid<T>colsToReturn(m_nbRows, n);
-
-// 	for (int i = 0; i < m_nbRows; ++i) {
-// 		for (int j = 0; j < n; i++) {
-// 			colsToReturn.m_data[i*m_nbRows + j] = m_data[i*m_nbRows + j];
-// 		}
-// 	}
-
-// 	return colsToReturn;
-// }
-
-// template<class T>
-// const Grid<T> Grid<T>::cols(size_type col, size_type n) const
-// {
-// 	Grid<T>colsToReturn(m_nbRows, n);
-
-// 	for (int i = 0; i < m_nbRows; ++i) {
-// 		for (int j = 0; j < n; i++) {
-// 			colsToReturn.m_data[i*m_nbRows + j] = m_data[i*m_nbRows + j];
-// 		}
-// 	}
-
-// 	return colsToReturn;
-// }
-
-// template<class T>
-// std::vector<T> Grid<T>::col(size_type col)
-// {
-// 	std::vector<T> colToReturn(m_nbRows);
-
-// 	for (int i = 0; i < m_nbRows; ++i) {
-// 		colToReturn[i] = m_data[i*m_nbCols + col];
-// 	}
-
-// 	return colToReturn;
-// }
-
-// template<class T>
-// const std::vector<T> Grid<T>::col(size_type col) const
-// {
-// 	std::vector<T> colToReturn(m_nbRows);
-
-// 	for (int i = 0; i < m_nbRows; ++i) {
-// 		colToReturn[i] = m_data[i*m_nbCols + col];
-// 	}
-
-// 	return colToReturn;
-// }
-
-// template<class T>
 // Grid<T> Grid<T>::firstRowGrid()
 // {
 // 	return rows(0);

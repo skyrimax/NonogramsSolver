@@ -199,10 +199,54 @@ public:
     // 	return rowToReturn;
     // }
 
-    // Grid<T> cols(size_type col, size_type n = 1);
-    // const Grid<T> cols(size_type col, size_type n = 1) const;
-    // std::vector<T> col(size_type col);
-    // const std::vector<T> col(size_type col) const;
+    // Grid<T> cols(size_type col, size_type n = 1)
+    // {
+    // 	Grid<T>colsToReturn(m_nbRows, n);
+
+    // 	for (int i = 0; i < m_nbRows; ++i) {
+    // 		for (int j = 0; j < n; i++) {
+    // 			colsToReturn.m_data[i*m_nbRows + j] = m_data[i*m_nbRows + j];
+    // 		}
+    // 	}
+
+    // 	return colsToReturn;
+    // }
+
+    // const Grid<T> cols(size_type col, size_type n = 1) const
+    // {
+    // 	Grid<T>colsToReturn(m_nbRows, n);
+
+    // 	for (int i = 0; i < m_nbRows; ++i) {
+    // 		for (int j = 0; j < n; i++) {
+    // 			colsToReturn.m_data[i*m_nbRows + j] = m_data[i*m_nbRows + j];
+    // 		}
+    // 	}
+
+    // 	return colsToReturn;
+    // }
+
+    // std::vector<T> col(size_type col)
+    // {
+    // 	std::vector<T> colToReturn(m_nbRows);
+
+    // 	for (int i = 0; i < m_nbRows; ++i) {
+    // 		colToReturn[i] = m_data[i*m_nbCols + col];
+    // 	}
+
+    // 	return colToReturn;
+    // }
+
+    // const std::vector<T> col(size_type col) const
+    // {
+    // 	std::vector<T> colToReturn(m_nbRows);
+
+    // 	for (int i = 0; i < m_nbRows; ++i) {
+    // 		colToReturn[i] = m_data[i*m_nbCols + col];
+    // 	}
+
+    // 	return colToReturn;
+    // }
+
     // Grid<T> firstRowGrid();
     // const Grid<T> firstRowGrid() const;
     // std::vector<T> firstRowVector();
