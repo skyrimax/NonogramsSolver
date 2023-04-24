@@ -12,7 +12,7 @@ add_library(grid_library INTERFACE
 
 # We need this directory, and users of our library will need it too
 target_include_directories(grid_library INTERFACE
-                            "${grid_lib_SOURCE_DIR}/include/LineSequencer")
+                            "${grid_lib_SOURCE_DIR}/include/grid")
 
 # All users of this library will need at least C++17
 target_compile_features(grid_library INTERFACE cxx_std_17)
