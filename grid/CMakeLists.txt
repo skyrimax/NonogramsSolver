@@ -3,9 +3,9 @@ cmake_minimum_required(VERSION 3.14)
 
 # Project name and a few useful settings. Other commands can pick up the results
 project(
-    nonograms_solver
-    VERSION 0.1.0
-    DESCRIPTION "Program solving nonograms"
+    grid_lib
+    VERSION 0.1
+    DESCRIPTION "Library for a generid grid template"
     LANGUAGES CXX)
 
 # Only do these if this is the main project, and not if it is included through
@@ -31,26 +31,6 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     endif()
 endif()
 
-include(FetchContent)
-
-FetchContent_Declare(
-    thread_pool
-    GIT_REPOSITORY https://github.com/bshoshany/thread-pool
-)
-FetchContent_MakeAvailable(thread_pool)
-
-# Load line sequencer library
-add_subdirectory(LineSequencer)
-
-# Load line filter library
-add_subdirectory(LineFilter)
-
-# Load line generator library
-add_subdirectory(LineGenerator)
-
-# Load grid library
-add_subdirectory(grid)
-
 # Load external dependencies
 add_subdirectory(extern)
 
@@ -64,13 +44,3 @@ add_subdirectory(apps)
 if(BUILD_TESTING)
   add_subdirectory(tests)
 endif()
-
-# add_executable(NonogramsSolver
-#                 src/main.cpp
-#                 src/NonogramSolver.cpp
-#                 src/ILineGenerator.cpp
-#                 src/LineGeneratorBruteForce.cpp)
-
-# target_include_directories(NonogramsSolver PRIVATE
-#                             Include/NonogramSolver
-#                             thread-pool)
