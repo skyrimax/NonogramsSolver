@@ -12,6 +12,7 @@ add_executable(
     grid_test
     grid_constructors_test.cpp
     grid_assignent_operators_test.cpp
+    grid_resize_test.cpp
 )
 
 target_link_libraries(
