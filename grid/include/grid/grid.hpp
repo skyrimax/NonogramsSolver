@@ -39,6 +39,8 @@ public:
     Grid(Grid<T> &&grid)
         : m_data(std::move(grid.m_data)), m_nbRows(grid.m_nbRows), m_nbCols(grid.m_nbCols)
     {
+        grid.m_nbRows = 0;
+        grid.m_nbCols = 0;
     }
 
     ~Grid()
