@@ -85,7 +85,7 @@ public:
         {
             for (int j = 0; j < m_nbCols && j < nbCols; ++j)
             {
-                newArray[i * nbCols + j] = this(i, j);
+                newArray[i * nbCols + j] = this->at(i, j);
             }
         }
 
@@ -103,7 +103,7 @@ public:
         {
             for (int j = 0; j < m_nbCols && j < nbCols; ++j)
             {
-                newArray[i * nbCols + j] = this(i, j);
+                newArray[i * nbCols + j] = this->at(i, j);
             }
         }
 
