@@ -95,7 +95,7 @@ public:
         m_nbCols - nbCols;
     }
 
-    void resize(size_type nbRows, size_type nbCols, T &val)
+    void resize(size_type nbRows, size_type nbCols, const T &val)
     {
         std::vector<T> newArray(nbRows * nbCols, val);
 
