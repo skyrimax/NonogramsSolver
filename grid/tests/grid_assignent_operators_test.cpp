@@ -255,13 +255,13 @@ TEST(GridAssignmentOperatorMoveTest, ContainsCorrectValues)
     EXPECT_EQ(grid3.data().size(), 0);
     EXPECT_TRUE(grid3.empty());
 
-    EXPECT_EQ(grid3(0, 0), 1);
-    EXPECT_EQ(grid3(0, 1), 2);
-    EXPECT_EQ(grid3(0, 2), 3);
-    EXPECT_EQ(grid3(1, 0), 4);
-    EXPECT_EQ(grid3(1, 1), 5);
-    EXPECT_EQ(grid3(1, 2), 6);
-    EXPECT_EQ(grid3(2, 0), 7);
-    EXPECT_EQ(grid3(2, 1), 8);
-    EXPECT_EQ(grid3(2, 2), 9);
+    EXPECT_EQ(grid4(0, 0), 1);
+    EXPECT_EQ(grid4(0, 1), 2);
+    EXPECT_EQ(grid4(0, 2), 3);
+    EXPECT_EQ(grid4(1, 0), 4);
+    EXPECT_EQ(grid4(1, 1), 5);
+    EXPECT_EQ(grid4(1, 2), 6);
+    EXPECT_EQ(grid4(2, 0), 7);
+    EXPECT_EQ(grid4(2, 1), 8);
+    EXPECT_EQ(grid4(2, 2), 9);
 }
