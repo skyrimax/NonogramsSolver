@@ -216,8 +216,8 @@ TEST(GridSwapTest, swapSmallAndLarge)
 
     EXPECT_EQ(grid1(0, 0), 11);
     EXPECT_EQ(grid1(0, 1), 22);
-    EXPECT_EQ(grid1(0, 2), 33);
-    EXPECT_EQ(grid1(1, 0), 44);
+    EXPECT_EQ(grid1(1, 0), 33);
+    EXPECT_EQ(grid1(1, 1), 44);
 }
 
 TEST(GridClearTest, clearEmpty)
