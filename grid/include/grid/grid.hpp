@@ -95,7 +95,7 @@ public:
         m_data.swap(newArray);
 
         m_nbRows = nbRows;
-        m_nbCols - nbCols;
+        m_nbCols = nbCols;
     }
 
     void resize(size_type nbRows, size_type nbCols, const T &val)
@@ -113,7 +113,7 @@ public:
         m_data.swap(newArray);
 
         m_nbRows = nbRows;
-        m_nbCols - nbCols;
+        m_nbCols = nbCols;
     }
 
     bool empty()
