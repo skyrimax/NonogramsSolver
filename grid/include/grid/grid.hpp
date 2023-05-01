@@ -63,6 +63,9 @@ public:
         m_nbCols = grid.m_nbCols;
         m_data = std::move(grid.m_data);
 
+        grid.m_nbRows = 0;
+        grid.m_nbCols = 0;
+
         return *this;
     }
 
