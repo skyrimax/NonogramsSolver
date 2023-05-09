@@ -33,12 +33,6 @@ endif()
 
 include(FetchContent)
 
-FetchContent_Declare(
-    thread_pool
-    GIT_REPOSITORY https://github.com/bshoshany/thread-pool
-)
-FetchContent_MakeAvailable(thread_pool)
-
 # Load line sequencer library
 add_subdirectory(LineSequencer)
 

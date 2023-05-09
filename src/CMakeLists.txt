@@ -6,14 +6,14 @@
 set(HEADER_LIST
     "${nonograms_solver_SOURCE_DIR}/include/NonogramSolver/NonogramSolver.hpp")
 
-set(EXTERNAL_HEADER_LIST
-    "${thread_pool_SOURCE_DIR}/BS_thread_pool.hpp")
-
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(nonograms_solver_library
             NonogramSolver.cpp
             ${HEADER_LIST}
             ${EXTERNAL_HEADER_LIST})
+
+target_link_libraries(nonograms_solver_library PUBLIC
+                        thread_pool)
 
 # We need this directory, and users of our library will need it too
 target_include_directories(nonograms_solver_library PUBLIC
