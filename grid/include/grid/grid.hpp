@@ -16,7 +16,7 @@ public:
     }
 
     Grid(size_type nbRows, size_type nbCols, const T &val)
-        : m_data(nbRows * nbCols, val), m_nbRows(nbRows), m_nbCols(nbCols)
+        : m_data(nbRows * nbCols, val, Allocator()), m_nbRows(nbRows), m_nbCols(nbCols)
     {
     }
 
