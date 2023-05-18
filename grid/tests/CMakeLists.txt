@@ -14,6 +14,7 @@ add_executable(
     grid_assignent_operators_test.cpp
     grid_resize_test.cpp
     grid_element_accessors_test.cpp
+    grid_subgrid_test.cpp
     grid_misc_test.cpp
 )
 

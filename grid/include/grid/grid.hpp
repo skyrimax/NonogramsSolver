@@ -183,16 +183,17 @@ public:
     // 	return rowsToReturn;
     // }
 
-    // std::vector<T> row(size_type row)
-    // {
-    // 	std::vector<T>rowToReturn(m_nbCols);
+    std::vector<std::reference_wrapper<T>> row(size_type row)
+    {
+    	std::vector<std::reference_wrapper<T>>rowToReturn;
+        rowToReturn.reserve(m_nbCols);
 
-    // 	for (int i = 0; i < m_nbCols; ++i) {
-    // 		rowToReturn[i] = m_data[row*m_nbCols + i];
-    // 	}
+    	for (int i = 0; i < m_nbCols; ++i) {
+    		rowToReturn.push_back(std::ref(m_data[row*m_nbCols + i]));
+    	}
 
-    // 	return rowToReturn;
-    // }
+    	return rowToReturn;
+    }
 
     // const std::vector<T> row(size_type row) const
     // {
