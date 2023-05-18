@@ -1,8 +1,9 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 
-template <class T>
+template <class T, class Allocator = std::allocator<T>>
 class Grid
 {
 public:
@@ -10,12 +11,12 @@ public:
     typedef size_t size_type;
 
     Grid(size_type nbRows = 0, size_type nbCols = 0)
-        : m_data(nbRows * nbCols), m_nbRows(nbRows), m_nbCols(nbCols)
+        : m_data(nbRows * nbCols, Allocator()), m_nbRows(nbRows), m_nbCols(nbCols)
     {
     }
 
     Grid(size_type nbRows, size_type nbCols, const T &val)
-        : m_data(nbRows * nbCols, val), m_nbRows(nbRows), m_nbCols(nbCols)
+        : m_data(nbRows * nbCols, val, Allocator()), m_nbRows(nbRows), m_nbCols(nbCols)
     {
     }
 
