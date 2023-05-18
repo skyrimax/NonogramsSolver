@@ -185,10 +185,10 @@ public:
 
     std::vector<std::reference_wrapper<T>> row(size_type row)
     {
-    	std::vector<std::reference_wrapper<T>>rowToReturn(m_nbCols);
+    	std::vector<std::reference_wrapper<T>>rowToReturn;
 
     	for (int i = 0; i < m_nbCols; ++i) {
-    		rowToReturn[i] = m_data[row*m_nbCols + i];
+    		rowToReturn.push_back(std::ref(m_data[row*m_nbCols + i]));
     	}
 
     	return rowToReturn;
