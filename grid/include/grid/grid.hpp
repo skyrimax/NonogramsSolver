@@ -248,16 +248,16 @@ public:
     	return colToReturn;
     }
 
-    // const std::vector<T> col(size_type col) const
-    // {
-    // 	std::vector<T> colToReturn(m_nbRows);
+    const std::vector<T> col(size_type col) const
+    {
+    	std::vector<T> colToReturn(m_nbRows);
 
-    // 	for (int i = 0; i < m_nbRows; ++i) {
-    // 		colToReturn[i] = m_data[i*m_nbCols + col];
-    // 	}
+    	for (int i = 0; i < m_nbRows; ++i) {
+    		colToReturn[i] = m_data[i*m_nbCols + col];
+    	}
 
-    // 	return colToReturn;
-    // }
+    	return colToReturn;
+    }
 
     // Grid<T> firstRowGrid()
     // {
