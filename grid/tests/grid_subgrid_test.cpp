@@ -75,6 +75,16 @@ TEST(GridExtractRowTest, ValueModifiables)
     ASSERT_EQ(grid(0, 2), 30);
 }
 
+TEST(GridExtractConstRowTest, HandleEmpty)
+{
+    const Grid<int> grid;
+
+    auto row0 = grid.row(0);
+
+    EXPECT_EQ(row0.size(), 0);
+    EXPECT_TRUE(row0.empty());
+}
+
 TEST(GridExtractConstRowTest, ContainsCorrectValues)
 {
     std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
