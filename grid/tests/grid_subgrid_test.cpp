@@ -58,7 +58,7 @@ TEST(GridExtractRowTest, ContainsCorrectValues)
     EXPECT_EQ(row0[2], 3);
 }
 
-TEST(GridExtractRowTest, ValueModifiables)
+TEST(GridExtractRowTest, ValuesModifiable)
 {
     std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
 
@@ -116,6 +116,19 @@ TEST(GridExtractConstRowTest, accessOutsideRangeRows)
 }
 
 TEST(GridExtractConstRowTest, ContainsCorrectValues)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    const Grid<int> grid(3, 3, sourceVals);
+
+    auto row0 = grid.row(0);
+
+    EXPECT_EQ(row0[0], 1);
+    EXPECT_EQ(row0[1], 2);
+    EXPECT_EQ(row0[2], 3);
+}
+
+TEST(GridExtractConstRowTest, ValuesNonModifiable)
 {
     std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
 
