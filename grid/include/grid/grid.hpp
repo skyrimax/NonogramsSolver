@@ -250,7 +250,7 @@ public:
 
     const std::vector<std::reference_wrapper<const T>> col(size_type col) const
     {
-    	std::vector<std::reference_wrapper<T>>colToReturn;
+    	std::vector<std::reference_wrapper<const T>>colToReturn;
         colToReturn.reserve(m_nbRows);
 
     	for (int i = 0; i < m_nbRows; ++i) {
