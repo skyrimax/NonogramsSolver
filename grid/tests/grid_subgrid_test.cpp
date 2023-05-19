@@ -21,10 +21,7 @@ TEST(GridExtractRowTest, HandleNoRow)
     {
         Grid<int> grid(0, j);
 
-        auto row0 = grid.row(0);
-
-        EXPECT_EQ(row0.size(), 0);
-        EXPECT_TRUE(row0.empty());
+        EXPECT_THROW(grid.row(0), std::out_of_range);
     }
 }
 
