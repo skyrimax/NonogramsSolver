@@ -235,7 +235,7 @@ public:
     // 	return colsToReturn;
     // }
 
-    std::vector<T> col(size_type col)
+    std::vector<std::reference_wrapper<T>> col(size_type col)
     {
     	std::vector<std::reference_wrapper<T>>colToReturn;
         colToReturn.reserve(m_nbRows);
