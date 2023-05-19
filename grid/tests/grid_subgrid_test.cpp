@@ -53,6 +53,19 @@ TEST(GridExtractRowTest, ContainsCorrectValues)
 
     auto row0 = grid.row(0);
 
+    EXPECT_EQ(row0[0], 1);
+    EXPECT_EQ(row0[1], 2);
+    EXPECT_EQ(row0[2], 3);
+}
+
+TEST(GridExtractRowTest, ValueModifiables)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    Grid<int> grid(3, 3, sourceVals);
+
+    auto row0 = grid.row(0);
+
     row0[0].get() = 10;
     row0[1].get() = 20;
     row0[2].get() = 30;
