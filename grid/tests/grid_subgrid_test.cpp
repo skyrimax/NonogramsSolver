@@ -85,6 +85,16 @@ TEST(GridExtractConstRowTest, HandleEmpty)
     EXPECT_TRUE(row0.empty());
 }
 
+TEST(GridExtractConstRowTest, HandleNoRow)
+{
+    for (size_t j = 1; j <= 5; ++j)
+    {
+        const Grid<int> grid(0, j);
+
+        EXPECT_THROW(grid.row(0), std::out_of_range);
+    }
+}
+
 TEST(GridExtractConstRowTest, ContainsCorrectValues)
 {
     std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
