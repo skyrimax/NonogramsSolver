@@ -38,6 +38,13 @@ TEST(GridExtractRowTest, HandleNoColumn)
     }
 }
 
+TEST(GridExtractRowTest, accessOutsideRangeRows)
+{
+    Grid<int> grid(3, 3, 1);
+
+    EXPECT_THROW(grid.row(3), std::out_of_range);
+}
+
 TEST(GridExtractRowTest, ContainsCorrectValues)
 {
     std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
