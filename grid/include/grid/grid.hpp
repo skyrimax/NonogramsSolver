@@ -202,7 +202,8 @@ public:
         rowToReturn.reserve(m_nbCols);
 
     	for (int i = 0; i < m_nbCols; ++i) {
-    		rowToReturn.push_back(std::cref(m_data[row*m_nbCols + i]));
+    		rowToReturn.push_back(
+                std::cref(this->at(row, j)));
     	}
 
     	return rowToReturn;
