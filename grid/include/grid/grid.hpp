@@ -201,7 +201,7 @@ public:
     	std::vector<std::reference_wrapper<const T>>rowToReturn;
         rowToReturn.reserve(m_nbCols);
 
-    	for (int i = 0; i < m_nbCols; ++i) {
+    	for (int j = 0; j < m_nbCols; ++j) {
     		rowToReturn.push_back(
                 std::cref(this->at(row, j)));
     	}
