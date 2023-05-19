@@ -248,12 +248,14 @@ public:
     	return colToReturn;
     }
 
-    const std::vector<T> col(size_type col) const
+    const std::vector<std::reference_wrapper<const T>> col(size_type col) const
     {
-    	std::vector<T> colToReturn(m_nbRows);
+    	std::vector<std::reference_wrapper<T>>colToReturn;
+        colToReturn.reserve(m_nbRows);
 
     	for (int i = 0; i < m_nbRows; ++i) {
-    		colToReturn[i] = m_data[i*m_nbCols + col];
+    		colToReturn.push_back(
+                std::ref(this->at(i, col)));
     	}
 
     	return colToReturn;
