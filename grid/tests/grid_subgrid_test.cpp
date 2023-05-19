@@ -5,6 +5,29 @@
 #include <vector>
 #include <utility>
 
+TEST(GridExtractRowTest, HandleEmpty)
+{
+    Grid<int> grid;
+
+    auto row0 = grid.row(0);
+
+    EXPECT_EQ(row0.size(), 0);
+    EXPECT_TRUE(row0.empty());
+}
+
+TEST(GridExtractRowTest, HandleNoRow)
+{
+    for (size_t j = 1; j <= 5; ++j)
+    {
+        Grid<int> grid(0, j);
+
+        auto row0 = grid.row(0);
+
+        EXPECT_EQ(row0.size(), 0);
+        EXPECT_TRUE(row0.empty());
+    }
+}
+
 TEST(GridExtractRowTest, ContainsCorrectValues)
 {
     std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
