@@ -136,7 +136,6 @@ TEST(GridExtractConstRowTest, ValuesNonModifiable)
 
     auto row0 = grid.row(0);
 
-    std::is_const<const int &>::value;
     ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0[0].get())>::type>::value);
     ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0[1].get())>::type>::value);
     ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0[2].get())>::type>::value);
@@ -210,4 +209,70 @@ TEST(GridExtractColTest, ValuesModifiable)
     ASSERT_EQ(grid(0, 0), 10);
     ASSERT_EQ(grid(1, 0), 40);
     ASSERT_EQ(grid(2, 0), 70);
+}
+
+TEST(GridExtractConstColTest, HandleEmpty)
+{
+    const Grid<int> grid;
+
+    auto col0 = grid.col(0);
+
+    EXPECT_EQ(col0.size(), 0);
+    EXPECT_TRUE(col0.empty());
+}
+
+TEST(GridExtractConstColTest, HandleNoColumn)
+{
+    for (size_t i = 1; i <= 5; ++i)
+    {
+        const Grid<int> grid(i, 0);
+
+        EXPECT_THROW(grid.col(0), std::out_of_range);
+    }
+}
+
+TEST(GridExtractConstColTest, HandleNoColRow)
+{
+    for (size_t j = 1; j <= 5; ++j)
+    {
+        const Grid<int> grid(0, j);
+
+        auto col0 = grid.col(0);
+
+        EXPECT_EQ(col0.size(), 0);
+        EXPECT_TRUE(col0.empty());
+    }
+}
+
+TEST(GridExtractConstColTest, accessOutsideRangeColumns)
+{
+    const Grid<int> grid(3, 3, 1);
+
+    EXPECT_THROW(grid.col(3), std::out_of_range);
+}
+
+TEST(GridExtractConstColTest, ContainsCorrectValues)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    const Grid<int> grid(3, 3, sourceVals);
+
+    auto col0 = grid.col(0);
+
+    EXPECT_EQ(col0[0], 1);
+    EXPECT_EQ(col0[1], 4);
+    EXPECT_EQ(col0[2], 7);
+}
+
+TEST(GridExtractConstColTest, ValuesNonModifiable)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    const Grid<int> grid(3, 3, sourceVals);
+
+    auto col0 = grid.col(0);
+
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(col0[0].get())>::type>::value);
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(col0[1].get())>::type>::value);
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(col0[2].get())>::type>::value);
 }
