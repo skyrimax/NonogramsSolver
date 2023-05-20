@@ -165,12 +165,12 @@ public:
     	for (int i = 0; i < n; ++i) {
     		for (int j = 0; j < m_nbCols; ++j) {
                 rowsToReturnData.push_back(
-                    std::ref(this->at(row + i, j))
-                )
+                    std::ref(this->at(row + i, j)));
     		}
     	}
 
-    	return Grid<td::reference_wrapper<T>>(rowsToReturnData);
+    	return Grid<std::reference_wrapper<T>>(n, m_nbCols,
+                                                rowsToReturnData);
     }
 
     // const Grid<T> rows(size_type row, size_type n = 1) const
