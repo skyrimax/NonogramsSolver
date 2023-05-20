@@ -276,3 +276,25 @@ TEST(GridExtractConstColTest, ValuesNonModifiable)
     ASSERT_TRUE(std::is_const<std::remove_reference<decltype(col0[1].get())>::type>::value);
     ASSERT_TRUE(std::is_const<std::remove_reference<decltype(col0[2].get())>::type>::value);
 }
+
+TEST(GridExtractRowsTest, ContainsCorrectValues)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    Grid<int> grid(3, 3, sourceVals);
+
+    auto row0 = grid.rows(0);
+
+    EXPECT_EQ(row0(0, 0), 1);
+    EXPECT_EQ(row0(0, 1), 2);
+    EXPECT_EQ(row0(0, 2), 3);
+
+    auto rows01 = grid.rows(0, 2);
+
+    EXPECT_EQ(row0(0, 0), 1);
+    EXPECT_EQ(row0(0, 1), 2);
+    EXPECT_EQ(row0(0, 2), 3);
+    EXPECT_EQ(row0(1, 0), 4);
+    EXPECT_EQ(row0(1, 1), 5);
+    EXPECT_EQ(row0(1, 2), 6);
+}
