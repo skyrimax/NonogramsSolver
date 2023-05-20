@@ -235,16 +235,18 @@ public:
     // 	return colsToReturn;
     // }
 
-    // std::vector<T> col(size_type col)
-    // {
-    // 	std::vector<T> colToReturn(m_nbRows);
+    std::vector<std::reference_wrapper<T>> col(size_type col)
+    {
+    	std::vector<std::reference_wrapper<T>>colToReturn;
+        colToReturn.reserve(m_nbRows);
 
-    // 	for (int i = 0; i < m_nbRows; ++i) {
-    // 		colToReturn[i] = m_data[i*m_nbCols + col];
-    // 	}
+    	for (int i = 0; i < m_nbRows; ++i) {
+    		colToReturn.push_back(
+                std::ref(this->at(i, col)));
+    	}
 
-    // 	return colToReturn;
-    // }
+    	return colToReturn;
+    }
 
     // const std::vector<T> col(size_type col) const
     // {

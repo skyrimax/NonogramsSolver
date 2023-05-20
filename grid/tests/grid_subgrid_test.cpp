@@ -141,3 +141,73 @@ TEST(GridExtractConstRowTest, ValuesNonModifiable)
     ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0[1].get())>::type>::value);
     ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0[2].get())>::type>::value);
 }
+
+TEST(GridExtractColTest, HandleEmpty)
+{
+    Grid<int> grid;
+
+    auto col0 = grid.col(0);
+
+    EXPECT_EQ(col0.size(), 0);
+    EXPECT_TRUE(col0.empty());
+}
+
+TEST(GridExtractColTest, HandleNoColumn)
+{
+    for (size_t i = 1; i <= 5; ++i)
+    {
+        Grid<int> grid(i, 0);
+
+        EXPECT_THROW(grid.col(0), std::out_of_range);
+    }
+}
+
+TEST(GridExtractColTest, HandleNoColRow)
+{
+    for (size_t j = 1; j <= 5; ++j)
+    {
+        Grid<int> grid(0, j);
+
+        auto col0 = grid.col(0);
+
+        EXPECT_EQ(col0.size(), 0);
+        EXPECT_TRUE(col0.empty());
+    }
+}
+
+TEST(GridExtractColTest, accessOutsideRangeColumns)
+{
+    Grid<int> grid(3, 3, 1);
+
+    EXPECT_THROW(grid.col(3), std::out_of_range);
+}
+
+TEST(GridExtractColTest, ContainsCorrectValues)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    Grid<int> grid(3, 3, sourceVals);
+
+    auto col0 = grid.col(0);
+
+    EXPECT_EQ(col0[0], 1);
+    EXPECT_EQ(col0[1], 4);
+    EXPECT_EQ(col0[2], 7);
+}
+
+TEST(GridExtractColTest, ValuesModifiable)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    Grid<int> grid(3, 3, sourceVals);
+
+    auto col0 = grid.col(0);
+
+    col0[0].get() = 10;
+    col0[1].get() = 40;
+    col0[2].get() = 70;
+
+    ASSERT_EQ(grid(0, 0), 10);
+    ASSERT_EQ(grid(1, 0), 40);
+    ASSERT_EQ(grid(2, 0), 70);
+}
