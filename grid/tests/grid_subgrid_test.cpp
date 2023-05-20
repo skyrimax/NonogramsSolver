@@ -291,10 +291,10 @@ TEST(GridExtractRowsTest, ContainsCorrectValues)
 
     auto rows01 = grid.rows(0, 2);
 
-    EXPECT_EQ(row0(0, 0), 1);
-    EXPECT_EQ(row0(0, 1), 2);
-    EXPECT_EQ(row0(0, 2), 3);
-    EXPECT_EQ(row0(1, 0), 4);
-    EXPECT_EQ(row0(1, 1), 5);
-    EXPECT_EQ(row0(1, 2), 6);
+    EXPECT_EQ(rows01(0, 0), 1);
+    EXPECT_EQ(rows01(0, 1), 2);
+    EXPECT_EQ(rows01(0, 2), 3);
+    EXPECT_EQ(rows01(1, 0), 4);
+    EXPECT_EQ(rows01(1, 1), 5);
+    EXPECT_EQ(rows01(1, 2), 6);
 }
