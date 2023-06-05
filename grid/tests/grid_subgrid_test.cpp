@@ -290,6 +290,17 @@ TEST(GridExtractRowsTest, HandleEmpty)
     EXPECT_TRUE(rows01.empty());
 }
 
+TEST(GridExtractionRowsTest, HandleNoRow1Row)
+{
+    for(size_t j=1; j <= 5; ++j){
+        Grid<int> grid(0, j);
+
+        EXPECT_THROW(grid.rows(0), std::out_of_range);
+
+        EXPECT_THROW(grid.rows(0, 2), std::out_of_range);
+    }
+}
+
 TEST(GridExtractRowsTest, ContainsCorrectValues)
 {
     std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
