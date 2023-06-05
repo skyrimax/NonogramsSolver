@@ -313,6 +313,16 @@ TEST(GridExtractionRowsTest, HandleNoColumn)
     }
 }
 
+TEST(GridExtractionRowsTest, HandleTooManyRows)
+{
+    for(size_t i = 0; i < 3; ++i)
+    {
+        Grid<int> grid(3, 3);
+
+        EXPECT_THROW(grid.rows(i, 4 - i), std::out_of_range);
+    }
+}
+
 TEST(GridExtractRowsTest, ContainsCorrectValues)
 {
     std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
