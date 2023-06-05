@@ -292,12 +292,24 @@ TEST(GridExtractRowsTest, HandleEmpty)
 
 TEST(GridExtractionRowsTest, HandleNoRow)
 {
-    for(size_t j=1; j <= 5; ++j){
+    for(size_t j = 1; j <= 5; ++j){
         Grid<int> grid(0, j);
 
         EXPECT_THROW(grid.rows(0), std::out_of_range);
 
         EXPECT_THROW(grid.rows(0, 2), std::out_of_range);
+    }
+}
+
+TEST(GridExtractionRowsTest, HandleNoColumn)
+{
+    for(size_t i = 1; i < 5; ++i)
+    {
+        Grid<int> grid(i, 0);
+
+        EXPECT_TRUE(grid.rows(0).empty());
+
+        EXPECT_TRUE(grid.rows(0, 2).empty());
     }
 }
 
