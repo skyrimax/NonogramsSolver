@@ -290,7 +290,7 @@ TEST(GridExtractRowsTest, HandleEmpty)
     EXPECT_TRUE(rows01.empty());
 }
 
-TEST(GridExtractionRowsTest, HandleNoRow1Row)
+TEST(GridExtractionRowsTest, HandleNoRow)
 {
     for(size_t j=1; j <= 5; ++j){
         Grid<int> grid(0, j);
