@@ -222,7 +222,7 @@ public:
 
     	for (int i = 0; i < m_nbRows; ++i) {
     		for (int j = 0; j < n; ++j) {
-                rowsToReturnData.push_back(
+                colsToReturnData.push_back(
                     std::ref(this->at(i, col + j)));
     		}
     	}
