@@ -353,3 +353,38 @@ TEST(GridExtractRowsTest, ContainsCorrectValues)
     EXPECT_EQ(rows01(1, 1), 5);
     EXPECT_EQ(rows01(1, 2), 6);
 }
+
+TEST(GridExtractRowsTest, ValuesModifiable)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    Grid<int> grid1(3, 3, sourceVals);
+
+    auto row0 = grid1.rows(0);
+
+    row0(0, 0).get() = 10;
+    row0(0, 1).get() = 20;
+    row0(0, 2).get() = 30;
+
+    ASSERT_EQ(grid1(0, 0), 10);
+    ASSERT_EQ(grid1(0, 1), 20);
+    ASSERT_EQ(grid1(0, 2), 30);
+
+    Grid<int> grid2(3, 3, sourceVals);
+
+    auto rows01 = grid2.rows(0, 2);
+
+    rows01(0, 0).get() = 10;
+    rows01(0, 1).get() = 20;
+    rows01(0, 2).get() = 30;
+    rows01(1, 0).get() = 40;
+    rows01(1, 1).get() = 50;
+    rows01(1, 2).get() = 60;
+
+    ASSERT_EQ(grid2(0, 0), 10);
+    ASSERT_EQ(grid2(0, 1), 20);
+    ASSERT_EQ(grid2(0, 2), 30);
+    ASSERT_EQ(grid2(1, 0), 40);
+    ASSERT_EQ(grid2(1, 1), 50);
+    ASSERT_EQ(grid2(1, 2), 60);
+}
