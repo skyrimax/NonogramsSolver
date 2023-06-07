@@ -227,7 +227,7 @@ public:
     		}
     	}
 
-    	return Grid<std::reference_wrapper<T>>(n, m_nbCols,
+    	return Grid<std::reference_wrapper<T>>(m_nbRows, n,
                                                 colsToReturnData);
     }
 
