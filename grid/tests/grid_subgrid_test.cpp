@@ -276,3 +276,80 @@ TEST(GridExtractConstColTest, ValuesNonModifiable)
     ASSERT_TRUE(std::is_const<std::remove_reference<decltype(col0[1].get())>::type>::value);
     ASSERT_TRUE(std::is_const<std::remove_reference<decltype(col0[2].get())>::type>::value);
 }
+
+TEST(GridExtractRowsTest, HandleEmpty)
+{
+    Grid<int> grid;
+
+    auto row0 = grid.rows(0);
+
+    EXPECT_TRUE(row0.empty());
+
+    auto rows01 = grid.rows(0, 2);
+
+    EXPECT_TRUE(rows01.empty());
+}
+
+TEST(GridExtractionRowsTest, HandleNoRow)
+{
+    for(size_t j = 1; j <= 5; ++j){
+        Grid<int> grid(0, j);
+
+        EXPECT_THROW(grid.rows(0), std::out_of_range);
+
+        EXPECT_THROW(grid.rows(0, 2), std::out_of_range);
+    }
+}
+
+TEST(GridExtractionRowsTest, HandleNoColumn)
+{
+    for(size_t i = 1; i < 5; ++i)
+    {
+        Grid<int> grid(i, 0);
+
+        EXPECT_TRUE(grid.rows(0).empty());
+
+        EXPECT_TRUE(grid.rows(0, 2).empty());
+    }
+}
+
+TEST(GridExtractionRowsTest, HandleTooManyRows)
+{
+    for(size_t i = 0; i < 3; ++i)
+    {
+        Grid<int> grid(3, 3);
+
+        EXPECT_THROW(grid.rows(i, 4 - i), std::out_of_range);
+    }
+}
+
+TEST(GridExtractionRowsTest, HandleOutsideRange)
+{
+    Grid<int> grid(3, 3);
+
+    EXPECT_THROW(grid.rows(4), std::out_of_range);
+
+    EXPECT_THROW(grid.rows(4, 2), std::out_of_range);
+}
+
+TEST(GridExtractRowsTest, ContainsCorrectValues)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    Grid<int> grid(3, 3, sourceVals);
+
+    auto row0 = grid.rows(0);
+
+    EXPECT_EQ(row0(0, 0), 1);
+    EXPECT_EQ(row0(0, 1), 2);
+    EXPECT_EQ(row0(0, 2), 3);
+
+    auto rows01 = grid.rows(0, 2);
+
+    EXPECT_EQ(rows01(0, 0), 1);
+    EXPECT_EQ(rows01(0, 1), 2);
+    EXPECT_EQ(rows01(0, 2), 3);
+    EXPECT_EQ(rows01(1, 0), 4);
+    EXPECT_EQ(rows01(1, 1), 5);
+    EXPECT_EQ(rows01(1, 2), 6);
+}

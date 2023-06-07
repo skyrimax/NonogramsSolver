@@ -157,18 +157,21 @@ public:
         }
     }
 
-    // Grid<T> rows(size_type row, size_type n=1)
-    // {
-    // 	Grid<T>rowsToReturn(n, m_nbCols);
+    Grid<std::reference_wrapper<T>> rows(size_type row, size_type n=1)
+    {
+    	std::vector<std::reference_wrapper<T>>rowsToReturnData;
+        rowsToReturnData.reserve(n*m_nbCols);
 
-    // 	for (int i = row; i < n && i < m_nbRows; ++i) {
-    // 		for (int j = 0; j < m_nbCols; ++j) {
-    // 			rowsToReturn.m_data[i*m_nbCols + j] = m_data[i*m_nbCols + j];
-    // 		}
-    // 	}
+    	for (int i = 0; i < n; ++i) {
+    		for (int j = 0; j < m_nbCols; ++j) {
+                rowsToReturnData.push_back(
+                    std::ref(this->at(row + i, j)));
+    		}
+    	}
 
-    // 	return rowsToReturn;
-    // }
+    	return Grid<std::reference_wrapper<T>>(n, m_nbCols,
+                                                rowsToReturnData);
+    }
 
     // const Grid<T> rows(size_type row, size_type n = 1) const
     // {
