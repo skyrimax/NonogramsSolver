@@ -117,7 +117,7 @@ public:
         m_nbCols = nbCols;
     }
 
-    bool empty()
+    bool empty() const
     {
         return m_data.empty();
     }
