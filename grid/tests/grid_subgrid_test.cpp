@@ -388,3 +388,102 @@ TEST(GridExtractRowsTest, ValuesModifiable)
     ASSERT_EQ(grid2(1, 1), 50);
     ASSERT_EQ(grid2(1, 2), 60);
 }
+
+TEST(GridExtractConstRowsTest, HandleEmpty)
+{
+    const Grid<int> grid;
+
+    auto row0 = grid.rows(0);
+
+    EXPECT_TRUE(row0.empty());
+
+    auto rows01 = grid.rows(0, 2);
+
+    EXPECT_TRUE(rows01.empty());
+}
+
+TEST(GridExtractConstRowsTest, HandleNoRow)
+{
+    for(size_t j = 1; j <= 5; ++j){
+        const Grid<int> grid(0, j);
+
+        EXPECT_THROW(grid.rows(0), std::out_of_range);
+
+        EXPECT_THROW(grid.rows(0, 2), std::out_of_range);
+    }
+}
+
+TEST(GridExtractConstRowsTest, HandleNoColumn)
+{
+    for(size_t i = 1; i < 5; ++i)
+    {
+        const Grid<int> grid(i, 0);
+
+        EXPECT_TRUE(grid.rows(0).empty());
+
+        EXPECT_TRUE(grid.rows(0, 2).empty());
+    }
+}
+
+TEST(GridExtractConstRowsTest, HandleTooManyRows)
+{
+    for(size_t i = 0; i < 3; ++i)
+    {
+        const Grid<int> grid(3, 3);
+
+        EXPECT_THROW(grid.rows(i, 4 - i), std::out_of_range);
+    }
+}
+
+TEST(GridExtractConstRowsTest, HandleOutsideRange)
+{
+    const Grid<int> grid(3, 3);
+
+    EXPECT_THROW(grid.rows(4), std::out_of_range);
+
+    EXPECT_THROW(grid.rows(4, 2), std::out_of_range);
+}
+
+TEST(GridExtractConstRowsTest, ContainsCorrectValues)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    const Grid<int> grid(3, 3, sourceVals);
+
+    auto row0 = grid.rows(0);
+
+    EXPECT_EQ(row0(0, 0), 1);
+    EXPECT_EQ(row0(0, 1), 2);
+    EXPECT_EQ(row0(0, 2), 3);
+
+    auto rows01 = grid.rows(0, 2);
+
+    EXPECT_EQ(rows01(0, 0), 1);
+    EXPECT_EQ(rows01(0, 1), 2);
+    EXPECT_EQ(rows01(0, 2), 3);
+    EXPECT_EQ(rows01(1, 0), 4);
+    EXPECT_EQ(rows01(1, 1), 5);
+    EXPECT_EQ(rows01(1, 2), 6);
+}
+
+TEST(GridExtractConstRowsTest, ValuesNonModifiable)
+{
+    std::vector<int> sourceVals({1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    const Grid<int> grid(3, 3, sourceVals);
+
+    auto row0 = grid.rows(0);
+
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0(0, 0).get())>::type>::value);
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0(0, 1).get())>::type>::value);
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0(0, 2).get())>::type>::value);
+
+    auto rows01 = grid.rows(0, 2);
+
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0(0, 0).get())>::type>::value);
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0(0, 1).get())>::type>::value);
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0(0, 2).get())>::type>::value);
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0(1, 0).get())>::type>::value);
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0(1, 1).get())>::type>::value);
+    ASSERT_TRUE(std::is_const<std::remove_reference<decltype(row0(1, 2).get())>::type>::value);
+}
