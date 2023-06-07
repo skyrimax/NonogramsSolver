@@ -173,18 +173,18 @@ public:
                                                 rowsToReturnData);
     }
 
-    // const Grid<T> rows(size_type row, size_type n = 1) const
-    // {
-    // 	Grid<T&>rowsToReturn(n, m_nbCols);
+    const Grid<T> rows(size_type row, size_type n = 1) const
+    {
+    	Grid<T&>rowsToReturn(n, m_nbCols);
 
-    // 	for (int i = row; i < n; ++i) {
-    // 		for (int j = 0; j < m_nbCols; ++j) {
-    // 			rowsToReturn.m_data[i*m_nbCols + j] = m_data[i*m_nbCols + j];
-    // 		}
-    // 	}
+    	for (int i = row; i < n; ++i) {
+    		for (int j = 0; j < m_nbCols; ++j) {
+    			rowsToReturn.m_data[i*m_nbCols + j] = m_data[i*m_nbCols + j];
+    		}
+    	}
 
-    // 	return rowsToReturn;
-    // }
+    	return rowsToReturn;
+    }
 
     std::vector<std::reference_wrapper<T>> row(size_type row)
     {
