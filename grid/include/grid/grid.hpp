@@ -173,8 +173,9 @@ public:
                                                 rowsToReturnData);
     }
 
-    const Grid<T> rows(size_type row, size_type n = 1) const
+    const Grid<std::reference_wrapper<const T>> rows(size_type row, size_type n = 1) const
     {
+        std::vector<std::reference_wrapper<const T>>rowsToReturnData;
     	Grid<T&>rowsToReturn(n, m_nbCols);
 
     	for (int i = row; i < n; ++i) {
@@ -183,7 +184,8 @@ public:
     		}
     	}
 
-    	return rowsToReturn;
+    	return Grid<std::reference_wrapper<const T>>(n, m_nbCols,
+                                                rowsToReturnData);
     }
 
     std::vector<std::reference_wrapper<T>> row(size_type row)
