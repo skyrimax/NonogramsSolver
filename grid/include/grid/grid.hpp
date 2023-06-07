@@ -117,7 +117,7 @@ public:
         m_nbCols = nbCols;
     }
 
-    bool empty()
+    bool empty() const
     {
         return m_data.empty();
     }
@@ -173,18 +173,21 @@ public:
                                                 rowsToReturnData);
     }
 
-    // const Grid<T> rows(size_type row, size_type n = 1) const
-    // {
-    // 	Grid<T&>rowsToReturn(n, m_nbCols);
+    const Grid<std::reference_wrapper<const T>> rows(size_type row, size_type n = 1) const
+    {
+        std::vector<std::reference_wrapper<const T>>rowsToReturnData;
+    	rowsToReturnData.reserve(n*m_nbCols);
 
-    // 	for (int i = row; i < n; ++i) {
-    // 		for (int j = 0; j < m_nbCols; ++j) {
-    // 			rowsToReturn.m_data[i*m_nbCols + j] = m_data[i*m_nbCols + j];
-    // 		}
-    // 	}
+    	for (int i = 0; i < n; ++i) {
+    		for (int j = 0; j < m_nbCols; ++j) {
+    			rowsToReturnData.push_back(
+                    std::ref(this->at(row + i, j)));
+    		}
+    	}
 
-    // 	return rowsToReturn;
-    // }
+    	return Grid<std::reference_wrapper<const T>>(n, m_nbCols,
+                                                rowsToReturnData);
+    }
 
     std::vector<std::reference_wrapper<T>> row(size_type row)
     {
