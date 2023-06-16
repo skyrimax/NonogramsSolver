@@ -10,7 +10,7 @@ namespace NS
     {
     public:
         using Sequence = std::vector<unsigned int>;
-        using Image = Grid<int>
+        using Image = Grid<int>;
 
         struct Nonogram
         {
@@ -18,7 +18,7 @@ namespace NS
             std::vector<Sequence> columns;
         };
         
-
+        virtual Image solve(Nonogram& nonogram) = 0;
     };
 }
 
