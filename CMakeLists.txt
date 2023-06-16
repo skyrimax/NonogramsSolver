@@ -45,6 +45,9 @@ add_subdirectory(LineGenerator)
 # Load grid library
 add_subdirectory(grid)
 
+# Load image library
+add_subdirectory(Image)
+
 # Load solver library
 add_subdirectory(Solver)
 
