@@ -2,6 +2,7 @@
 #define ISOLVER_H
 
 #include <vector>
+#include <grid.hpp>
 
 namespace NS
 {
@@ -16,6 +17,7 @@ namespace NS
             std::vector<Sequence> columns;
         };
         
+
     };
 }
 

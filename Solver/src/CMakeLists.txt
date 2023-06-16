@@ -4,13 +4,19 @@
 # Optionally glob, but only for CMake 3.12 or later: file(GLOB HEADER_LIST
 # CONFIGURE_DEPENDS "${minecraft_block_finder_SOURCE_DIR}/include/modern/*.hpp")
 set(HEADER_LIST
-    "${solver_lib_SOURCE_DIR}/include/Solver/ISolver.hpp"
-    )
+    "${solver_lib_SOURCE_DIR}/include/Solver/ISolver.hpp")
+
+set(EXTERNAL_HEADER_LIST
+    "${grid_lib_SOURCE_DIR}/include/grid/grid.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(solver_library
             ISolver.cpp
-            ${HEADER_LIST})
+            ${HEADER_LIST}
+            ${EXTERNAL_HEADER_LIST})
+
+target_link_libraries(solver_library
+                        grid_library)
 
 # We need this directory, and users of our library will need it too
 target_include_directories(solver_library PUBLIC

@@ -10,7 +10,7 @@ set(HEADER_LIST
     "${line_generator_lib_SOURCE_DIR}/include/LineGenerator/AllPossibleLinesGenerator.hpp"
     "${line_generator_lib_SOURCE_DIR}/include/LineGenerator/LineGeneratorBuilder.hpp")
 
-    set(EXTERNAL_HEADER_LIST
+set(EXTERNAL_HEADER_LIST
     "${line_filter_lib_SOURCE_DIR}/include/LineFilter/ILineFilter.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
