@@ -10,6 +10,7 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(
     solver_test
+    Solver_test.cpp
 )
 
 target_link_libraries(
