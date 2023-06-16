@@ -18,7 +18,7 @@ namespace NS
             std::vector<Sequence> columns;
         };
         
-        virtual Image solve(Nonogram& nonogram) = 0;
+        virtual int solve(Nonogram& nonogram, Image& returnImage) = 0;
     };
 }
 
