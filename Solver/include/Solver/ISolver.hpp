@@ -10,6 +10,7 @@ namespace NS
     {
     public:
         using Sequence = std::vector<unsigned int>;
+        using Image = Grid<int>
 
         struct Nonogram
         {
