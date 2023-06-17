@@ -1,5 +1,7 @@
 #include "Image.hpp"
 
+#include <algorithm>
+
 NS::Image::Image()
     : Grid<int>()
 {
@@ -18,4 +20,9 @@ NS::Image::Image(const Image &image)
 NS::Image::Image(Image &&image)
     : Grid<int>(std::move(image))
 {
+}
+
+bool NS::Image::completed() const
+{
+    return std::count(data().begin(), data().end(), -1);
 }

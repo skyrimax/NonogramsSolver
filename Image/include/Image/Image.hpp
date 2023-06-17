@@ -15,8 +15,9 @@ namespace NS
         Image(const Image &image);
 
         Image(Image &&image);
+
+        bool completed() const;
     };
 }
-
 
 #endif /* IMAGE_H */
