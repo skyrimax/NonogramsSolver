@@ -3,6 +3,8 @@
 #include <memory>
 #include <vector>
 
+#include <stdexcept>
+
 template <class T, class Allocator = std::allocator<T>>
 class Grid
 {
