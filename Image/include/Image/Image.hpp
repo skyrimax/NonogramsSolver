@@ -7,7 +7,14 @@ namespace NS
 {
     class Image: public Grid<int>
     {
-    
+    public:
+        Image();
+
+        Image(size_type nbRows, size_type nbCols);
+
+        Image(const Image &image);
+
+        Image(Image &&image);
     };
 }
 
