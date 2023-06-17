@@ -16,6 +16,6 @@ NS::Image::Image(const Image &image)
 }
 
 NS::Image::Image(Image &&image)
-    : Grid<int>(image)
+    : Grid<int>(std::move(image))
 {
 }
