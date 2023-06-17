@@ -3,9 +3,13 @@
 
 #include <grid.hpp>
 
-class Image: public Grid<int>
+namespace NS
 {
+    class Image: public Grid<int>
+    {
+    
+    };
+}
 
-};
 
 #endif /* IMAGE_H */
