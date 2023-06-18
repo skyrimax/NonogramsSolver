@@ -3,6 +3,8 @@
 #include <memory>
 #include <vector>
 
+#include <stdexcept>
+
 template <class T, class Allocator = std::allocator<T>>
 class Grid
 {
@@ -353,12 +355,12 @@ public:
     // 	return col(m_nbCols - 1);
     // }
 
-    std::vector<T> data()
+    std::vector<T>& data()
     {
         return m_data;
     }
 
-    const std::vector<T> data() const
+    const std::vector<T>& data() const
     {
         return m_data;
     }
