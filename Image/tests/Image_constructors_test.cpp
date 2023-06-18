@@ -2,7 +2,6 @@
 
 #include <Image.hpp>
 
-#include <vector>
 #include <utility>
 
 TEST(ImageDefaultConstructorTest, IsEmpty)
