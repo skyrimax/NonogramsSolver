@@ -11,6 +11,7 @@ FetchContent_MakeAvailable(googletest)
 add_executable(
     image_test
     Image_constructors_test.cpp
+    Image_test.cpp
 )
 
 target_link_libraries(
