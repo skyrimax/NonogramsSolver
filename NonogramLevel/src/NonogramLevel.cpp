@@ -16,3 +16,23 @@ NS::NonogramLevel::NonogramLevel(NS::NonogramLevel &&nonogramLevel)
     : rows_(std::move(nonogramLevel.rows_)), cols_(std::move(nonogramLevel.cols_))
 {
 }
+
+std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::rows()
+{
+    return rows_;
+}
+
+const std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::rows() const
+{
+    return rows_;
+}
+
+std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::cols()
+{
+    return cols_;
+}
+
+const std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::cols() const
+{
+    return cols_;
+}

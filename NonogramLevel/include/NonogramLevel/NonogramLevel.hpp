@@ -10,13 +10,19 @@ namespace NS
     public:
         using Sequence = std::vector<unsigned int>;
 
-        NonogramLevel();
+        NonogramLevel() = default;
 
-        NonogramLevel(std::vector<Sequence> rows, std::vector<Sequence> cols);
+        NonogramLevel(const std::vector<Sequence>& rows, const std::vector<Sequence>& cols);
 
         NonogramLevel(const NonogramLevel &nonogramLevel);
 
         NonogramLevel(NonogramLevel &&nonogramLevel);
+
+        // Accesseurs
+        std::vector<Sequence>& rows();
+        const std::vector<Sequence>& rows() const;
+        std::vector<Sequence>& cols();
+        const std::vector<Sequence>& cols() const;
 
     private:
         std::vector<Sequence> rows_;
