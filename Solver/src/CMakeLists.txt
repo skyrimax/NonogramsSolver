@@ -8,7 +8,6 @@ set(HEADER_LIST
     "${solver_lib_SOURCE_DIR}/include/Solver/DeductionSolver.hpp")
 
 set(EXTERNAL_HEADER_LIST
-    "${grid_lib_SOURCE_DIR}/include/grid/grid.hpp"
     "${image_lib_SOURCE_DIR}/include/Image/Image.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
@@ -19,7 +18,7 @@ add_library(solver_library
             ${EXTERNAL_HEADER_LIST})
 
 target_link_libraries(solver_library
-                        grid_library)
+                        image_library)
 
 # We need this directory, and users of our library will need it too
 target_include_directories(solver_library PUBLIC

@@ -2,7 +2,6 @@
 #define ISOLVER_H
 
 #include <vector>
-#include <grid.hpp>
 #include <Image.hpp>
 
 namespace NS
