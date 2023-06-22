@@ -12,11 +12,15 @@ namespace NS
 
         NonogramLevel();
 
-        NonogramLevel(Sequence rows, Sequence cols);
+        NonogramLevel(std::vector<Sequence> rows, std::vector<Sequence> cols);
 
         NonogramLevel(const NonogramLevel &nonogramLevel);
 
         NonogramLevel(NonogramLevel &&nonogramLevel);
+
+    private:
+        std::vector<Sequence> rows_;
+        std::vector<Sequence> cols_;
     };
 }
 

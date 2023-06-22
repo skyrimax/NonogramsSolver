@@ -4,7 +4,7 @@ NS::NonogramLevel::NonogramLevel()
 {
 }
 
-NS::NonogramLevel::NonogramLevel(Sequence rows, Sequence cols)
+NS::NonogramLevel::NonogramLevel(std::vector<Sequence> rows, std::vector<Sequence> cols)
 {
 }
 
