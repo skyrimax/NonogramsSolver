@@ -18,6 +18,16 @@ NS::NonogramLevel::NonogramLevel(NS::NonogramLevel &&nonogramLevel)
 {
 }
 
+NS::NonogramLevel::Sequence& NS::NonogramLevel::rowSequence(size_type row)
+{
+    return rowSequences_.at(row);
+}
+
+const NS::NonogramLevel::Sequence& NS::NonogramLevel::rowSequence(size_type row) const
+{
+    return rowSequences_.at(row);
+}
+
 std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::rowSequences()
 {
     return rowSequences_;
@@ -26,6 +36,16 @@ std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::rowSequences()
 const std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::rowSequences() const
 {
     return rowSequences_;
+}
+
+NS::NonogramLevel::Sequence& NS::NonogramLevel::colSequence(size_type col)
+{
+    return colSequences_.at(col);
+}
+
+const NS::NonogramLevel::Sequence& NS::NonogramLevel::colSequence(size_type col) const
+{
+    return colSequences_.at(col);
 }
 
 std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::colSequences()

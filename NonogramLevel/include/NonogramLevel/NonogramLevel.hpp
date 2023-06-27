@@ -8,6 +8,7 @@ namespace NS
     class NonogramLevel
     {
     public:
+        typedef size_t size_type;
         using Sequence = std::vector<unsigned int>;
 
         NonogramLevel() = default;
@@ -19,8 +20,12 @@ namespace NS
         NonogramLevel(NonogramLevel &&nonogramLevel);
 
         // Accesseurs
+        Sequence& rowSequence(size_type row);
+        const Sequence& rowSequence(size_type row) const;
         std::vector<Sequence>& rowSequences();
         const std::vector<Sequence>& rowSequences() const;
+        Sequence& colSequence(size_type col);
+        const Sequence& colSequence(size_type col) const;
         std::vector<Sequence>& colSequences();
         const std::vector<Sequence>& colSequences() const;
 
