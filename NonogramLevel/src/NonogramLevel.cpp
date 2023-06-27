@@ -43,7 +43,7 @@ void NS::NonogramLevel::addRowSequence(const NS::NonogramLevel::Sequence& rowSeq
     rowSequences_.push_back(rowSequence);
 }
 
-void NS::NonogramLevel::addRowSequence(Sequence &&rosSequence)
+void NS::NonogramLevel::addRowSequence(Sequence&& rosSequence)
 {
     rowSequences_.push_back(std::move(rosSequence));
 }
@@ -57,4 +57,25 @@ void NS::NonogramLevel::addRowSequences(std::vector<NS::NonogramLevel::Sequence>
 {
     rowSequences_.insert(rowSequences_.end(),
         std::make_move_iterator(rowSequences.begin()), std::make_move_iterator(rowSequences.end()));
+}
+
+void NS::NonogramLevel::addColSequence(const NS::NonogramLevel::Sequence& colSequence)
+{
+    colSequences_.push_back(colSequence);
+}
+
+void NS::NonogramLevel::addColSequence(Sequence&& rosSequence)
+{
+    rowSequences_.push_back(std::move(rosSequence));
+}
+
+void NS::NonogramLevel::addColSequences(const std::vector<NS::NonogramLevel::Sequence>& colSequences)
+{
+    colSequences_.insert(colSequences_.end(), colSequences.begin(), colSequences.end());
+}
+
+void NS::NonogramLevel::addColSequences(std::vector<NS::NonogramLevel::Sequence>&& colSequences)
+{
+    colSequences_.insert(colSequences_.end(),
+        std::make_move_iterator(colSequences.begin()), std::make_move_iterator(colSequences.end()));
 }
