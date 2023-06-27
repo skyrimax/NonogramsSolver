@@ -12,21 +12,33 @@ namespace NS
 
         NonogramLevel() = default;
 
-        NonogramLevel(const std::vector<Sequence>& rows, const std::vector<Sequence>& cols);
+        NonogramLevel(const std::vector<Sequence>& rowSequences, const std::vector<Sequence>& colSequences);
 
         NonogramLevel(const NonogramLevel &nonogramLevel);
 
         NonogramLevel(NonogramLevel &&nonogramLevel);
 
         // Accesseurs
-        std::vector<Sequence>& rows();
-        const std::vector<Sequence>& rows() const;
-        std::vector<Sequence>& cols();
-        const std::vector<Sequence>& cols() const;
+        std::vector<Sequence>& rowSequences();
+        const std::vector<Sequence>& rowSequences() const;
+        std::vector<Sequence>& colSequences();
+        const std::vector<Sequence>& colSequences() const;
+
+        // Row sequences adding methods
+        void addRowSequence(const Sequence& rowSequence);
+        void addRowSequence(Sequence&& rosSequence);
+        void addRowSequences(const std::vector<Sequence>& rowSequences);
+        void addRowSequences(std::vector<Sequence>&& rowSequences);
+
+        // Column sequences adding methods
+        void addColSequence(const Sequence& rowSequence);
+        void addColSequence(Sequence&& rosSequence);
+        void addColSequences(const std::vector<Sequence>& rowSequences);
+        void addColSequences(std::vector<Sequence>&& rowSequences);
 
     private:
-        std::vector<Sequence> rows_;
-        std::vector<Sequence> cols_;
+        std::vector<Sequence> rowSequences_;
+        std::vector<Sequence> colSequences_;
     };
 }
 
