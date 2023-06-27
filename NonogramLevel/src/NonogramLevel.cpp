@@ -2,37 +2,37 @@
 
 #include <utility>
 
-NS::NonogramLevel::NonogramLevel(const std::vector<Sequence>& rows, const std::vector<Sequence>& cols)
-    : rows_(rows), cols_(cols)
+NS::NonogramLevel::NonogramLevel(const std::vector<Sequence>& rowSequences, const std::vector<Sequence>& colSequences)
+    : rowSequences_(rowSequences), colSequences_(colSequences)
 {
 }
 
 NS::NonogramLevel::NonogramLevel(const NS::NonogramLevel &nonogramLevel)
-    : rows_(nonogramLevel.rows_), cols_(nonogramLevel.cols_)
+    : rowSequences_(nonogramLevel.rowSequences_), colSequences_(nonogramLevel.colSequences_)
 {
 }
 
 NS::NonogramLevel::NonogramLevel(NS::NonogramLevel &&nonogramLevel)
-    : rows_(std::move(nonogramLevel.rows_)), cols_(std::move(nonogramLevel.cols_))
+    : rowSequences_(std::move(nonogramLevel.rowSequences_)), colSequences_(std::move(nonogramLevel.colSequences_))
 {
 }
 
-std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::rows()
+std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::rowSequences()
 {
-    return rows_;
+    return rowSequences_;
 }
 
-const std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::rows() const
+const std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::rowSequences() const
 {
-    return rows_;
+    return rowSequences_;
 }
 
-std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::cols()
+std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::colSequences()
 {
-    return cols_;
+    return colSequences_;
 }
 
-const std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::cols() const
+const std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::colSequences() const
 {
-    return cols_;
+    return colSequences_;
 }
