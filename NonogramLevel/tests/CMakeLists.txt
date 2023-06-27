@@ -15,7 +15,7 @@ add_executable(
 
 target_link_libraries(
     nonogram_level_test
-    image_library
+    nonogram_level_library
     GTest::gtest_main
 )
 
