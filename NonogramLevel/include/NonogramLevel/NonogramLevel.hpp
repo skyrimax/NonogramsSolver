@@ -24,6 +24,12 @@ namespace NS
         std::vector<Sequence>& cols();
         const std::vector<Sequence>& cols() const;
 
+        // Row adding methods
+        void addRowSequence(const Sequence& rowSequence);
+        void addRowSequence(Sequence&& rosSequence);
+        void addRowSequences(const std::vector<Sequence>& rowSequences);
+        void addRowSequences(std::vector<Sequence>&& rowSequences);
+
     private:
         std::vector<Sequence> rows_;
         std::vector<Sequence> cols_;
