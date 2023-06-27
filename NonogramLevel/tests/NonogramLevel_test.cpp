@@ -1,42 +1,84 @@
 #include <gtest/gtest.h>
 
-#include <Image.hpp>
+#include <NonogramLevel.hpp>
 
 #include <utility>
 
-TEST(ImageCompleted, HandleEmpty)
+TEST(NonogramLevelDefaultConstructor, isEmpty)
 {
-    NS::Image image;
+    NS::NonogramLevel nonogramLevel;
 
-    EXPECT_TRUE(image.completed());
+    EXPECT_TRUE(nonogramLevel.rows().empty());
+    EXPECT_TRUE(nonogramLevel.cols().empty());
 }
 
-TEST(ImageCompleted, HandleNoRow)
+TEST(NonogramLevelFullConstructor, HandleEmpty)
 {
-    NS::Image image(0, 3);
+    std::vector<NS::NonogramLevel::Sequence> rows;
+    std::vector<NS::NonogramLevel::Sequence> cols;
 
-    EXPECT_TRUE(image.completed());
+    NS::NonogramLevel nonogramLevel(rows, cols);
+
+    EXPECT_TRUE(nonogramLevel.rows().empty());
+    EXPECT_TRUE(nonogramLevel.cols().empty());
 }
 
-TEST(ImageCompleted, HandleNoColumn)
+TEST(NonogramLevelFullConstructor, HandleNoRow)
 {
-    NS::Image image(3, 0);
+    std::vector<NS::NonogramLevel::Sequence> rows;
 
-    EXPECT_TRUE(image.completed());
+    std::vector<NS::NonogramLevel::Sequence> cols({
+        NS::NonogramLevel::Sequence({2}),
+        NS::NonogramLevel::Sequence({4}),
+        NS::NonogramLevel::Sequence({4}),
+        NS::NonogramLevel::Sequence({4}),
+        NS::NonogramLevel::Sequence({2}),
+    });
+
+    NS::NonogramLevel nonogramLevel(rows, cols);
+
+    EXPECT_TRUE(nonogramLevel.rows().empty());
+    EXPECT_EQ(nonogramLevel.cols().size(), 5);
 }
 
-TEST(ImageCompleted, IncompleteImage)
+TEST(NonogramLevelFullConstructor, HandleNoColumn)
 {
-    NS::Image image(3, 3);
+    std::vector<NS::NonogramLevel::Sequence> rows({
+        NS::NonogramLevel::Sequence({1, 1}),
+        NS::NonogramLevel::Sequence({5}),
+        NS::NonogramLevel::Sequence({5}),
+        NS::NonogramLevel::Sequence({3}),
+        NS::NonogramLevel::Sequence({1}),
+    });
+    
+    std::vector<NS::NonogramLevel::Sequence> cols;
 
-    image(0, 0) = -1;
+    NS::NonogramLevel nonogramLevel(rows, cols);
 
-    EXPECT_FALSE(image.completed());
+    EXPECT_EQ(nonogramLevel.rows().size(), 5);
+    EXPECT_TRUE(nonogramLevel.cols().empty());
 }
 
-TEST(ImageCompleted, CompleteImage)
+TEST(NonogramLevelFullConstructor, CorrectValues)
 {
-    NS::Image image(3, 3);
+    std::vector<NS::NonogramLevel::Sequence> rows({
+        NS::NonogramLevel::Sequence({1, 1}),
+        NS::NonogramLevel::Sequence({5}),
+        NS::NonogramLevel::Sequence({5}),
+        NS::NonogramLevel::Sequence({3}),
+        NS::NonogramLevel::Sequence({1}),
+    });
+    
+    std::vector<NS::NonogramLevel::Sequence> cols({
+        NS::NonogramLevel::Sequence({2}),
+        NS::NonogramLevel::Sequence({4}),
+        NS::NonogramLevel::Sequence({4}),
+        NS::NonogramLevel::Sequence({4}),
+        NS::NonogramLevel::Sequence({2}),
+    });
 
-    EXPECT_TRUE(image.completed());
+    NS::NonogramLevel nonogramLevel(rows, cols);
+
+    EXPECT_EQ(nonogramLevel.rows(), rows);
+    EXPECT_EQ(nonogramLevel.cols(), cols);
 }
