@@ -1,5 +1,5 @@
-#ifndef IMAGE_H
-#define IMAGE_H
+#ifndef NONOGREAMLEVEL_H
+#define NONOGREAMLEVEL_H
 
 #include <vector>
 
@@ -30,4 +30,4 @@ namespace NS
     };
 }
 
-#endif /* IMAGE_H */
+#endif /* NONOGREAMLEVEL_H */
