@@ -3,21 +3,14 @@
 
 #include <vector>
 #include <Image.hpp>
+#include <NonogramLevel.hpp>
 
 namespace NS
 {
     class ISolver
     {
     public:
-        using Sequence = std::vector<unsigned int>;
-
-        struct Nonogram
-        {
-            std::vector<Sequence> rows;
-            std::vector<Sequence> columns;
-        };
-        
-        virtual int solve(Nonogram& nonogram, Image& returnImage) = 0;
+        virtual int solve(NonogramLevel& nonogram, Image& returnImage) = 0;
     };
 }
 
