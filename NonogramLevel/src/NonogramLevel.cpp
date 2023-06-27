@@ -1,6 +1,7 @@
 #include "NonogramLevel.hpp"
 
 #include <utility>
+#include <iterator>
 
 NS::NonogramLevel::NonogramLevel(const std::vector<Sequence>& rowSequences, const std::vector<Sequence>& colSequences)
     : rowSequences_(rowSequences), colSequences_(colSequences)
@@ -35,4 +36,25 @@ std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::colSequences()
 const std::vector<NS::NonogramLevel::Sequence>& NS::NonogramLevel::colSequences() const
 {
     return colSequences_;
+}
+
+void NS::NonogramLevel::addRowSequence(const NS::NonogramLevel::Sequence& rowSequence)
+{
+    rowSequences_.push_back(rowSequence);
+}
+
+void NS::NonogramLevel::addRowSequence(Sequence &&rosSequence)
+{
+    rowSequences_.push_back(std::move(rosSequence));
+}
+
+void NS::NonogramLevel::addRowSequences(const std::vector<NS::NonogramLevel::Sequence>& rowSequences)
+{
+    rowSequences_.insert(rowSequences_.end(), rowSequences.begin(), rowSequences.end());
+}
+
+void NS::NonogramLevel::addRowSequences(std::vector<NS::NonogramLevel::Sequence>&& rowSequences)
+{
+    rowSequences_.insert(rowSequences_.end(),
+        std::make_move_iterator(rowSequences.begin()), std::make_move_iterator(rowSequences.end()));
 }
