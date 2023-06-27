@@ -10,7 +10,7 @@ namespace NS
     class ISolver
     {
     public:
-        virtual int solve(NonogramLevel& nonogram, Image& returnImage) = 0;
+        virtual int solve(NonogramLevel& nonogramLevel, Image& returnImage) = 0;
     };
 }
 
