@@ -8,7 +8,8 @@ set(HEADER_LIST
     "${solver_lib_SOURCE_DIR}/include/Solver/DeductionSolver.hpp")
 
 set(EXTERNAL_HEADER_LIST
-    "${image_lib_SOURCE_DIR}/include/Image/Image.hpp")
+    "${image_lib_SOURCE_DIR}/include/Image/Image.hpp"
+    "${nonogram_level_lib_SOURCE_DIR}/include/NonogramLevel/NonogramLevel.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(solver_library
@@ -23,7 +24,8 @@ target_link_libraries(solver_library
 # We need this directory, and users of our library will need it too
 target_include_directories(solver_library PUBLIC
                             ../include/Solver
-                            "${image_lib_SOURCE_DIR}/include/Image")
+                            "${image_lib_SOURCE_DIR}/include/Image"
+                            "${nonogram_level_lib_SOURCE_DIR}/include/NonogramLevel")
 
 # All users of this library will need at least C++17
 target_compile_features(solver_library PUBLIC cxx_std_17)
