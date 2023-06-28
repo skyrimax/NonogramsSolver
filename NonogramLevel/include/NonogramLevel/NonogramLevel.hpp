@@ -1,6 +1,7 @@
 #ifndef NONOGREAMLEVEL_H
 #define NONOGREAMLEVEL_H
 
+#include <cstddef>
 #include <vector>
 
 namespace NS
