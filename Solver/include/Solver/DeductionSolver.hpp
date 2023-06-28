@@ -8,7 +8,7 @@ namespace NS
     class DeductionSolver: public ISolver
     {
     public:
-        virtual int solve(NonogramLevel& nonogramLevel, Image& returnImage);
+        virtual int solve(const NonogramLevel& nonogramLevel, Image& returnImage) const override;
     };
 }
 
