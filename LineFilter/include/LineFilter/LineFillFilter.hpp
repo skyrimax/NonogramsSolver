@@ -3,14 +3,14 @@
 
 #include "ILineFilter.hpp"
 
-class ILineFillFilter: public ILineFilter
+class LineFillFilter: public ILineFilter
 {
 public:
     // Constructors
-    ILineFillFilter(Line lineToMatch);
+    LineFillFilter(Line lineToMatch);
 
     // Destructor
-    ~ILineFillFilter() = default;
+    ~LineFillFilter() = default;
 
     // Member methods
     virtual bool operator()(Line line) const override;
