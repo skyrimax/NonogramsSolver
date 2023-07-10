@@ -6,8 +6,10 @@
 class LineFillFilter: public ILineFilter
 {
 public:
+    using ReferenceLine = std::vector<int>;
+
     // Constructors
-    LineFillFilter(Line lineToMatch);
+    LineFillFilter(ReferenceLine lineToMatch);
 
     // Destructor
     ~LineFillFilter() = default;
@@ -16,7 +18,7 @@ public:
     virtual bool operator()(Line line) const override;
 
 protected:
-    const Line& lineToMatch_;
+    const ReferenceLine& lineToMatch_;
 };
 
 #endif /* ILINEFILLFILTER_H */
