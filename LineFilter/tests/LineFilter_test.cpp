@@ -13,7 +13,7 @@
  * Contains list of lines and corresponding sequences
  * 
  */
-class LineFilterTest: public ::testing::Test
+class SequenceLineFilterTest: public ::testing::Test
 {
 protected:
     void SetUp() override
@@ -240,7 +240,7 @@ protected:
     std::vector<std::pair<ILineSequencer::Line, ILineSequencer::Sequence>> testLinesSequences;
 };
 
-TEST_F(LineFilterTest, SequenceLineFilter) {
+TEST_F(SequenceLineFilterTest, SequenceLineFilter) {
     FSTLineSequencer sequencer;
 
     for(const auto& lineSequence : testLinesSequences) {
@@ -248,7 +248,7 @@ TEST_F(LineFilterTest, SequenceLineFilter) {
     }
 }
 
-TEST_F(LineFilterTest, LineFilterInverter) {
+TEST_F(SequenceLineFilterTest, LineFilterInverter) {
     FSTLineSequencer sequencer;
 
     for(const auto& lineSequence : testLinesSequences) {
@@ -256,7 +256,7 @@ TEST_F(LineFilterTest, LineFilterInverter) {
     }
 }
 
-TEST_F(LineFilterTest, LineFilterBuilder) {
+TEST_F(SequenceLineFilterTest, LineFilterBuilder) {
     FSTLineSequencer sequencer;
     LineFilterBuilder builder;
 
