@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <string>
 
-LineFillFilter::LineFillFilter(LineFillFilter::Line lineToMatch)
+LineFillFilter::LineFillFilter(ReferenceLine lineToMatch)
     : lineToMatch_(lineToMatch)
 {
 
