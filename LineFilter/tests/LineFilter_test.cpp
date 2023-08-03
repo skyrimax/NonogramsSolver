@@ -2,8 +2,11 @@
 
 #include <SequenceLineFilter.hpp>
 #include <FSTLineSequencer.hpp>
+#include <LineFillFilter.hpp>
 #include <LineFilterInverter.hpp>
 #include <LineFilterBuilder.hpp>
+
+#include <LineGeneratorBuilder.hpp>
 
 #include <vector>
 #include <utility>
@@ -278,3 +281,19 @@ TEST_F(SequenceLineFilterTest, LineFilterBuilder) {
         builder.reset();
     }
 }
+
+TEST(LineFillFilterTest, AllNonDefinedLine)
+{
+    NS::LineGeneratorBuilder generatorBuilder;
+
+    auto generator = generatorBuilder.allPossibleLinesGenerator(5).makeLineGenerator();
+
+    auto lines = generator->generateLines();
+
+    LineFillFilter fileFilter({-1, -1, -1, -1, -1});
+
+    for(const auto& line: lines)
+    {
+        EXPECT_TRUE(fileFilter(line));
+    }
+};
