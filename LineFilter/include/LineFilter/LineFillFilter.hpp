@@ -9,7 +9,7 @@ public:
     using ReferenceLine = std::vector<int>;
 
     // Constructors
-    LineFillFilter(ReferenceLine lineToMatch);
+    LineFillFilter(const ReferenceLine& lineToMatch);
 
     // Destructor
     ~LineFillFilter() = default;
