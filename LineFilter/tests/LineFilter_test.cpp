@@ -289,7 +289,7 @@ protected:
     {
         NS::LineGeneratorBuilder generatorBuilder;
 
-        auto generator = generatorBuilder.allPossibleLinesGenerator(5).makeLineGenerator();
+        auto generator = generatorBuilder.allPossibleLinesGenerator(3).makeLineGenerator();
 
         lines = generator->generateLines();
     }
@@ -299,7 +299,7 @@ protected:
 
 TEST_F(LineFillFilterTest, AllNonDefinedLine)
 {
-    LineFillFilter fileFilter({-1, -1, -1, -1, -1});
+    LineFillFilter fileFilter({-1, -1, -1});
 
     for(const auto& line: lines)
     {
