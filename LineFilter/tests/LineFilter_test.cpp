@@ -282,14 +282,23 @@ TEST_F(SequenceLineFilterTest, LineFilterBuilder) {
     }
 }
 
-TEST(LineFillFilterTest, AllNonDefinedLine)
+class LineFillFilterTest: public ::testing::Test
 {
-    NS::LineGeneratorBuilder generatorBuilder;
+protected:
+    void SetUp() override
+    {
+        NS::LineGeneratorBuilder generatorBuilder;
 
-    auto generator = generatorBuilder.allPossibleLinesGenerator(5).makeLineGenerator();
+        auto generator = generatorBuilder.allPossibleLinesGenerator(5).makeLineGenerator();
 
-    auto lines = generator->generateLines();
+        lines = generator->generateLines();
+    }
 
+    std::vector<NS::ILineGenerator::Line> lines;
+};
+
+TEST_F(LineFillFilterTest, AllNonDefinedLine)
+{
     LineFillFilter fileFilter({-1, -1, -1, -1, -1});
 
     for(const auto& line: lines)
