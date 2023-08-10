@@ -294,15 +294,116 @@ protected:
         lines = generator->generateLines();
     }
 
-    std::vector<NS::ILineGenerator::Line> lines;
+    std::vector<ILineFilter::Line> lines;
 };
 
 TEST_F(LineFillFilterTest, AllNonDefinedLine)
 {
-    LineFillFilter fileFilter({-1, -1, -1});
+    LineFillFilter::ReferenceLine lineToMatch({-1, -1, -1});
+    LineFillFilter fileFilter(lineToMatch);
 
     for(const auto& line: lines)
     {
         EXPECT_TRUE(fileFilter(line));
     }
 };
+
+TEST_F(LineFillFilterTest, IgnoreEmpty)
+{
+    LineFillFilter::ReferenceLine lineToMatch({0, 0, 0});
+    LineFillFilter fileFilter(lineToMatch);
+
+    for(const auto& line: lines)
+    {
+        EXPECT_TRUE(fileFilter(line));
+    }
+};
+
+TEST_F(LineFillFilterTest, FillDefinedLine)
+{
+    LineFillFilter::ReferenceLine lineToMatch1({-1, -1, 1});
+    LineFillFilter::ReferenceLine lineToMatch2({-1, 1, -1});
+    LineFillFilter::ReferenceLine lineToMatch3({-1, 1, 1});
+    LineFillFilter::ReferenceLine lineToMatch4({1, -1, -1});
+    LineFillFilter::ReferenceLine lineToMatch5({1, -1, 1});
+    LineFillFilter::ReferenceLine lineToMatch6({1, 1, -1});
+    LineFillFilter::ReferenceLine lineToMatch7({1, 1, 1});
+    
+    LineFillFilter filFilter1(lineToMatch1);
+    LineFillFilter filFilter2(lineToMatch2);
+    LineFillFilter filFilter3(lineToMatch3);
+    LineFillFilter filFilter4(lineToMatch4);
+    LineFillFilter filFilter5(lineToMatch5);
+    LineFillFilter filFilter6(lineToMatch6);
+    LineFillFilter filFilter7(lineToMatch7);
+
+    // Test against filter 1
+    EXPECT_FALSE(filFilter1(lines[0]));
+    EXPECT_TRUE(filFilter1(lines[1]));
+    EXPECT_FALSE(filFilter1(lines[2]));
+    EXPECT_TRUE(filFilter1(lines[3]));
+    EXPECT_FALSE(filFilter1(lines[4]));
+    EXPECT_TRUE(filFilter1(lines[5]));
+    EXPECT_FALSE(filFilter1(lines[6]));
+    EXPECT_TRUE(filFilter1(lines[7]));
+
+    // Test against filter 2
+    EXPECT_FALSE(filFilter2(lines[0]));
+    EXPECT_FALSE(filFilter2(lines[1]));
+    EXPECT_TRUE(filFilter2(lines[2]));
+    EXPECT_TRUE(filFilter2(lines[3]));
+    EXPECT_FALSE(filFilter2(lines[4]));
+    EXPECT_FALSE(filFilter2(lines[5]));
+    EXPECT_TRUE(filFilter2(lines[6]));
+    EXPECT_TRUE(filFilter2(lines[7]));
+
+    // Test against filter 3
+    EXPECT_FALSE(filFilter3(lines[0]));
+    EXPECT_FALSE(filFilter3(lines[1]));
+    EXPECT_FALSE(filFilter3(lines[2]));
+    EXPECT_TRUE(filFilter3(lines[3]));
+    EXPECT_FALSE(filFilter3(lines[4]));
+    EXPECT_FALSE(filFilter3(lines[5]));
+    EXPECT_FALSE(filFilter3(lines[6]));
+    EXPECT_TRUE(filFilter3(lines[7]));
+
+    // Test against filter 4
+    EXPECT_FALSE(filFilter4(lines[0]));
+    EXPECT_FALSE(filFilter4(lines[1]));
+    EXPECT_FALSE(filFilter4(lines[2]));
+    EXPECT_FALSE(filFilter4(lines[3]));
+    EXPECT_TRUE(filFilter4(lines[4]));
+    EXPECT_TRUE(filFilter4(lines[5]));
+    EXPECT_TRUE(filFilter4(lines[6]));
+    EXPECT_TRUE(filFilter4(lines[7]));
+
+    // Test against filter 5
+    EXPECT_FALSE(filFilter5(lines[0]));
+    EXPECT_FALSE(filFilter5(lines[1]));
+    EXPECT_FALSE(filFilter5(lines[2]));
+    EXPECT_FALSE(filFilter5(lines[3]));
+    EXPECT_FALSE(filFilter5(lines[4]));
+    EXPECT_TRUE(filFilter5(lines[5]));
+    EXPECT_FALSE(filFilter5(lines[6]));
+    EXPECT_TRUE(filFilter5(lines[7]));
+
+    // Test against filter 6
+    EXPECT_FALSE(filFilter6(lines[0]));
+    EXPECT_FALSE(filFilter6(lines[1]));
+    EXPECT_FALSE(filFilter6(lines[2]));
+    EXPECT_FALSE(filFilter6(lines[3]));
+    EXPECT_FALSE(filFilter6(lines[4]));
+    EXPECT_FALSE(filFilter6(lines[5]));
+    EXPECT_TRUE(filFilter6(lines[6]));
+    EXPECT_TRUE(filFilter6(lines[7]));
+
+    // Test against filter 7
+    EXPECT_FALSE(filFilter7(lines[0]));
+    EXPECT_FALSE(filFilter7(lines[1]));
+    EXPECT_FALSE(filFilter7(lines[2]));
+    EXPECT_FALSE(filFilter7(lines[3]));
+    EXPECT_FALSE(filFilter7(lines[4]));
+    EXPECT_FALSE(filFilter7(lines[5]));
+    EXPECT_FALSE(filFilter7(lines[6]));
+    EXPECT_TRUE(filFilter7(lines[7]));
+}
