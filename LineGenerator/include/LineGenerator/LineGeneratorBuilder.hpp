@@ -29,7 +29,7 @@ namespace NS
         LineGeneratorBuilder& reset();
 
     protected:
-        NS::ILineGenerator* lineGenerator_;
+        NS::ILineGenerator* lineGenerator_ = nullptr;
     };
 }
 #endif /* LINEGENERATORBUILDER_H */
