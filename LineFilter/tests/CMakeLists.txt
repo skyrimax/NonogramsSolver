@@ -17,6 +17,7 @@ target_link_libraries(
     line_filter_test
     line_filter_library
     line_sequencer_library
+    line_generator_library
     GTest::gtest_main
 )
 
