@@ -54,6 +54,9 @@ add_subdirectory(NonogramLevel)
 # Load solver library
 add_subdirectory(Solver)
 
+# Load square library
+add_subdirectory(Square)
+
 # Load external dependencies
 add_subdirectory(extern)
 
