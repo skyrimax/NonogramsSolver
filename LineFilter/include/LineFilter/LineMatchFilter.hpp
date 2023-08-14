@@ -17,9 +17,6 @@ public:
 
     // Member methods
     virtual bool operator()(Line line) const override;
-
-protected:
-    const ReferenceLine& lineToMatch_;
 };
 
 #endif /* ILINEMATCHFILTER_H */
