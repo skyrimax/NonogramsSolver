@@ -1,9 +1,10 @@
 #ifndef ILINEMATCHFILTER_H
 #define ILINEMATCHFILTER_H
 
-#include "ILineFilter.hpp"
+#include "LineFillFilter.hpp"
+#include "LineEmptyFilter.hpp"
 
-class LineMatchFilter: public ILineFilter
+class LineMatchFilter: public LineFillFilter, public LineEmptyFilter
 {
 public:
     using ReferenceLine = std::vector<int>;
