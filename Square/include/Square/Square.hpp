@@ -10,6 +10,11 @@ namespace NS
         Filled=1,
         Undefined=-1
     };
+
+    enum class DefinedSquare: int {
+        Empty=0,
+        Filled=1
+    };
 }
 
 #endif /* SQUARE_H */
