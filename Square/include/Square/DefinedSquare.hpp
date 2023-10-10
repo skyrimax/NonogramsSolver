@@ -3,14 +3,9 @@
 
 namespace NS
 {
-    class DefinedSquare
-    {
-    public:
-        enum
-        {
-            Empty=0,
-            Filled=1
-        };
+    enum class DefinedSquare: int {
+        Empty=0,
+        Filled=1
     };
 }
 

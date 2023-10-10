@@ -5,13 +5,10 @@
 
 namespace NS
 {
-    class Square: public DefinedSquare
-    {
-    public:
-        enum
-        {
-            Undefined=-1
-        };
+    enum class Square: int {
+        Empty=0,
+        Filled=1,
+        Undefined=-1
     };
 }
 
