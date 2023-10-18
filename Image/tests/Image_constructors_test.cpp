@@ -99,27 +99,27 @@ TEST(ImageCopyConstructorTest, ContainsCorrectValues)
 {
     NS::Image image1(3, 3);
 
-    image1(0, 0) = 1;
-    image1(0, 1) = 2;
-    image1(0, 2) = 3;
-    image1(1, 0) = 4;
-    image1(1, 1) = 5;
-    image1(1, 2) = 6;
-    image1(2, 0) = 7;
-    image1(2, 1) = 8;
-    image1(2, 2) = 9;
+    image1(0, 0) = NS::Square::Empty;
+    image1(0, 1) = NS::Square::Filled;
+    image1(0, 2) = NS::Square::Undefined;
+    image1(1, 0) = NS::Square::Filled;
+    image1(1, 1) = NS::Square::Undefined;
+    image1(1, 2) = NS::Square::Empty;
+    image1(2, 0) = NS::Square::Undefined;
+    image1(2, 1) = NS::Square::Empty;
+    image1(2, 2) = NS::Square::Filled;
 
     NS::Image image2(image1);
 
-    EXPECT_EQ(image2(0, 0), 1);
-    EXPECT_EQ(image2(0, 1), 2);
-    EXPECT_EQ(image2(0, 2), 3);
-    EXPECT_EQ(image2(1, 0), 4);
-    EXPECT_EQ(image2(1, 1), 5);
-    EXPECT_EQ(image2(1, 2), 6);
-    EXPECT_EQ(image2(2, 0), 7);
-    EXPECT_EQ(image2(2, 1), 8);
-    EXPECT_EQ(image2(2, 2), 9);
+    EXPECT_EQ(image2(0, 0), NS::Square::Empty);
+    EXPECT_EQ(image2(0, 1), NS::Square::Filled);
+    EXPECT_EQ(image2(0, 2), NS::Square::Undefined);
+    EXPECT_EQ(image2(1, 0), NS::Square::Filled);
+    EXPECT_EQ(image2(1, 1), NS::Square::Undefined);
+    EXPECT_EQ(image2(1, 2), NS::Square::Empty);
+    EXPECT_EQ(image2(2, 0), NS::Square::Undefined);
+    EXPECT_EQ(image2(2, 1), NS::Square::Empty);
+    EXPECT_EQ(image2(2, 2), NS::Square::Filled);
 }
 
 TEST(ImageMoveConstructorTest, HandleEmpty)
@@ -181,27 +181,27 @@ TEST(ImageMoveConstructorTest, ContainsCorrectValues)
 {
     NS::Image image1(3, 3);
 
-    image1(0, 0) = 1;
-    image1(0, 1) = 2;
-    image1(0, 2) = 3;
-    image1(1, 0) = 4;
-    image1(1, 1) = 5;
-    image1(1, 2) = 6;
-    image1(2, 0) = 7;
-    image1(2, 1) = 8;
-    image1(2, 2) = 9;
+    image1(0, 0) = NS::Square::Empty;
+    image1(0, 1) = NS::Square::Filled;
+    image1(0, 2) = NS::Square::Undefined;
+    image1(1, 0) = NS::Square::Filled;
+    image1(1, 1) = NS::Square::Undefined;
+    image1(1, 2) = NS::Square::Empty;
+    image1(2, 0) = NS::Square::Undefined;
+    image1(2, 1) = NS::Square::Empty;
+    image1(2, 2) = NS::Square::Filled;
 
     NS::Image image2(std::move(image1));
 
-    EXPECT_EQ(image2(0, 0), 1);
-    EXPECT_EQ(image2(0, 1), 2);
-    EXPECT_EQ(image2(0, 2), 3);
-    EXPECT_EQ(image2(1, 0), 4);
-    EXPECT_EQ(image2(1, 1), 5);
-    EXPECT_EQ(image2(1, 2), 6);
-    EXPECT_EQ(image2(2, 0), 7);
-    EXPECT_EQ(image2(2, 1), 8);
-    EXPECT_EQ(image2(2, 2), 9);
+    EXPECT_EQ(image2(0, 0), NS::Square::Empty);
+    EXPECT_EQ(image2(0, 1), NS::Square::Filled);
+    EXPECT_EQ(image2(0, 2), NS::Square::Undefined);
+    EXPECT_EQ(image2(1, 0), NS::Square::Filled);
+    EXPECT_EQ(image2(1, 1), NS::Square::Undefined);
+    EXPECT_EQ(image2(1, 2), NS::Square::Empty);
+    EXPECT_EQ(image2(2, 0), NS::Square::Undefined);
+    EXPECT_EQ(image2(2, 1), NS::Square::Empty);
+    EXPECT_EQ(image2(2, 2), NS::Square::Filled);
 
     EXPECT_EQ(image1.nbRows(), 0);
     EXPECT_EQ(image1.nbCols(), 0);

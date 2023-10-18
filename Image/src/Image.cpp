@@ -24,5 +24,5 @@ NS::Image::Image(Image &&image)
 
 bool NS::Image::completed() const
 {
-    return !std::count(data().begin(), data().end(), -1);
+    return !std::count(data().begin(), data().end(), NS::Square::Undefined);
 }
