@@ -7,11 +7,12 @@ set(HEADER_LIST
     "${square_lib_SOURCE_DIR}/include/Square/Square.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
-add_library(square_library INTERFACE
+add_library(square_library
+            Square.cpp
             ${HEADER_LIST})
 
 # We need this directory, and users of our library will need it too
-target_include_directories(square_library INTERFACE
+target_include_directories(square_library PUBLIC
                             "${square_lib_SOURCE_DIR}/include/Square")
 
 # All users of this library will need at least C++17
