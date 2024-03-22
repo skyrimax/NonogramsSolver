@@ -22,7 +22,8 @@ target_link_libraries(image_library
 
 # We need this directory, and users of our library will need it too
 target_include_directories(image_library PUBLIC
-                            ../include/Image)
+                            ../include/Image
+                            "${square_lib_SOURCE_DIR}/include/Square")
 
 # All users of this library will need at least C++17
 target_compile_features(image_library PUBLIC cxx_std_17)
