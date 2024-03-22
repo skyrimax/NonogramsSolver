@@ -17,5 +17,5 @@ bool NS::operator==(NS::DefinedSquare s1, NS::Square s2)
 
 bool NS::operator!=(NS::DefinedSquare s1, NS::Square s2)
 {
-    
+    return !(s1 == s2);
 }
