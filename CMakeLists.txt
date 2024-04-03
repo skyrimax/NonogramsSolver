@@ -33,6 +33,15 @@ endif()
 
 include(FetchContent)
 
+# Load grid library
+add_subdirectory(grid)
+
+# Load square library
+add_subdirectory(Square)
+
+# Load image library
+add_subdirectory(Image)
+
 # Load line sequencer library
 add_subdirectory(LineSequencer)
 
@@ -42,20 +51,11 @@ add_subdirectory(LineFilter)
 # Load line generator library
 add_subdirectory(LineGenerator)
 
-# Load grid library
-add_subdirectory(grid)
-
-# Load image library
-add_subdirectory(Image)
-
 # Load nonogram level library
 add_subdirectory(NonogramLevel)
 
 # Load solver library
 add_subdirectory(Solver)
-
-# Load square library
-add_subdirectory(Square)
 
 # Load external dependencies
 add_subdirectory(extern)
