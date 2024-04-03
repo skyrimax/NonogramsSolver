@@ -6,7 +6,6 @@
 class ILineFilter
 {
 public:
-    using Sequence = std::vector<unsigned int>;
     using Line = std::vector<unsigned int>;
 
     // Contructors
