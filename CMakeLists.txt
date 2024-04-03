@@ -42,6 +42,9 @@ add_subdirectory(Square)
 # Load image library
 add_subdirectory(Image)
 
+# Load sequence library
+add_subdirectory(Sequence)
+
 # Load line sequencer library
 add_subdirectory(LineSequencer)
 
