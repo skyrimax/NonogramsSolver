@@ -7,12 +7,11 @@ set(HEADER_LIST
     "${sequence_lib_SOURCE_DIR}/include/Sequence/Sequence.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
-add_library(sequence_library
-            Sequence.cpp
+add_library(sequence_library INTERFACE
             ${HEADER_LIST})
 
 # We need this directory, and users of our library will need it too
-target_include_directories(sequence_library PUBLIC
+target_include_directories(sequence_library INTERFACE
                             "${sequence_lib_SOURCE_DIR}/include/Sequence")
 
 # All users of this library will need at least C++17
