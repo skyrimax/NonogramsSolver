@@ -3,10 +3,11 @@
 
 #include <vector>
 
+#include <Sequence.hpp>
+
 class ILineSequencer
 {
 public:
-    using Sequence = std::vector<unsigned int>;
     using Line = std::vector<unsigned int>;
 
     // Constructor
@@ -16,7 +17,7 @@ public:
     ~ILineSequencer() = default;
 
     // Member methods
-    virtual Sequence operator()(Line line) const = 0;
+    virtual NS::Sequence operator()(Line line) const = 0;
 };
 
 #endif /* ILINESEQUENCER_H */
