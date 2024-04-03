@@ -4,12 +4,13 @@
 #include <vector>
 #include <grid.hpp>
 
+#include <Sequence.hpp>
+
 namespace NS
 {
     class ISolver
     {
     public:
-        using Sequence = std::vector<unsigned int>;
         using Image = Grid<int>;
 
         struct Nonogram
