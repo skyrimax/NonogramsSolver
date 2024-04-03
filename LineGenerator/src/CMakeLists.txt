@@ -11,8 +11,7 @@ set(HEADER_LIST
     "${line_generator_lib_SOURCE_DIR}/include/LineGenerator/LineGeneratorBuilder.hpp")
 
 set(EXTERNAL_HEADER_LIST
-    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/ILineFilter.hpp"
-    "${sequence_lib_SOURCE_DIR}/include/Sequence/Sequence.hpp")
+    "${line_filter_lib_SOURCE_DIR}/include/LineFilter/ILineFilter.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(line_generator_library
@@ -25,14 +24,12 @@ add_library(line_generator_library
             ${EXTERNAL_HEADER_LIST})
 
 target_link_libraries(line_generator_library
-                        line_filter_library
-                        sequence_library)
+                        line_filter_library)
 
 # We need this directory, and users of our library will need it too
 target_include_directories(line_generator_library PUBLIC
                             ../include/LineGenerator
-                            "${line_filter_lib_SOURCE_DIR}/include"
-                            "${sequence_lib_SOURCE_DIR}/include/Sequence")
+                            "${line_filter_lib_SOURCE_DIR}/include")
 
 # All users of this library will need at least C++17
 target_compile_features(line_generator_library PUBLIC cxx_std_17)
