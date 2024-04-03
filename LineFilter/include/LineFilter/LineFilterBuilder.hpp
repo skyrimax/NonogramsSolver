@@ -4,6 +4,8 @@
 #include "ILineFilter.hpp"
 #include "ILineSequencer.hpp"
 
+#include <Sequence.hpp>
+
 class LineFilterBuilder
 {
 public:
@@ -15,7 +17,7 @@ public:
 
     // Building methods
     // Base line filter
-    LineFilterBuilder& sequenceLineFilter(ILineFilter::Sequence sequence,
+    LineFilterBuilder& sequenceLineFilter(NS::Sequence sequence,
                                             ILineSequencer& sequencer);
 
     // Line filter modifiers
