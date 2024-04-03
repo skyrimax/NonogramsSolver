@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <sstream>
 
-FSTLineSequencer::Sequence FSTLineSequencer::operator()(Line line) const
+NS::Sequence FSTLineSequencer::operator()(Line line) const
 {
     // Current state, represent the last value read from the line
     unsigned int state = 0;
@@ -11,7 +11,7 @@ FSTLineSequencer::Sequence FSTLineSequencer::operator()(Line line) const
     // index of group, used to increment number of tiles in said group
     unsigned int groupIndex = 0;
 
-    Sequence seq;
+    NS::Sequence seq;
     
     for(const auto& tile : line) {
         switch (state)
