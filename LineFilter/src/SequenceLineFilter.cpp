@@ -1,6 +1,6 @@
 #include "SequenceLineFilter.hpp"
 
-SequenceLineFilter::SequenceLineFilter(const Sequence& sequence, const ILineSequencer& sequencer)
+SequenceLineFilter::SequenceLineFilter(const NS::Sequence& sequence, const ILineSequencer& sequencer)
     : sequence_{sequence}, sequencer_{sequencer}
 {
 
