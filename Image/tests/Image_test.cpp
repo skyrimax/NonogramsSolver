@@ -29,7 +29,7 @@ TEST(ImageCompleted, IncompleteImage)
 {
     NS::Image image(3, 3);
 
-    image(0, 0) = -1;
+    image(0, 0) = NS::Square::Undefined;
 
     EXPECT_FALSE(image.completed());
 }

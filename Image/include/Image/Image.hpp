@@ -2,10 +2,11 @@
 #define IMAGE_H
 
 #include <grid.hpp>
+#include <Square.hpp>
 
 namespace NS
 {
-    class Image: public Grid<int>
+    class Image: public Grid<Square>
     {
     public:
         Image();

@@ -3,26 +3,26 @@
 #include <algorithm>
 
 NS::Image::Image()
-    : Grid<int>()
+    : Grid<Square>()
 {
 }
 
 NS::Image::Image(size_type nbRows, size_type nbCols)
-    : Grid<int>(nbRows, nbCols)
+    : Grid<Square>(nbRows, nbCols)
 {
 }
 
 NS::Image::Image(const Image &image)
-    : Grid<int>(image)
+    : Grid<Square>(image)
 {
 }
 
 NS::Image::Image(Image &&image)
-    : Grid<int>(std::move(image))
+    : Grid<Square>(std::move(image))
 {
 }
 
 bool NS::Image::completed() const
 {
-    return !std::count(data().begin(), data().end(), -1);
+    return !std::count(data().begin(), data().end(), NS::Square::Undefined);
 }
