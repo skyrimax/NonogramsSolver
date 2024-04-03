@@ -172,7 +172,7 @@ class LineGeneratorFilterTest: public ::testing::Test
 {
 protected:
     // test case type
-    using testCaseType = std::tuple<unsigned int, ILineSequencer::Sequence,
+    using testCaseType = std::tuple<unsigned int, NS::Sequence,
                             std::vector<NS::ILineGenerator::Line>>;
 
     void SetUp() override

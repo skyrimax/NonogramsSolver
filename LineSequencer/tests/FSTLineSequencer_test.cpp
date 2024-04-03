@@ -19,35 +19,35 @@ protected:
         // Rows
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 1, 0, 1, 0},
                     {1, 1}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 1, 1, 1},
                     {5}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 1, 1, 1},
                     {5}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 1, 1, 1, 0},
                     {3}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 0, 1, 0, 0},
                     {1}
                 )
@@ -55,35 +55,35 @@ protected:
         // Columns
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 1, 1, 0, 0},
                     {2}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 1, 1, 0},
                     {4}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 1, 1, 1, 1},
                     {4}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 1, 1, 0},
                     {4}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 1, 1, 0, 0},
                     {2}
                 )
@@ -93,70 +93,70 @@ protected:
         // Rows
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 0, 0, 1, 0, 0, 1, 1, 1},
                     {2, 1, 3}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 0, 0, 0, 0, 0, 1, 0, 1, 1},
                     {1, 1, 2}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 0, 0, 0, 0, 0, 1, 0, 1, 1},
                     {1, 1, 2}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 0, 0, 0, 0, 0, 0, 0, 1, 1},
                     {1, 2}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 0, 0, 0, 0, 0, 1, 1, 1},
                     {2, 3}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 1, 0, 0, 0, 1, 1, 1, 1},
                     {3, 4}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 1, 1, 0, 1, 1, 1, 0, 1},
                     {4, 3, 1}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 0, 1, 1, 1, 1, 1, 0, 1, 0},
                     {1, 5, 1}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 1, 0, 1, 1, 0, 1, 1, 0, 1},
                     {1, 2, 2, 1}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 0, 1, 1, 0, 1, 0, 1, 1, 1},
                     {1, 2, 1, 3}
                 )
@@ -164,77 +164,77 @@ protected:
         // Columns
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 1, 1, 1, 1, 1, 1, 0, 1},
                     {8, 1}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 0, 0, 0, 1, 1, 1, 0, 1, 0},
                     {1, 3, 1}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 0, 0, 0, 0, 1, 1, 1, 0, 1},
                     {3, 1}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
                     {4}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 0, 0, 0, 0, 0, 0, 1, 1, 0},
                     {1, 2}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 0, 0, 0, 0, 0, 1, 1, 0, 1},
                     {2, 1}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {0, 1, 1, 0, 0, 1, 1, 1, 1, 0},
                     {2, 4}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 0, 0, 0, 1, 1, 1, 0, 1, 1},
                     {1, 3, 2}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 1, 1, 1, 1, 0, 1, 0, 1},
                     {6, 1, 1}
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, ILineSequencer::Sequence>(
+                std::pair<ILineSequencer::Line, NS::Sequence>(
                     {1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
                     {7, 2}
                 )
             );
     }
 
-    std::vector<std::pair<ILineSequencer::Line, ILineSequencer::Sequence>> testLinesSequences;
+    std::vector<std::pair<ILineSequencer::Line, NS::Sequence>> testLinesSequences;
 };
 
 TEST_F(LineSequencerTest, FSTLineSequencer) {
