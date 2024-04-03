@@ -14,8 +14,8 @@ TEST(NonogramLevelDefaultConstructor, isEmpty)
 
 TEST(NonogramLevelFullConstructor, HandleEmpty)
 {
-    std::vector<NS::NonogramLevel::Sequence> rowSequences;
-    std::vector<NS::NonogramLevel::Sequence> colSequences;
+    std::vector<NS::Sequence> rowSequences;
+    std::vector<NS::Sequence> colSequences;
 
     NS::NonogramLevel nonogramLevel(rowSequences, colSequences);
 
@@ -25,14 +25,14 @@ TEST(NonogramLevelFullConstructor, HandleEmpty)
 
 TEST(NonogramLevelFullConstructor, HandleNoRow)
 {
-    std::vector<NS::NonogramLevel::Sequence> rowSequences;
+    std::vector<NS::Sequence> rowSequences;
 
-    std::vector<NS::NonogramLevel::Sequence> colSequences({
-        NS::NonogramLevel::Sequence({2}),
-        NS::NonogramLevel::Sequence({4}),
-        NS::NonogramLevel::Sequence({4}),
-        NS::NonogramLevel::Sequence({4}),
-        NS::NonogramLevel::Sequence({2}),
+    std::vector<NS::Sequence> colSequences({
+        NS::Sequence({2}),
+        NS::Sequence({4}),
+        NS::Sequence({4}),
+        NS::Sequence({4}),
+        NS::Sequence({2}),
     });
 
     NS::NonogramLevel nonogramLevel(rowSequences, colSequences);
@@ -43,15 +43,15 @@ TEST(NonogramLevelFullConstructor, HandleNoRow)
 
 TEST(NonogramLevelFullConstructor, HandleNoColumn)
 {
-    std::vector<NS::NonogramLevel::Sequence> rowSequences({
-        NS::NonogramLevel::Sequence({1, 1}),
-        NS::NonogramLevel::Sequence({5}),
-        NS::NonogramLevel::Sequence({5}),
-        NS::NonogramLevel::Sequence({3}),
-        NS::NonogramLevel::Sequence({1}),
+    std::vector<NS::Sequence> rowSequences({
+        NS::Sequence({1, 1}),
+        NS::Sequence({5}),
+        NS::Sequence({5}),
+        NS::Sequence({3}),
+        NS::Sequence({1}),
     });
     
-    std::vector<NS::NonogramLevel::Sequence> colSequences;
+    std::vector<NS::Sequence> colSequences;
 
     NS::NonogramLevel nonogramLevel(rowSequences, colSequences);
 
@@ -61,20 +61,20 @@ TEST(NonogramLevelFullConstructor, HandleNoColumn)
 
 TEST(NonogramLevelFullConstructor, CorrectValues)
 {
-    std::vector<NS::NonogramLevel::Sequence> rowSequences({
-        NS::NonogramLevel::Sequence({1, 1}),
-        NS::NonogramLevel::Sequence({5}),
-        NS::NonogramLevel::Sequence({5}),
-        NS::NonogramLevel::Sequence({3}),
-        NS::NonogramLevel::Sequence({1}),
+    std::vector<NS::Sequence> rowSequences({
+        NS::Sequence({1, 1}),
+        NS::Sequence({5}),
+        NS::Sequence({5}),
+        NS::Sequence({3}),
+        NS::Sequence({1}),
     });
     
-    std::vector<NS::NonogramLevel::Sequence> colSequences({
-        NS::NonogramLevel::Sequence({2}),
-        NS::NonogramLevel::Sequence({4}),
-        NS::NonogramLevel::Sequence({4}),
-        NS::NonogramLevel::Sequence({4}),
-        NS::NonogramLevel::Sequence({2}),
+    std::vector<NS::Sequence> colSequences({
+        NS::Sequence({2}),
+        NS::Sequence({4}),
+        NS::Sequence({4}),
+        NS::Sequence({4}),
+        NS::Sequence({2}),
     });
 
     NS::NonogramLevel nonogramLevel(rowSequences, colSequences);

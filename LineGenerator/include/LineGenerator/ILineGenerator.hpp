@@ -2,14 +2,14 @@
 #define ILINEGENERATOR_H
 
 #include <vector>
-#include <string>
+
+#include <Sequence.hpp>
 
 namespace NS
 {
     class ILineGenerator
     {
     public:
-        using Sequence = std::vector<unsigned int>;
         using Line = std::vector<unsigned int>;
 
         // Constructors

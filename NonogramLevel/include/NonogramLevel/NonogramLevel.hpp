@@ -4,13 +4,14 @@
 #include <cstddef>
 #include <vector>
 
+#include <Sequence.hpp>
+
 namespace NS
 {
     class NonogramLevel
     {
     public:
         typedef size_t size_type;
-        using Sequence = std::vector<unsigned int>;
 
         NonogramLevel() = default;
 

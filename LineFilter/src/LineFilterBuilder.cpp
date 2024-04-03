@@ -5,7 +5,7 @@
 
 #include <stdexcept>
 
-LineFilterBuilder& LineFilterBuilder::sequenceLineFilter(ILineFilter::Sequence sequence, ILineSequencer& sequencer)
+LineFilterBuilder& LineFilterBuilder::sequenceLineFilter(NS::Sequence sequence, ILineSequencer& sequencer)
 {
     if(lineFilter_)
         throw(std::logic_error("Base line filter has already been created, cannot create SequenceLineFilter"));

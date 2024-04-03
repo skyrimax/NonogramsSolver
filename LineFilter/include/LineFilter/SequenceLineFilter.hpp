@@ -2,14 +2,15 @@
 #define SEQUENCERLINEFILTER_H
 
 #include "ILineFilter.hpp"
-
 #include "ILineSequencer.hpp"
+
+#include <Sequence.hpp>
 
 class SequenceLineFilter: public ILineFilter
 {
 public:
     // Contructors
-    SequenceLineFilter(const Sequence& sequence, const ILineSequencer& sequencer);
+    SequenceLineFilter(const NS::Sequence& sequence, const ILineSequencer& sequencer);
 
     // // Destructor
     ~SequenceLineFilter() = default;
@@ -17,7 +18,7 @@ public:
     // Member methods
     virtual bool operator()(Line line) const override;
 protected:
-    const Sequence& sequence_;
+    const NS::Sequence& sequence_;
     const ILineSequencer& sequencer_;
 };
 
