@@ -1,7 +1,7 @@
 #include "LineFilterInverter.hpp"
 
-LineFilterInverter::LineFilterInverter(ILineFilter* lineFilter)
-    : ILineFilterModifier(lineFilter)
+LineFilterInverter::LineFilterInverter(std::unique_ptr<ILineFilter> lineFilter)
+    : ILineFilterModifier(std::move(lineFilter))
 {
 
 }
