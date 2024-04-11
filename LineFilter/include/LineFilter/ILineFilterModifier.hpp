@@ -9,7 +9,7 @@ class ILineFilterModifier: public ILineFilter
 {
 public:
     // Constructors
-    ILineFilterModifier(ILineFilter* lineFilter);
+    ILineFilterModifier(std::unique_ptr<ILineFilter> lineFilter);
 
     // Destructor
     virtual ~ILineFilterModifier();
