@@ -3,6 +3,8 @@
 
 #include "ILineFilter.hpp"
 
+#include <memory>
+
 class ILineFilterModifier: public ILineFilter
 {
 public:
@@ -13,7 +15,7 @@ public:
     virtual ~ILineFilterModifier();
 
 protected:
-    ILineFilter* lineFilter_;
+    std::unique_ptr<ILineFilter> lineFilter_;
 };
 
 #endif /* ILINEFILTERMODIFIER_H */
