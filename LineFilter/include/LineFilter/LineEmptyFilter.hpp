@@ -17,7 +17,7 @@ public:
     ~LineEmptyFilter() = default;
 
     // Member methods
-    virtual bool operator()(Line line) const override;
+    virtual bool operator()(Line& line) const override;
 
 protected:
     const std::unique_ptr<const ReferenceLine> lineToMatch_;

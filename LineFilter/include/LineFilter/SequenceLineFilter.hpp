@@ -16,7 +16,7 @@ public:
     ~SequenceLineFilter() = default;
 
     // Member methods
-    virtual bool operator()(Line line) const override;
+    virtual bool operator()(Line& line) const override;
 protected:
     const NS::Sequence& sequence_;
     const ILineSequencer& sequencer_;

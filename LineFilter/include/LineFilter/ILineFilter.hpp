@@ -15,7 +15,7 @@ public:
     virtual ~ILineFilter() = default;
 
     // Member methods
-    virtual bool operator()(Line line) const = 0;
+    virtual bool operator()(Line& line) const = 0;
 };
 
 #endif /* ILINEFILTER_H */
