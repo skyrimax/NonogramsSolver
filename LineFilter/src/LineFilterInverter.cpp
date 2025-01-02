@@ -6,7 +6,7 @@ LineFilterInverter::LineFilterInverter(std::unique_ptr<ILineFilter> lineFilter)
 
 }
 
-bool LineFilterInverter::operator()(Line& line) const
+bool LineFilterInverter::operator()(const Line& line) const
 {
     return !(*lineFilter_)(line);
 }

@@ -9,7 +9,7 @@ LineEmptyFilter::LineEmptyFilter(std::unique_ptr<const ReferenceLine> lineToMatc
 
 }
 
-bool LineEmptyFilter::operator()(LineEmptyFilter::Line& line) const
+bool LineEmptyFilter::operator()(const LineEmptyFilter::Line& line) const
 {
     auto lineSize = line.size();
     auto lineToMatchSize = lineToMatch_->size();

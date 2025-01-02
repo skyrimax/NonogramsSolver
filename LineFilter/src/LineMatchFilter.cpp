@@ -9,7 +9,7 @@ LineMatchFilter::LineMatchFilter(std::unique_ptr<const ReferenceLine> lineToMatc
 
 }
 
-bool LineMatchFilter::operator()(LineMatchFilter::Line& line) const
+bool LineMatchFilter::operator()(const LineMatchFilter::Line& line) const
 {
     auto lineSize = line.size();
     auto lineToMatchSize = lineToMatch_->size();
