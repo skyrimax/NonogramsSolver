@@ -21,7 +21,7 @@ bool LineMatchFilter::operator()(const LineMatchFilter::Line& line) const
                                             std::to_string(lineToMatch_->size())));
 
     for(auto i = 0; i < lineSize; ++i){
-        if(lineToMatch_->at(i) == line[i] || line[i] == -1)
+        if(lineToMatch_->at(i) != -1 && lineToMatch_->at(i) != line[i])
             return false;
     }
 
