@@ -1,12 +1,12 @@
 #include "LineFilterInverter.hpp"
 
-LineFilterInverter::LineFilterInverter(ILineFilter* lineFilter)
-    : ILineFilterModifier(lineFilter)
+LineFilterInverter::LineFilterInverter(std::unique_ptr<ILineFilter> lineFilter)
+    : ILineFilterModifier(std::move(lineFilter))
 {
 
 }
 
-bool LineFilterInverter::operator()(Line line) const
+bool LineFilterInverter::operator()(const Line& line) const
 {
     return !(*lineFilter_)(line);
 }

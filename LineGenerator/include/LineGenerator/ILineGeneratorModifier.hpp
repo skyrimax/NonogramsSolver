@@ -3,19 +3,21 @@
 
 #include "ILineGenerator.hpp"
 
+#include <memory>
+
 namespace NS
 {
     class ILineGeneratorModifier: public ILineGenerator
     {
     public:
         // Constructors
-        ILineGeneratorModifier(ILineGenerator* lineGenerator);
+        ILineGeneratorModifier(std::unique_ptr<ILineGenerator> lineGenerator);
 
         // Destructor
         ~ILineGeneratorModifier();
 
     protected:
-        ILineGenerator* lineGenerator_;
+        std::unique_ptr<ILineGenerator> lineGenerator_;
     };
 }
 

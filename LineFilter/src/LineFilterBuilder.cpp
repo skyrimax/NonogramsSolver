@@ -5,12 +5,12 @@
 
 #include <stdexcept>
 
-LineFilterBuilder& LineFilterBuilder::sequenceLineFilter(NS::Sequence sequence, ILineSequencer& sequencer)
+LineFilterBuilder& LineFilterBuilder::sequenceLineFilter(std::shared_ptr<const NS::Sequence> sequence, std::shared_ptr<const ILineSequencer> sequencer)
 {
     if(lineFilter_)
         throw(std::logic_error("Base line filter has already been created, cannot create SequenceLineFilter"));
     
-    lineFilter_ = new SequenceLineFilter(sequence, sequencer);
+    lineFilter_ = std::make_unique<SequenceLineFilter>(sequence, sequencer);
 
     return *this;
 }
@@ -20,27 +20,22 @@ LineFilterBuilder& LineFilterBuilder::lineFilterInverter()
     if(!lineFilter_)
         throw(std::logic_error("No base line filter has been created, cannot create LineFilterInverter"));
 
-    lineFilter_ = new LineFilterInverter(lineFilter_);
+    lineFilter_ = std::make_unique<LineFilterInverter>(std::move(lineFilter_));
 
     return *this;
 }
 
-ILineFilter* LineFilterBuilder::makeLineFilter()
+std::unique_ptr<ILineFilter> LineFilterBuilder::makeLineFilter()
 {
     if(!lineFilter_)
         throw(std::logic_error("No line filter has been created"));
 
-    ILineFilter* lineFilterTemp= lineFilter_;
-    lineFilter_ = nullptr;
-
-    return lineFilterTemp;
+    return std::move(lineFilter_);
 }
 
 LineFilterBuilder& LineFilterBuilder::reset()
 {
-    delete lineFilter_;
-
-    lineFilter_ = nullptr;
+    lineFilter_.reset(nullptr);
 
     return *this;
 }

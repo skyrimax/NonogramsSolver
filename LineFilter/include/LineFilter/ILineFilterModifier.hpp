@@ -3,17 +3,19 @@
 
 #include "ILineFilter.hpp"
 
+#include <memory>
+
 class ILineFilterModifier: public ILineFilter
 {
 public:
     // Constructors
-    ILineFilterModifier(ILineFilter* lineFilter);
+    ILineFilterModifier(std::unique_ptr<ILineFilter> lineFilter);
 
     // Destructor
     virtual ~ILineFilterModifier();
 
 protected:
-    ILineFilter* lineFilter_;
+    std::unique_ptr<ILineFilter> lineFilter_;
 };
 
 #endif /* ILINEFILTERMODIFIER_H */

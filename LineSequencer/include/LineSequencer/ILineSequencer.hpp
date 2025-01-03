@@ -17,7 +17,7 @@ public:
     ~ILineSequencer() = default;
 
     // Member methods
-    virtual NS::Sequence operator()(Line line) const = 0;
+    virtual NS::Sequence operator()(const Line& line) const = 0;
 };
 
 #endif /* ILINESEQUENCER_H */

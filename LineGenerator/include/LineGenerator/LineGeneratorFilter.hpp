@@ -5,13 +5,15 @@
 
 #include "ILineFilter.hpp"
 
+#include <memory>
+
 namespace NS
 {
     class LineGeneratorFilter: public ILineGeneratorModifier
     {
     public:
         // Constructor
-        LineGeneratorFilter(ILineFilter* lineFilter, ILineGenerator* lineGenerator);
+        LineGeneratorFilter(std::shared_ptr<ILineFilter> lineFilter, std::unique_ptr<ILineGenerator> lineGenerator);
 
         // Destructor
         ~LineGeneratorFilter();
@@ -19,7 +21,7 @@ namespace NS
         virtual std::vector<Line> generateLines() override;
 
     protected:
-        ILineFilter* lineFilter_;
+        std::shared_ptr<ILineFilter> lineFilter_;
     };
 }
 

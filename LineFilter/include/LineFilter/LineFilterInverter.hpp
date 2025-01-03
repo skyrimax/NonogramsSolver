@@ -7,13 +7,13 @@ class LineFilterInverter: public ILineFilterModifier
 {
 public:
     // Constructor
-    LineFilterInverter(ILineFilter* lineFilter);
+    LineFilterInverter(std::unique_ptr<ILineFilter> lineFilter);
 
     // Destructor
     virtual ~LineFilterInverter() = default;
 
     // Member methods
-    virtual bool operator()(Line line) const override;
+    virtual bool operator()(const Line& line) const override;
 };
 
 #endif /* LINEFILTERINVERTER_H */
