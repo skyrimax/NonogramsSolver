@@ -293,8 +293,6 @@ protected:
         auto generator = generatorBuilder.allPossibleLinesGenerator(3).makeLineGenerator();
 
         lines = generator->generateLines();
-
-        delete generator;
     }
 
     std::vector<ILineFilter::Line> lines;
@@ -313,7 +311,7 @@ TEST_F(LineFillFilterTest, AllNonDefinedLine)
 
 TEST_F(LineFillFilterTest, IgnoreEmpty)
 {
-    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch({0, 0, 0});
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, 0, 0}));
     LineFillFilter fillFilter(lineToMatch);
 
     for(const auto& line: lines)
@@ -421,8 +419,6 @@ protected:
         auto generator = generatorBuilder.allPossibleLinesGenerator(3).makeLineGenerator();
 
         lines = generator->generateLines();
-
-        delete generator;
     }
 
     std::vector<ILineFilter::Line> lines;
@@ -549,8 +545,6 @@ protected:
         auto generator = generatorBuilder.allPossibleLinesGenerator(3).makeLineGenerator();
 
         lines = generator->generateLines();
-
-        delete generator;
     }
 
     std::vector<ILineFilter::Line> lines;
