@@ -172,7 +172,7 @@ class LineGeneratorFilterTest: public ::testing::Test
 {
 protected:
     // test case type
-    using testCaseType = std::tuple<unsigned int, NS::Sequence,
+    using testCaseType = std::tuple<unsigned int, std::shared_ptr<NS::Sequence>,
                             std::vector<NS::ILineGenerator::Line>>;
 
     void SetUp() override
@@ -188,7 +188,7 @@ protected:
             .push_back(
                 testCaseType(
                     5,
-                    {1, 1},
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 1})),
                     {
                         {0, 0, 1, 0, 1},
                         {0, 1, 0, 0, 1},
@@ -203,7 +203,7 @@ protected:
             .push_back(
                 testCaseType(
                     5,
-                    {5},
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({5})),
                     {
                         {1, 1, 1, 1, 1}
                     }
@@ -213,7 +213,7 @@ protected:
             .push_back(
                 testCaseType(
                     5,
-                    {3},
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({3})),
                     {
                         {1, 1, 1, 0, 0},
                         {0, 1, 1, 1, 0},
@@ -225,7 +225,7 @@ protected:
             .push_back(
                 testCaseType(
                     5,
-                    {1},
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1})),
                     {
                         {1, 0, 0, 0, 0},
                         {0, 1, 0, 0, 0},
@@ -239,7 +239,7 @@ protected:
             .push_back(
                 testCaseType(
                     5,
-                    {2},
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({2})),
                     {
                         {1, 1, 0, 0, 0},
                         {0, 1, 1, 0, 0},
@@ -252,7 +252,7 @@ protected:
             .push_back(
                 testCaseType(
                     5,
-                    {4},
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({4})),
                     {
                         {1, 1, 1, 1, 0},
                         {0, 1, 1, 1, 1}
@@ -268,23 +268,23 @@ protected:
     }
 
     std::vector<testCaseType> testCases;
-    FSTLineSequencer sequencer;
+    std::shared_ptr<FSTLineSequencer> sequencer = std::make_shared<FSTLineSequencer>();
     LineFilterBuilder filterBuilder;
 };
 
 TEST_F(LineGeneratorFilterTest, HandlesSize0)
 {
     EXPECT_EQ(NS::LineGeneratorFilter(
-        filterBuilder.reset().sequenceLineFilter({1}, sequencer).lineFilterInverter().makeLineFilter(),
-        new NS::AllPossibleLinesGenerator(0)).generateLines(),
+        filterBuilder.reset().sequenceLineFilter(std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1})), sequencer).lineFilterInverter().makeLineFilter(),
+        std::make_unique<NS::AllPossibleLinesGenerator>(0)).generateLines(),
         std::vector<NS::AllPossibleLinesGenerator::Line>());
 }
 
 TEST_F(LineGeneratorFilterTest, HandlesEmptySequence)
 {
     EXPECT_EQ(NS::LineGeneratorFilter(
-        filterBuilder.reset().sequenceLineFilter({0}, sequencer).lineFilterInverter().makeLineFilter(),
-        new NS::AllPossibleLinesGenerator(5)).generateLines(),
+        filterBuilder.reset().sequenceLineFilter(std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({0})), sequencer).lineFilterInverter().makeLineFilter(),
+        std::make_unique<NS::AllPossibleLinesGenerator>(5)).generateLines(),
         std::vector<NS::AllPossibleLinesGenerator::Line>());
 }
 
@@ -297,7 +297,7 @@ TEST_F(LineGeneratorFilterTest, FiltersLvl1_1)
     for(const auto& testCase : testCases) {
         auto lines = NS::LineGeneratorFilter(
             filterBuilder.reset().sequenceLineFilter(std::get<1>(testCase), sequencer).lineFilterInverter().makeLineFilter(),
-            new NS::AllPossibleLinesGenerator(std::get<0>(testCase))
+            std::make_unique<NS::AllPossibleLinesGenerator>(std::get<0>(testCase))
         ).generateLines();
 
         std::sort(lines.begin(),
