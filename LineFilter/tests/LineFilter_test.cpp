@@ -10,6 +10,7 @@
 
 #include <LineGeneratorBuilder.hpp>
 
+#include <memory>
 #include <vector>
 #include <utility>
 
@@ -27,73 +28,73 @@ protected:
         // Rows
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 1, 0, 1, 0},
-                    {1, 1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 1}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 1, 1, 1},
-                    {5}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({5}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 1, 1, 1},
-                    {5}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({5}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 1, 1, 1, 0},
-                    {3}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({3}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 0, 1, 0, 0},
-                    {1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1}))
                 )
             );
         // Columns
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 1, 1, 0, 0},
-                    {2}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({2}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 1, 1, 0},
-                    {4}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({4}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 1, 1, 1, 1},
-                    {4}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({4}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 1, 1, 0},
-                    {4}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({4}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 1, 1, 0, 0},
-                    {2}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({2}))
                 )
             );
 
@@ -101,152 +102,152 @@ protected:
         // Rows
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 0, 0, 1, 0, 0, 1, 1, 1},
-                    {2, 1, 3}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({2, 1, 3}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 0, 0, 0, 0, 0, 1, 0, 1, 1},
-                    {1, 1, 2}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 1, 2}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr <NS::Sequence>>(
                     {1, 0, 0, 0, 0, 0, 1, 0, 1, 1},
-                    {1, 1, 2}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 1, 2}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 0, 0, 0, 0, 0, 0, 0, 1, 1},
-                    {1, 2}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 2}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 0, 0, 0, 0, 0, 1, 1, 1},
-                    {2, 3}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({2, 3}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 1, 0, 0, 0, 1, 1, 1, 1},
-                    {3, 4}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({3, 4}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 1, 1, 0, 1, 1, 1, 0, 1},
-                    {4, 3, 1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({4, 3, 1}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 0, 1, 1, 1, 1, 1, 0, 1, 0},
-                    {1, 5, 1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 5, 1}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 1, 0, 1, 1, 0, 1, 1, 0, 1},
-                    {1, 2, 2, 1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 2, 2, 1}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 0, 1, 1, 0, 1, 0, 1, 1, 1},
-                    {1, 2, 1, 3}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 2, 1, 3}))
                 )
             );
         // Columns
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 1, 1, 1, 1, 1, 1, 0, 1},
-                    {8, 1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({8, 1}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 0, 0, 0, 1, 1, 1, 0, 1, 0},
-                    {1, 3, 1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 3, 1}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 0, 0, 0, 0, 1, 1, 1, 0, 1},
-                    {3, 1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({3, 1}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
-                    {4}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({4}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 0, 0, 0, 0, 0, 0, 1, 1, 0},
-                    {1, 2}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 2}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 0, 0, 0, 0, 0, 1, 1, 0, 1},
-                    {2, 1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({2, 1}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {0, 1, 1, 0, 0, 1, 1, 1, 1, 0},
-                    {2, 4}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({2, 4}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 0, 0, 0, 1, 1, 1, 0, 1, 1},
-                    {1, 3, 2}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({1, 3, 2}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 1, 1, 1, 1, 0, 1, 0, 1},
-                    {6, 1, 1}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({6, 1, 1}))
                 )
             );
         testLinesSequences
             .push_back(
-                std::pair<ILineSequencer::Line, NS::Sequence>(
+                std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>(
                     {1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
-                    {7, 2}
+                    std::make_shared<NS::Sequence>(std::initializer_list<unsigned int>({7, 2}))
                 )
             );
     }
 
-    std::vector<std::pair<ILineSequencer::Line, NS::Sequence>> testLinesSequences;
+    std::vector<std::pair<ILineSequencer::Line, std::shared_ptr<NS::Sequence>>> testLinesSequences;
 };
 
 TEST_F(SequenceLineFilterTest, SequenceLineFilter) {
-    FSTLineSequencer sequencer;
+    std::shared_ptr<FSTLineSequencer> sequencer = std::make_shared<FSTLineSequencer>();
 
     for(const auto& lineSequence : testLinesSequences) {
         EXPECT_TRUE(SequenceLineFilter(lineSequence.second, sequencer)(lineSequence.first));
@@ -254,32 +255,30 @@ TEST_F(SequenceLineFilterTest, SequenceLineFilter) {
 }
 
 TEST_F(SequenceLineFilterTest, LineFilterInverter) {
-    FSTLineSequencer sequencer;
+    std::shared_ptr<FSTLineSequencer> sequencer = std::make_shared<FSTLineSequencer>();
 
     for(const auto& lineSequence : testLinesSequences) {
-        EXPECT_FALSE(LineFilterInverter(new SequenceLineFilter(lineSequence.second, sequencer))(lineSequence.first));
+        EXPECT_FALSE(LineFilterInverter(std::make_unique<SequenceLineFilter>(lineSequence.second, sequencer))(lineSequence.first));
     }
 }
 
 TEST_F(SequenceLineFilterTest, LineFilterBuilder) {
-    FSTLineSequencer sequencer;
+    std::shared_ptr<FSTLineSequencer> sequencer = std::make_shared<FSTLineSequencer>();
     LineFilterBuilder builder;
 
     for(const auto& lineSequence : testLinesSequences) {
-        ILineFilter* filter = builder.sequenceLineFilter(lineSequence.second, sequencer).makeLineFilter();
+        std::unique_ptr<ILineFilter> filter = builder.sequenceLineFilter(lineSequence.second, sequencer).makeLineFilter();
 
         EXPECT_TRUE((*filter)(lineSequence.first));
 
-        delete filter;
         builder.reset();
     }
 
     for(const auto& lineSequence : testLinesSequences) {
-        ILineFilter* filter = builder.sequenceLineFilter(lineSequence.second, sequencer).lineFilterInverter().makeLineFilter();
+        std::unique_ptr<ILineFilter> filter = builder.sequenceLineFilter(lineSequence.second, sequencer).lineFilterInverter().makeLineFilter();
 
         EXPECT_FALSE((*filter)(lineSequence.first));
 
-        delete filter;
         builder.reset();
     }
 }
@@ -303,7 +302,7 @@ protected:
 
 TEST_F(LineFillFilterTest, AllNonDefinedLine)
 {
-    LineFillFilter::ReferenceLine lineToMatch({-1, -1, -1});
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, -1, -1}));
     LineFillFilter fillFilter(lineToMatch);
 
     for(const auto& line: lines)
@@ -314,7 +313,7 @@ TEST_F(LineFillFilterTest, AllNonDefinedLine)
 
 TEST_F(LineFillFilterTest, IgnoreEmpty)
 {
-    LineFillFilter::ReferenceLine lineToMatch({0, 0, 0});
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch({0, 0, 0});
     LineFillFilter fillFilter(lineToMatch);
 
     for(const auto& line: lines)
@@ -325,13 +324,13 @@ TEST_F(LineFillFilterTest, IgnoreEmpty)
 
 TEST_F(LineFillFilterTest, FillDefinedLine)
 {
-    LineFillFilter::ReferenceLine lineToMatch1({-1, -1, 1});
-    LineFillFilter::ReferenceLine lineToMatch2({-1, 1, -1});
-    LineFillFilter::ReferenceLine lineToMatch3({-1, 1, 1});
-    LineFillFilter::ReferenceLine lineToMatch4({1, -1, -1});
-    LineFillFilter::ReferenceLine lineToMatch5({1, -1, 1});
-    LineFillFilter::ReferenceLine lineToMatch6({1, 1, -1});
-    LineFillFilter::ReferenceLine lineToMatch7({1, 1, 1});
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch1 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, -1, 1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch2 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, 1, -1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch3 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, 1, 1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch4 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, -1, -1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch5 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, -1, 1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch6 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, 1, -1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch7 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, 1, 1}));
     
     LineFillFilter fillFilter1(lineToMatch1);
     LineFillFilter fillFilter2(lineToMatch2);
@@ -431,7 +430,7 @@ protected:
 
 TEST_F(LineEmptyFilterTest, AllNonDefinedLine)
 {
-    LineEmptyFilter::ReferenceLine lineToMatch({-1, -1, -1});
+    std::shared_ptr<LineEmptyFilter::ReferenceLine> lineToMatch = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, -1, -1}));
     LineEmptyFilter emptyFilter(lineToMatch);
 
     for(const auto& line: lines)
@@ -442,7 +441,7 @@ TEST_F(LineEmptyFilterTest, AllNonDefinedLine)
 
 TEST_F(LineEmptyFilterTest, IgnoreFilled)
 {
-    LineEmptyFilter::ReferenceLine lineToMatch({1, 1, 1});
+    std::shared_ptr<LineEmptyFilter::ReferenceLine> lineToMatch = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, 1, 1}));
     LineEmptyFilter emptyFilter(lineToMatch);
 
     for(const auto& line: lines)
@@ -453,13 +452,13 @@ TEST_F(LineEmptyFilterTest, IgnoreFilled)
 
 TEST_F(LineEmptyFilterTest, EmptyDefinedLine)
 {
-    LineEmptyFilter::ReferenceLine lineToMatch1({-1, -1, 0});
-    LineEmptyFilter::ReferenceLine lineToMatch2({-1, 0, -1});
-    LineEmptyFilter::ReferenceLine lineToMatch3({-1, 0, 0});
-    LineEmptyFilter::ReferenceLine lineToMatch4({0, -1, -1});
-    LineEmptyFilter::ReferenceLine lineToMatch5({0, -1, 0});
-    LineEmptyFilter::ReferenceLine lineToMatch6({0, 0, -1});
-    LineEmptyFilter::ReferenceLine lineToMatch7({0, 0, 0});
+    std::shared_ptr<LineEmptyFilter::ReferenceLine> lineToMatch1 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, -1, 0}));
+    std::shared_ptr<LineEmptyFilter::ReferenceLine> lineToMatch2 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, 0, -1}));
+    std::shared_ptr<LineEmptyFilter::ReferenceLine> lineToMatch3 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, 0, 0}));
+    std::shared_ptr<LineEmptyFilter::ReferenceLine> lineToMatch4 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, -1, -1}));
+    std::shared_ptr<LineEmptyFilter::ReferenceLine> lineToMatch5 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, -1, 0}));
+    std::shared_ptr<LineEmptyFilter::ReferenceLine> lineToMatch6 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, 0, -1}));
+    std::shared_ptr<LineEmptyFilter::ReferenceLine> lineToMatch7 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, 0, 0}));
     
     LineEmptyFilter emptyFilter1(lineToMatch1);
     LineEmptyFilter emptyFilter2(lineToMatch2);
@@ -559,7 +558,7 @@ protected:
 
 TEST_F(LineMatchFilterTest, AllNonDefinedLine)
 {
-    LineMatchFilter::ReferenceLine lineToMatch({-1, -1, -1});
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, -1, -1}));
     LineMatchFilter matchFilter(lineToMatch);
 
     for(const auto& line: lines)
@@ -570,13 +569,13 @@ TEST_F(LineMatchFilterTest, AllNonDefinedLine)
 
 TEST_F(LineMatchFilterTest, FillDefinedLine)
 {
-    LineFillFilter::ReferenceLine lineToMatch1({-1, -1, 1});
-    LineFillFilter::ReferenceLine lineToMatch2({-1, 1, -1});
-    LineFillFilter::ReferenceLine lineToMatch3({-1, 1, 1});
-    LineFillFilter::ReferenceLine lineToMatch4({1, -1, -1});
-    LineFillFilter::ReferenceLine lineToMatch5({1, -1, 1});
-    LineFillFilter::ReferenceLine lineToMatch6({1, 1, -1});
-    LineFillFilter::ReferenceLine lineToMatch7({1, 1, 1});
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch1 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, -1, 1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch2 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, 1, -1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch3 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, 1, 1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch4 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, -1, -1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch5 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, -1, 1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch6 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, 1, -1}));
+    std::shared_ptr<LineFillFilter::ReferenceLine> lineToMatch7 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, 1, 1}));
     
     LineFillFilter matchFilter1(lineToMatch1);
     LineFillFilter matchFilter2(lineToMatch2);
@@ -659,13 +658,13 @@ TEST_F(LineMatchFilterTest, FillDefinedLine)
 
 TEST_F(LineMatchFilterTest, EmptyDefinedLine)
 {
-    LineMatchFilter::ReferenceLine lineToMatch1({-1, -1, 0});
-    LineMatchFilter::ReferenceLine lineToMatch2({-1, 0, -1});
-    LineMatchFilter::ReferenceLine lineToMatch3({-1, 0, 0});
-    LineMatchFilter::ReferenceLine lineToMatch4({0, -1, -1});
-    LineMatchFilter::ReferenceLine lineToMatch5({0, -1, 0});
-    LineMatchFilter::ReferenceLine lineToMatch6({0, 0, -1});
-    LineMatchFilter::ReferenceLine lineToMatch7({0, 0, 0});
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch1 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, -1, 0}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch2 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, 0, -1}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch3 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({-1, 0, 0}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch4 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, -1, -1}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch5 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, -1, 0}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch6 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, 0, -1}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch7 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, 0, 0}));
     
     LineMatchFilter matchFilter1(lineToMatch1);
     LineMatchFilter matchFilter2(lineToMatch2);
@@ -748,13 +747,13 @@ TEST_F(LineMatchFilterTest, EmptyDefinedLine)
 
 TEST_F(LineMatchFilterTest, FullyDefinedLine)
 {
-    LineMatchFilter::ReferenceLine lineToMatch1({0, 0, 1});
-    LineMatchFilter::ReferenceLine lineToMatch2({0, 1, 0});
-    LineMatchFilter::ReferenceLine lineToMatch3({0, 1, 1});
-    LineMatchFilter::ReferenceLine lineToMatch4({1, 0, 0});
-    LineMatchFilter::ReferenceLine lineToMatch5({1, 0, 1});
-    LineMatchFilter::ReferenceLine lineToMatch6({1, 1, 0});
-    LineMatchFilter::ReferenceLine lineToMatch7({1, 1, 1});
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch1 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, 0, 1}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch2 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, 1, 0}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch3 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({0, 1, 1}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch4 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, 0, 0}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch5 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, 0, 1}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch6 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, 1, 0}));
+    std::shared_ptr<LineMatchFilter::ReferenceLine> lineToMatch7 = std::make_shared<LineFillFilter::ReferenceLine>(std::initializer_list<int>({1, 1, 1}));
     
     LineMatchFilter matchFilter1(lineToMatch1);
     LineMatchFilter matchFilter2(lineToMatch2);
