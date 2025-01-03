@@ -14,7 +14,7 @@ public:
     ~FSTLineSequencer() = default;
 
     // Member methods
-    virtual NS::Sequence operator()(Line line) const;
+    virtual NS::Sequence operator()(const Line& line) const;
 };
 
 #endif /* FSTLINESEQUENCER_H */
