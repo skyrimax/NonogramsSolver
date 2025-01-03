@@ -1,6 +1,6 @@
 #include "SequenceLineFilter.hpp"
 
-SequenceLineFilter::SequenceLineFilter(const NS::Sequence& sequence, const ILineSequencer& sequencer)
+SequenceLineFilter::SequenceLineFilter(std::shared_ptr<const NS::Sequence> sequence, std::shared_ptr<const ILineSequencer> sequencer)
     : sequence_{sequence}, sequencer_{sequencer}
 {
 
@@ -8,5 +8,5 @@ SequenceLineFilter::SequenceLineFilter(const NS::Sequence& sequence, const ILine
 
 bool SequenceLineFilter::operator()(const Line& line) const
 {
-    return sequencer_(line) == sequence_;
+    return (*sequencer_)(line) == *sequence_;
 }

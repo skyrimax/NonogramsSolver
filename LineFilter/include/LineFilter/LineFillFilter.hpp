@@ -11,7 +11,7 @@ public:
     using ReferenceLine = std::vector<int>;
 
     // Constructors
-    LineFillFilter(std::unique_ptr<const ReferenceLine> lineToMatch);
+    LineFillFilter(std::shared_ptr<const ReferenceLine> lineToMatch);
 
     // Destructor
     ~LineFillFilter() = default;
@@ -20,7 +20,7 @@ public:
     virtual bool operator()(const Line& line) const override;
 
 protected:
-    std::unique_ptr<const ReferenceLine> lineToMatch_;
+    std::shared_ptr<const ReferenceLine> lineToMatch_;
 };
 
 #endif /* ILINEFILLFILTER_H */

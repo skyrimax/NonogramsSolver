@@ -10,7 +10,7 @@ public:
     using ReferenceLine = std::vector<int>;
 
     // Constructors
-    LineMatchFilter(std::unique_ptr<const ReferenceLine> lineToMatch);
+    LineMatchFilter(std::shared_ptr<const ReferenceLine> lineToMatch);
 
     // Destructor
     ~LineMatchFilter() = default;
@@ -19,7 +19,7 @@ public:
     virtual bool operator()(const Line& line) const override;
 
 protected:
-    const std::unique_ptr<const ReferenceLine> lineToMatch_;
+    const std::shared_ptr<const ReferenceLine> lineToMatch_;
 };
 
 #endif /* ILINEMATCHFILTER_H */

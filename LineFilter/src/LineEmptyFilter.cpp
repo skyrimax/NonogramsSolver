@@ -3,8 +3,8 @@
 #include <stdexcept>
 #include <string>
 
-LineEmptyFilter::LineEmptyFilter(std::unique_ptr<const ReferenceLine> lineToMatch)
-    : lineToMatch_(std::move(lineToMatch))
+LineEmptyFilter::LineEmptyFilter(std::shared_ptr<const ReferenceLine> lineToMatch)
+    : lineToMatch_(lineToMatch)
 {
 
 }

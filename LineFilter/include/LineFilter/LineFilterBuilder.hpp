@@ -4,6 +4,7 @@
 #include "ILineFilter.hpp"
 #include "ILineSequencer.hpp"
 
+#include <memory>
 #include <Sequence.hpp>
 
 class LineFilterBuilder
@@ -17,20 +18,20 @@ public:
 
     // Building methods
     // Base line filter
-    LineFilterBuilder& sequenceLineFilter(NS::Sequence sequence,
-                                            ILineSequencer& sequencer);
+    LineFilterBuilder& sequenceLineFilter(std::shared_ptr<const NS::Sequence> sequence,
+                                            std::shared_ptr<const ILineSequencer> sequencer);
 
     // Line filter modifiers
     LineFilterBuilder& lineFilterInverter();
 
     // Make line filter
-    ILineFilter* makeLineFilter();
+    std::unique_ptr<ILineFilter> makeLineFilter();
 
     // Reset builder
     LineFilterBuilder& reset();
 
 private:
-    ILineFilter* lineFilter_ = nullptr;
+    std::unique_ptr<ILineFilter> lineFilter_ = std::unique_ptr<ILineFilter>();
 };
 
 #endif /* LINEFILTERBUILDER_H */
