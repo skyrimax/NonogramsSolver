@@ -2,15 +2,15 @@
 
 #include <algorithm>
 
-NS::LineGeneratorFilter::LineGeneratorFilter(ILineFilter* lineFilter, ILineGenerator* lineGenerator)
-    : ILineGeneratorModifier{lineGenerator}, lineFilter_{lineFilter}
+NS::LineGeneratorFilter::LineGeneratorFilter(std::shared_ptr<ILineFilter> lineFilter, std::unique_ptr<ILineGenerator> lineGenerator)
+    : ILineGeneratorModifier(std::move(lineGenerator)), lineFilter_(lineFilter)
 {
 
 }
 
 NS::LineGeneratorFilter::~LineGeneratorFilter()
 {
-    delete lineFilter_;
+    
 }
 
 std::vector<NS::ILineGenerator::Line> NS::LineGeneratorFilter::generateLines()

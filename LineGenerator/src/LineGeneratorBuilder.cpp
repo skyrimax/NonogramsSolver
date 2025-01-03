@@ -5,47 +5,37 @@
 
 #include <stdexcept>
 
-NS::LineGeneratorBuilder::~LineGeneratorBuilder()
-{
-    delete lineGenerator_;
-}
-
 NS::LineGeneratorBuilder& NS::LineGeneratorBuilder::allPossibleLinesGenerator(unsigned int nbBoxes)
 {
     if(lineGenerator_)
         throw(std::logic_error("Base line generator has already been created, cannot create AllPossibleLinesGenerator"));
     
-    lineGenerator_ = new NS::AllPossibleLinesGenerator(nbBoxes);
+    lineGenerator_ = std::make_unique<NS::AllPossibleLinesGenerator>(nbBoxes);
 
     return *this;
 }
 
-NS::LineGeneratorBuilder& NS::LineGeneratorBuilder::lineGeneratorFilter(ILineFilter* lineFilter)
+NS::LineGeneratorBuilder& NS::LineGeneratorBuilder::lineGeneratorFilter(std::shared_ptr<ILineFilter> lineFilter)
 {
     if(!lineGenerator_)
         throw(std::logic_error("No base line generator has been created, cannot create LineGeneratorFilter"));
 
-    lineGenerator_ = new NS::LineGeneratorFilter(lineFilter, lineGenerator_);
+    lineGenerator_ = std::make_unique<NS::LineGeneratorFilter>(lineFilter, std::move(lineGenerator_));
 
     return *this;
 }
 
-NS::ILineGenerator* NS::LineGeneratorBuilder::makeLineGenerator()
+std::unique_ptr<NS::ILineGenerator> NS::LineGeneratorBuilder::makeLineGenerator()
 {
     if(!lineGenerator_)
         throw(std::logic_error("No line generator has been created"));
 
-    ILineGenerator* lineGeneratorTemp= lineGenerator_;
-    lineGenerator_ = nullptr;
-
-    return lineGeneratorTemp;
+    return std::move(lineGenerator_);
 }
 
 NS::LineGeneratorBuilder& NS::LineGeneratorBuilder::reset()
 {
-    delete lineGenerator_;
-
-    lineGenerator_ = nullptr;
+    lineGenerator_.reset(nullptr);
 
     return *this;
 }
